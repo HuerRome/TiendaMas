@@ -224,6 +224,7 @@ nav img{
     width: 100%;
     padding: 5vh 4vw;
     background: #e8e8e8;
+    position: relative;
 }
 
 .slider > div{
@@ -235,9 +236,46 @@ nav img{
     background-color: #ffffff;
 }
 
+.slider > button{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.slider > button:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.slider > button:first-child{
+    margin-left: 8px;
+    left: 0; /* Alineado al borde izquierdo */
+    top: 50%; /* Posicionado al 50% de la altura del contenedor */
+    transform: translateY(-50%); /* Ajuste para centrarlo verticalmente */
+}
+
+.slider > button:last-child{
+    margin-right: 8px;
+    right: 0;
+    top: 50%; /* Posicionado al 50% de la altura del contenedor */
+    transform: translateY(-50%); /* Ajuste para centrarlo verticalmente */
+}
+
 .slider > div > div:first-child{
     display: flex;
     gap: 15px;
+    height: 100%;
     flex-direction: column;
 }
 
@@ -252,12 +290,16 @@ nav img{
     font-size: 25px;
 }
 
-.slider > div > div:first-child a{
+.slider .see-more{
     font-size: 14px;
     border-radius: 4px;
     background: #fada09;
     padding: 8px 12px;
     color: white;
+}
+
+.slider .see-more:hover{
+    background: #caaf00;
 }
 
 .slider > div > div > div{
@@ -311,3 +353,112 @@ nav img{
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen */
 }
+
+/*------------------------------------Categorias------------------------------------------------*/
+.categorias{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-image: url('img/blurry-gradient-haikei\ \(3\).svg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.categorias > div:first-child{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 100vh;
+    justify-content: space-between;
+    width: 20vw;
+    order: -1;
+}
+
+
+.categorias > div:first-child > div{
+    gap: 6px;
+    height: 100%;
+    padding: 15px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    border: 1px solid #ffffff;
+}
+
+.categorias > div:first-child > div > div{
+    height: 1px;
+    width: 100%;
+    background: #ffffff;
+}
+.categorias > div:first-child > div > a{
+    font-size: 18px;
+    font-weight: lighter;
+}
+
+.categorias > div:first-child > a{
+    margin-top: 4vh;
+    font-size: 15px;
+    background: #fff;
+    color: #4120a9;
+    padding: 15px 45px;
+    border-radius: 25px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.categorias > div:first-child a{
+    display: flex;
+    flex-direction: column;
+    border: 1px #ffffff;
+}
+
+.categorias > div:first-child a:hover{
+    color: #000000;
+    background: #ffffff;
+}
+
+.categorias > div:last-child > div:first-child{
+    display: flex;
+    justify-content:space-around;
+}
+
+.categorias > div:last-child > div:first-child a:first-child{
+    margin-top: 4vh;
+    font-size: 15px;
+    background: #fff;
+    color: #4120a9;
+    padding: 15px 45px;
+    border-radius: 25px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.categorias > div:last-child > div:first-child a:last-child{
+    background: #5a65f2; /* Color de fondo azul */
+    color: white; /* Color del texto */
+    border: 1px solid white; /* Borde blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: lighter; /* Texto en negrita */
+    border-radius: 8px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar */
+    display: flex; /* Permite alinear el icono y el texto */
+    align-items: center; /* Alinea el icono y el texto */
+    gap: 10px; /* Espacio entre el texto y el icono */
+    transition: 0.3s; /* Suaviza el efecto al pasar el mouse */
+}
+
+.categorias > div:last-child > div:first-child a:last-child:hover{
+    background: #3f4dc9; /* Cambio de color al pasar el mouse */
+}
+
+
+
+
+
+
+
+
+
+
+
+
