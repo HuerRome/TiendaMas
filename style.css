@@ -14,6 +14,7 @@
 
 html{scroll-behavior: smooth;}
 
+
 *{
     margin: 0;
     padding: 0;
@@ -232,6 +233,7 @@ nav img{
     display: flex;
     padding: 4vh 3vw;
     border-radius: 5px;
+    overflow: hidden;
     justify-content: space-between;
     background-color: #ffffff;
 }
@@ -288,6 +290,7 @@ nav img{
 .slider > div > div:first-child h1{
     text-align: center;
     font-size: 25px;
+
 }
 
 .slider .see-more{
@@ -314,6 +317,7 @@ nav img{
 .slider > div > div > div small{
     font-size: 14px;
     color: #000000;
+    margin: 0 20px;
 }
 
 .slider > div > div > div h1{
@@ -451,7 +455,13 @@ nav img{
     background: #3f4dc9; /* Cambio de color al pasar el mouse */
 }
 
-
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #5b49ff;
+    color: white;
+    
+}
 
 
 

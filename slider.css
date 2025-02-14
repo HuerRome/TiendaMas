@@ -168,12 +168,6 @@
     background-position: center; /* Centra la imagen */
 }
 
-/*---------------------------------Slider-2---------------------------------*/
-
-.slider-2{
-    width: 100%;
-}
-
 /*---------------------------------footer---------------------------------*/
 .footer{
     width: 100%;
@@ -226,9 +220,11 @@
 }
 
 .footer > div:last-child div:last-child{
+    width: 100%;
     display: flex;
-    justify-content: end;
-    align-items: end;
+    margin-right: 8vw;
+    gap: 20px;
+    justify-content: flex-end;
     margin-top: 20px;
 }
 
@@ -240,3 +236,132 @@
 .footer > div:last-child div:first-child img{
     border-radius: 15px;
 }
+
+/*-------------------------------------------slider-2-------------------------------------------*/
+
+.slider-2{
+    width: 100%;
+    padding: 5vh 4vw;
+    background: #e8e8e8;
+    position: relative;
+    
+}
+
+.slider-2 > div{
+    width: 100%;
+    display: flex;
+    padding: 4vh 3vw;
+    border-radius: 5px;
+    overflow: hidden;
+    justify-content: space-between;
+    background-color: #ffffff;
+}
+
+.slider-2 > button{
+    position: absolute;
+    background: rgba(4, 10, 189, 0.6); /* Fondo semitransparente */
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.slider-2 > button:hover {
+    background: rgba(73, 113, 245, 0.8);
+    transform: scale(1.1);
+}
+
+.slider-2 > button:first-child{
+    margin-left: 8px;
+    left: 0; /* Alineado al borde izquierdo */
+    top: 50%; /* Posicionado al 50% de la altura del contenedor */
+    transform: translateY(-50%); /* Ajuste para centrarlo verticalmente */
+}
+
+.slider-2 > button:last-child{
+    margin-right: 8px;
+    right: 0;
+    top: 50%; /* Posicionado al 50% de la altura del contenedor */
+    transform: translateY(-50%); /* Ajuste para centrarlo verticalmente */
+}
+
+.slider-2 > div > div > div{
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.slider-2 > div > div > div{
+    width: 22vw;
+}
+
+.slider-2 > div > div > div span{
+    font-size: 12px;
+    color: #6e6e6e;
+}
+
+.slider-2 > div > div > div small{
+    font-size: 14px;
+    color: #000000;
+    margin: 20px;
+}
+
+.slider-2 > div > div > div h1{
+    text-align: center;
+    width: 80%;
+    font-size: 18px;
+    background: rgb(60, 66, 241);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.slider-2 > div > div > div > div{
+    width: 16vw;
+    height: 35vh;
+}
+
+.slider-2 > div > div > div:first-child > div{
+    background-image: url('img/slider\ 2/notebook.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+} 
+
+.slider-2 > div > div > div:nth-child(2) > div{
+    background-image: url('img/slider\ 2/computadoras.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.slider-2 > div > div > div:nth-child(3) > div{
+    background-image: url('img/slider\ 2/aire.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.slider-2 > div > div > div:nth-child(4) > div{
+    background-image: url('img/slider\ 2/phones.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.slider-2 > div > div > div:nth-child(5) > div{
+    background-image: url('img/slider\ 2/notebook.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Online</title>
+    <link rel="shortcut icon" href="img/Logo.png">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background: #222;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .buscador-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+        .buscador {
+            width: 50%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            outline: none;
+        }
+        .productos {
+            max-width: 1000px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .productos-lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .producto {
+            background: #eee;
+            padding: 15px;
+            width: calc(33.333% - 20px);
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #222;
+            color: white;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>A TU ALCANCE</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Tienda Online</a></li>
+                <li><a href="#">Bazar</a></li>
+                <li><a href="#">Ferretería</a></li>
+                <li><a href="#">Hogar</a></li>
+                <li><a href="#">Otros</a></li>
+            </ul>
+        </nav>
+        <p>Conectamos a Catamarca con comercios de todo el país.</p>
+    </header>
+    
+    <div class="buscador-container">
+        <input type="text" id="buscador" class="buscador" placeholder="Buscar..." oninput="buscarProductos()">
+    </div>
+    
+    <section class="productos">
+        <h2>Explorar Catálogo</h2>
+        <div class="productos-lista" id="productos-lista">
+            <!-- Productos generados dinámicamente -->
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy; 2024 Tienda Mas+. Tienda online Catamarca. Todos los derechos reservados.</p>
+    </footer>
+    
+    <script>
+        const productos = [
+            { nombre: "Botellas de plástico", categoria: "Hogar", precio: "$6700" },
+            { nombre: "Maquillaje", categoria: "Bazar", precio: "$85000" },
+            { nombre: "Barras de acero", categoria: "Ferretería", precio: "$180500" },
+            { nombre: "Recipientes Plásticos", categoria: "Otros", precio: "$9700" }
+        ];
+
+        function mostrarProductos(lista) {
+            const contenedor = document.getElementById("productos-lista");
+            contenedor.innerHTML = "";
+            lista.forEach(producto => {
+                const div = document.createElement("div");
+                div.classList.add("producto");
+                div.innerHTML = `<h3>${producto.nombre}</h3><p>Precio: ${producto.precio}</p>`;
+                contenedor.appendChild(div);
+            });
+        }
+
+        function buscarProductos() {
+            const termino = document.getElementById("buscador").value.toLowerCase();
+            const productosFiltrados = productos.filter(p => p.nombre.toLowerCase().includes(termino));
+            mostrarProductos(productosFiltrados);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => mostrarProductos(productos));
+    </script>
+</body>
+</html>
