@@ -14,7 +14,6 @@
 
 html{scroll-behavior: smooth;}
 
-
 *{
     margin: 0;
     padding: 0;
@@ -41,14 +40,36 @@ body{
 }
 
 .menu-active{
-    width: 100%;
+    width: 50%;
     display: none;
     flex-direction: column;
-    padding: 6vh 4vw;
+    padding: 4vh 2vw;
     margin-top: 15vh;
     transition: left 0.9s ease-in-out;
     color: #131212;
     background: #fff;
+    z-index: 1000; 
+}
+
+.menu-active a{
+    color: #131212;
+    padding: 6px;
+}
+
+.menu-active a:hover{
+    color: #ffffff;
+    background: #fcaf3c;
+}
+
+.menu-active h1{
+    font-size: 20px;
+
+}
+
+.menu-active div{
+    width: 100%;
+    height: 1px;
+    background: #000000;
 }
 
 .metodos-pago{
@@ -64,10 +85,6 @@ body{
     position: fixed;
     display: flex;
     transition: left 0.9s ease-in-out;
-}
-
-.menu-active.active a{
-    color: #131212;
 }
 
 nav{
@@ -126,7 +143,7 @@ nav img{
 }
 
 .body .nav{
-    padding: 0px 2vw;
+    padding: 0px 10px;
     display: flex;
     background: #fcaf3c;
     justify-content: space-between;
@@ -138,7 +155,7 @@ nav img{
     background: #fff;
     color: #131212;
     padding: 8px 15px;
-    margin: 15px 10px;
+    margin: 10px 10px;
     font-weight: 600;
     border-radius: 20px;
 }
@@ -168,7 +185,7 @@ nav img{
 .text{
     width: 100%;
     padding: 4vh 0;
-    background-image: url('img/blurry-gradient-haikei\ \(3\).svg'); /* Imagen SVG de fondo */
+    background-image: url('img/layered-waves-haikei\ \(1\)\ \(1\).svg'); /* Imagen SVG de fondo */
     background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen */
@@ -188,6 +205,8 @@ nav img{
 
 .text div:last-child img{
     width: 60%;
+    transform: scale(1.05) on hover;
+
 }
 
 .text h1{
@@ -211,10 +230,21 @@ nav img{
     margin-top: 4vh;
     font-size: 15px;
     background: #fff;
-    color: #4120a9;
+    color: #4059d4;
     padding: 15px 45px;
     border-radius: 25px;
+    display: flex;
+    align-items: center;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.text a ion-icon{
+    font-size: 20px;
+}
+
+.text a:hover{
+    color: #fff;
+    background: #4059d4;
 }
 
 .text div:first-child{
@@ -363,7 +393,7 @@ nav img{
     width: 100%;
     display: flex;
     flex-direction: row;
-    background-image: url('img/blurry-gradient-haikei\ \(3\).svg'); /* Imagen SVG de fondo */
+    background-image: url('img/layered-waves-haikei\ \(1\)\ \(1\).svg'); /* Imagen SVG de fondo */
     background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen */
@@ -378,7 +408,6 @@ nav img{
     width: 20vw;
     order: -1;
 }
-
 
 .categorias > div:first-child > div{
     gap: 6px;
@@ -395,6 +424,7 @@ nav img{
     width: 100%;
     background: #ffffff;
 }
+
 .categorias > div:first-child > div > a{
     font-size: 18px;
     font-weight: lighter;

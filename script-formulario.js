@@ -35,3 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     updateTotal();
 });
+
+
+
+
+
+
+
+
+
+
