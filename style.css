@@ -54,6 +54,7 @@ body{
 .menu-active a{
     color: #131212;
     padding: 6px;
+    font-size: 14px;
 }
 
 .menu-active a:hover{
@@ -185,7 +186,7 @@ nav img{
 .text{
     width: 100%;
     padding: 4vh 0;
-    background-image: url('img/layered-waves-haikei\ \(1\)\ \(1\).svg'); /* Imagen SVG de fondo */
+    background-image: url('img/blurry-gradient-haikei\ \(3\).svg'); /* Imagen SVG de fondo */
     background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen */
@@ -254,7 +255,7 @@ nav img{
 .slider{
     width: 100%;
     padding: 5vh 4vw;
-    background: #e8e8e8;
+    background: #EBEBEB;
     position: relative;
 }
 
@@ -397,6 +398,7 @@ nav img{
     background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen */
+    background: #EBEBEB;
 }
 
 .categorias > div:first-child{

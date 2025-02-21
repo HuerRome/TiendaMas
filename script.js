@@ -42,7 +42,23 @@ sliders.forEach(slider => {
 });
 */
 
+document.addEventListener("DOMContentLoaded", function() {
+    const slider = document.getElementById("slider-h");
+    const prev = document.getElementById("prev");
+    const next = document.getElementById("next");
+    let index = 0;
 
+    function moveSlider(direction) {
+        const totalItems = slider.children.length;
+        index += direction;
+        if (index < 0) index = totalItems - 1;
+        if (index >= totalItems) index = 0;
+        slider.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    prev.addEventListener("click", () => moveSlider(-1));
+    next.addEventListener("click", () => moveSlider(1));
+});
 
 
 

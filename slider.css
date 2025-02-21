@@ -13,20 +13,34 @@
     gap: 10px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch; 
 }
 
 .categorias > div:last-child > div:last-child > div{
-    width: 240px;
-    gap: 10px;
+    /*width: 240px;
+    gap: 5px;
+    height: 100%;
     display: flex;
     padding: 15px 10px;
     flex-direction: column;
     background: #fff;
-    background: #b9caff;
     margin-bottom: 2vh;
     text-align: center;
-    border-radius: 12px; /* Bordes redondeados */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.10); /* Sombra más pronunciada */
+    border-radius: 12px; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.10); */
+    width: 240px;
+    gap: 2px;
+    height: auto; /* Permite que los divs se adapten */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para distribuir los elementos internos */
+    padding: 15px 10px;
+    background: #fff;
+    margin-bottom: 2vh;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.10);
 }
 
 .categorias > div:last-child > div:last-child > div a{
@@ -45,18 +59,18 @@
 }
 
 .categorias > div:last-child > div:last-child > div h1{
-    font-size: 25px;
+    font-size: 22px;
     color: #403f3f;
 }
 
 .categorias > div:last-child > div:last-child > div span{
-    font-size: 18px; /* Tamaño del título */
+    font-size: 16px; /* Tamaño del título */
     margin: 4px 0; /* Separación del título */
     color: #333; /* Color del texto */
 }
 
 .categorias > div:last-child > div:last-child > div small{
-    font-size: 16px; /* Tamaño del texto */
+    font-size: 14px; /* Tamaño del texto */
     color: #666; /* Color del texto */
     margin: 4px 10px; /* Espaciado entre párrafos */
 }
@@ -175,7 +189,7 @@
     gap: 20px;
     display: flex;
     padding: 30px;
-    background-image: url('img/gradient-2.svg'); /* Imagen SVG de fondo */
+    background-image: url('img/footer.png'); /* Imagen SVG de fondo */
     background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen */
@@ -243,7 +257,7 @@
 .slider-2{
     width: 100%;
     padding: 5vh 4vw;
-    background: #e8e8e8;
+    background: #EBEBEB;
     position: relative;
     
 }
