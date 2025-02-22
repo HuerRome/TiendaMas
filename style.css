@@ -269,6 +269,14 @@ nav img{
     background-color: #ffffff;
 }
 
+.slider > div > div > div{
+    gap: 5px;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+}
+
 .slider > button{
     position: absolute;
     background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
@@ -314,7 +322,9 @@ nav img{
 
 .slider > div > div > div{
     gap: 5px;
+    height: 100%;
     display: flex;
+    align-items: stretch;
     flex-direction: column;
 }
 
@@ -491,6 +501,7 @@ footer {
     text-align: center;
     padding: 30px;
     background: #5b49ff;
+    background: #5D0CF2;
     color: white;
     
 }
