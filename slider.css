@@ -249,7 +249,7 @@
     padding: 5vh 4vw;
     background: #EBEBEB;
     position: relative;
-    
+    background: #000000;
 }
 
 .slider-2 > div{
@@ -301,9 +301,10 @@
 
 .slider-2 > div > div > div{
     width: 22vw;
-    background: #000000;
+    background: #6f3f3f;
     height: auto;
     gap: 5px;
+    height: auto;
     display: flex;
     flex-direction: column;
 }
