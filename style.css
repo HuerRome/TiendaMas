@@ -265,6 +265,7 @@ nav img{
     padding: 4vh 3vw;
     border-radius: 5px;
     overflow: hidden;
+    align-items: stretch;
     justify-content: space-between;
     background-color: #ffffff;
 }
@@ -274,6 +275,7 @@ nav img{
     height: 100%;
     display: flex;
     align-items: stretch;
+    justify-content: space-between;
     flex-direction: column;
 }
 
@@ -316,16 +318,16 @@ nav img{
 .slider > div > div:first-child{
     display: flex;
     gap: 15px;
-    height: 100%;
+    height: auto;
     flex-direction: column;
 }
 
 .slider > div > div > div{
     gap: 5px;
-    height: 100%;
     display: flex;
     text-align: center;
     flex-direction: column;
+    height: 100%;
 }
 
 .slider > div > div:first-child h1{
@@ -361,9 +363,11 @@ nav img{
     margin: 0 20px;
 }
 
-.slider > div > div > div h1{
+.slider > div > div > div a{
     font-size: 18px;
+    font-weight: bold;
     color: #2a7cff;
+    margin: 10px 0;
 }
 
 .slider > div > div > div > div{

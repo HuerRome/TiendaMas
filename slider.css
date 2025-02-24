@@ -249,9 +249,8 @@
     padding: 5vh 4vw;
     background: #EBEBEB;
     position: relative;
-    background: #000000;
 }
-
+/*
 .slider-2 > div{
     width: 100%;
     height: auto;
@@ -261,7 +260,19 @@
     overflow: hidden;
     justify-content: space-between;
     background-color: #ffffff;
+}*/
+
+.slider-2 > div {
+    width: 100%;
+    display: flex;
+    padding: 4vh 3vw;
+    border-radius: 5px;
+    overflow: hidden;
+    justify-content: space-between;
+    background-color: #ffffff;
+    align-items: stretch; /* Hace que los hijos ocupen la misma altura */
 }
+
 
 .slider-2 > button{
     position: absolute;
@@ -298,7 +309,7 @@
     top: 50%; /* Posicionado al 50% de la altura del contenedor */
     transform: translateY(-50%); /* Ajuste para centrarlo verticalmente */
 }
-
+/*
 .slider-2 > div > div > div{
     width: 22vw;
     background: #6f3f3f;
@@ -308,23 +319,35 @@
     display: flex;
     flex-direction: column;
 }
+*/
 
-
+.slider-2 > div > div > div {
+    width: 20vw;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Forzar altura igual */
+    text-align: center;
+    margin-right: 5px;
+}
 
 .slider-2 > div > div > div span{
-    font-size: 12px;
-    color: #6e6e6e;
+    font-size: 14px;
+    color: #00a650;
+    margin: 0 20px;
 }
 
 .slider-2 > div > div > div small{
     font-size: 14px;
     color: #000000;
-    margin: 20px;
+    margin: 0 20px;
 }
 
-.slider-2 > div > div > div h1{
+.slider-2 > div > div > div a{
     text-align: center;
     width: 80%;
+    font-weight: bold;
     font-size: 18px;
     background: rgb(60, 66, 241);
     color: #fff;
