@@ -403,6 +403,13 @@ nav img{
     background-position: center; /* Centra la imagen */
 }
 
+.slider > div > div > div:nth-child(5) > div{
+    background-image: url('img/Imagenes de la web/Slider/mochila.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
 /*------------------------------------Categorias------------------------------------------------*/
 .categorias{
     width: 100%;

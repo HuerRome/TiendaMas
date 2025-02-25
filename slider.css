@@ -389,7 +389,7 @@
 }
 
 .slider-2 > div > div > div:nth-child(5) > div{
-    background-image: url('img/slider\ 2/notebook.png'); /* Imagen SVG de fondo */
+    background-image: url('img/slider\ 2/serum.png'); /* Imagen SVG de fondo */
     background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen */

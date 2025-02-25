@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider de Productos</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .slider-container {
+            width: 80%;
+            overflow: hidden;
+            margin: auto;
+            position: relative;
+        }
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .slide {
+            min-width: 20%; /* 100% / 5 productos visibles */
+            padding: 10px;
+            text-align: center;
+        }
+        .slide img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .prev { left: 0; }
+        .next { right: 0; }
+    </style>
+</head>
+<body>
+
+    <div class="slider-container">
+        <button class="btn prev" onclick="moveSlide(-1)">&#10094;</button>
+        <div class="slider">
+            <div class="slide"><img src="img1.jpg" alt="Producto 1"></div>
+            <div class="slide"><img src="img2.jpg" alt="Producto 2"></div>
+            <div class="slide"><img src="img3.jpg" alt="Producto 3"></div>
+            <div class="slide"><img src="img4.jpg" alt="Producto 4"></div>
+            <div class="slide"><img src="img5.jpg" alt="Producto 5"></div>
+            <div class="slide"><img src="img6.jpg" alt="Producto 6"></div>
+            <div class="slide"><img src="img7.jpg" alt="Producto 7"></div>
+        </div>
+        <button class="btn next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <script>
+        let slider = document.querySelector('.slider');
+        let slides = document.querySelectorAll('.slide');
+        let index = 0;
+
+        function moveSlide(direction) {
+            if (direction === 1) {
+                let firstSlide = slider.firstElementChild;
+                slider.appendChild(firstSlide); // Mueve el primer elemento al final
+            } else {
+                let lastSlide = slider.lastElementChild;
+                slider.prepend(lastSlide); // Mueve el último elemento al inicio
+            }
+        }
+    </script>
+
+</body>
+</html>
+
