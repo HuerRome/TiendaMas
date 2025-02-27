@@ -42,6 +42,7 @@ sliders.forEach(slider => {
 });
 */
 
+/*
 document.addEventListener("DOMContentLoaded", function() {
     const slider = document.getElementById("slider-h");
     const prev = document.getElementById("prev");
@@ -59,9 +60,21 @@ document.addEventListener("DOMContentLoaded", function() {
     prev.addEventListener("click", () => moveSlider(-1));
     next.addEventListener("click", () => moveSlider(1));
 });
+*/
 
+let slider = document.querySelector('.slider-h');
+let slides = document.querySelectorAll('.slide');
+let index = 0;
 
-
+function moveSlide(direction) {
+    if (direction === 1) {
+        let firstSlide = slider.firstElementChild;
+        slider.appendChild(firstSlide); // Mueve el primer elemento al final
+    } else {
+        let lastSlide = slider.lastElementChild;
+        slider.prepend(lastSlide); // Mueve el último elemento al inicio
+    }
+}
 
 
 
