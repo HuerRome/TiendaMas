@@ -5,16 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider Animado</title>
     <style>
+        body{
+            background: #c58d8d;
+        }
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
         .slider-container {
-            width: 80%;
+            width: 94vw;
+            padding: 4vh 3vw;
             overflow: hidden;
             margin: auto;
             position: relative;
+            background: #EBEBEB;
+            border-radius: 5px;
+        }
+        img{
+            width: 100%;
+            height: 35vh;
         }
         .slider {
             display: flex;
@@ -22,9 +32,34 @@
             transition: transform 0.5s ease-in-out;
         }
         .slide {
-            min-width: 20%;
+            min-width: 17%;
             padding: 10px;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
             text-align: center;
+        }
+        .slide span{
+            font-size: 14px;
+            color: #00a650;
+            margin: 0 20px;
+        }    
+        .slide small{
+            font-size: 14px;
+            color: #000000;
+            margin: 0 20px;
+        }
+        .slide a{
+            text-align: center;
+            width: 80%;
+            font-weight: bold;
+            font-size: 18px;
+            background: rgb(60, 66, 241);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
         }
         .slide img {
             width: 100%;
@@ -46,6 +81,58 @@
         .slider > div{
             background: #555;
         }
+
+        .slider .slide div{
+            width: 100%;
+            height: 35vh;
+        }
+
+        .slider .slide:nth-child(1) div{
+            background-image: url('img/slider\ 2/notebook.png'); /* Imagen SVG de fondo */
+            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-position: center; /* Centra la imagen */
+        }
+        .slider .slide:nth-child(2) div{
+            background-image: url('img/slider\ 2/computadoras.png'); /* Imagen SVG de fondo */
+            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-position: center; /* Centra la imagen */
+        }
+        .slider .slide:nth-child(3) div{
+            background-image: url('img/slider\ 2/aire.png'); /* Imagen SVG de fondo */
+            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-position: center; /* Centra la imagen */
+        }
+        .slider .slide:nth-child(4) div{
+            background-image: url('img/slider\ 2/phones.png'); /* Imagen SVG de fondo */
+            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-position: center; /* Centra la imagen */
+        }
+
+        .slider .slide:nth-child(5) div{
+            background-image: url('img/slider\ 2/serum.png'); /* Imagen SVG de fondo */
+            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-position: center; /* Centra la imagen */
+        }
+
+        .slider .slide:nth-child(6) div{
+            background-image: url('img/slider\ 2/computadoras.png'); /* Imagen SVG de fondo */
+            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-position: center; /* Centra la imagen */
+        }
+        .slider .slide:nth-child(7) div{
+            background-image: url('img/slider\ 2/aire.png'); /* Imagen SVG de fondo */
+            background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-position: center; /* Centra la imagen */
+        }
+
+
     </style>
 </head>
 <body>
@@ -54,43 +141,43 @@
         <button class="btn prev">&#10094;</button>
         <div class="slider">
             <div class="slide">
-                <img src="img/slider 2/aire.png" alt="Producto 1">
+                <div></div>
                 <span>COD. 12345</span>
                 <small>Auricular Vincha Aiwa Ava-bt501n Negro</small>
                 <a href="#">$39.091</a>
             </div>
             <div class="slide">
-                <img src="img/slider 2/computadoras.png" alt="Producto 2">
+                <div></div>
                 <span>COD. 12345</span>
                 <small>Auricular Vincha Aiwa Ava-bt501n Negro</small>
                 <a href="#">$39.091</a>
             </div>
             <div class="slide">
-                <img src="img/slider 2/notebook.png" alt="Producto 3">
+                <div></div>
                 <span>COD. 12345</span>
                 <small>Auricular Vincha Aiwa Ava-bt501n Negro</small>
                 <a href="#">$39.091</a>
             </div>
             <div class="slide">
-                <img src="img/slider 2/phones.png" alt="Producto 4">
+                <div></div>
                 <span>COD. 12345</span>
                 <small>Auricular Vincha Aiwa Ava-bt501n Negro</small>
                 <a href="#">$39.091</a>
             </div>
             <div class="slide">
-                <img src="img/slider 2/serum.png" alt="Producto 5">
+                <div></div>
                 <span>COD. 12345</span>
                 <small>Auricular Vincha Aiwa Ava-bt501n Negro</small>
                 <a href="#">$39.091</a>
             </div>
             <div class="slide">
-                <img src="img/slider 2/computadoras.png" alt="Producto 6">
+                <div></div>
                 <span>COD. 12345</span>
                 <small>Auricular Vincha Aiwa Ava-bt501n Negro</small>
                 <a href="#">$39.091</a>
             </div>
             <div class="slide">
-                <img src="img/slider 2/phones.png" alt="Producto 7">
+                <div></div>
                 <span>COD. 12345</span>
                 <small>Auricular Vincha Aiwa Ava-bt501n Negro</small>
                 <a href="#">$39.091</a>
