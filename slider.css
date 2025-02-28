@@ -250,18 +250,6 @@
     background: #EBEBEB;
     position: relative;
 }
-/*
-.slider-2 > div{
-    width: 100%;
-    height: auto;
-    display: flex;
-    padding: 4vh 3vw;
-    border-radius: 5px;
-    overflow: hidden;
-    justify-content: space-between;
-    background-color: #ffffff;
-}*/
-
 .slider-2 > div {
     width: 100%;
     height: auto;
@@ -273,8 +261,6 @@
     background-color: #ffffff;
     align-items: stretch; /* Hace que los hijos ocupen la misma altura */
 }
-
-
 .slider-2 > button{
     position: absolute;
     background: rgba(4, 10, 189, 0.6); /* Fondo semitransparente */
@@ -291,7 +277,6 @@
     transition: all 0.3s ease;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-
 .slider-2 > button:hover {
     background: rgba(73, 113, 245, 0.8);
     transform: scale(1.1);
