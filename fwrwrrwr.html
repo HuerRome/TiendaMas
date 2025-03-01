@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Slider Animado</title>
+    <link rel="stylesheet" href="rfbrhjrjf.css">
     <style>
-        body{
-            background: #c58d8d;
-        }
         * {
             box-sizing: border-box;
             margin: 0;
@@ -26,9 +24,11 @@
             display: flex;
             gap: 10px;
             transition: transform 0.5s ease-in-out;
+            width: max-content; /* Se ajusta al contenido total */
         }
         .slide {
             min-width: 17%;
+            background: #000000;
             padding: 10px;
             display: flex;
             gap: 10px;
@@ -37,6 +37,7 @@
             align-items: center;
             text-align: center;
         }
+
         .slide span{
             font-size: 14px;
             color: #00a650;
@@ -88,80 +89,140 @@
     </style>
 </head>
 <body>
-
-    <div class="slider-container">
-        <button class="btn prev">&#10094;</button>
-        <div class="slider">
-            <div class="slide">
-                <div><img src="img/slider 2/notebook.png" alt="Producto 1"></div>
-                <small>Laptop intel core i7 republic of gamers, notebook</small>
-                <span>Mismo precio en 3 cuotas de $11.996</span>
-                <span>...</span>
-                <a href="#">$758.000</a>
+    <div class="container">
+        <div class="menu-active">
+            <h1>MENU</h1>
+            <a href="#tienda-online">TIENDA ONLINE</a>
+            <a href="#hogar">HOGAR</a>
+            <a href="#phone">BAZAR</a>
+            <a href="#ferreteria">FERRETERÍA</a>
+            <a href="#otros"><ion-icon name="ellipsis-horizontal-outline"></ion-icon> OTROS</a>
+            <div></div>
+            <a href="#contacto"><ion-icon name="logo-whatsapp"></ion-icon> CONTACTO</a>
+            <a href="#info-útil"><ion-icon name="help-outline"></ion-icon> INFO ÚTIL</a>
+            <a href="#inicio"><ion-icon name="home-outline"></ion-icon> INICIO</a>
+        </div>
+        <nav class="links">
+            <div class="search-box">
+                <button><ion-icon name="search-outline"></ion-icon></button>
+                <input type="text" placeholder="Buscar...">
+                <datalist id="categories">
+                    <option value="TIENDA ONLINE">
+                    <option value="HOGAR">
+                    <option value="BAZAR">
+                    <option value="FERRETERÍA">
+                    <option value="OTROS">
+                </datalist>
             </div>
-            <div class="slide">
-                <div><img src="img/slider 2/computadoras.png" alt="Producto 2"></div>
-                <small>portátil intel core hp probook hewlett-packard, notebook</small>
-                <span>Mismo precio en 3 cuotas de $11.996</span>
-                <span>...</span>
-                <a href="#">$2.570.000</a>
+            <ion-icon class="menu" id="menu" name="menu-outline"></ion-icon>
+            <a href="https://www.google.com.ar/maps/place/San+Fernando+del+Valle+de+Catamarca,+Catamarca/@-28.4645091,-65.8577338,21613m/data=!3m2!1e3!4b1!4m6!3m5!1s0x942428bf1d0f9fcd:0x7e1edd4b1609861a!8m2!3d-28.469581!4d-65.7795441!16zL20vMDJ0YjYx?hl=es&entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D"><img src="img/zona.png" alt=""></a>
+        </nav>
+        <div class="body">
+            <div>
+                <img src="img/Logo 2.png" alt="">
             </div>
-            <div class="slide">
-                <div><img src="img/slider 2/aire.png" alt="Producto 3"></div>
-                <small>Aire acondicionado Skyworth aire acondicionado, condición, rectángulo, Electrodoméstico</small>
-                <span>Mismo precio en 3 cuotas de $11.996</span>
-                <span>...</span>
-                <a href="#">$598.000</a>
+            <div class="nav">
+                <div>
+                    <a href="#">TIENDA ONLINE</a>
+                    <a href="#">HOGAR</a>
+                    <a href="#">BAZAR</a>
+                    <a href="#">FERRETERÍA</a>
+                    <a href="#">OTROS</a>
+                </div>
+                <div>
+                    <a href="#"><p>+54 9 341 2005545</p> <ion-icon name="logo-whatsapp"></ion-icon></a>
+                </div>
             </div>
-            <div class="slide">
-                <div><img src="img/slider 2/phones.png" alt="Producto 4"></div>
-                <small>Iphone 8 plus iphone x iphone 7 plus apple iphone se, apple iphone, artilugio, electrónica</small>
-                <span>Mismo precio en 3 cuotas de $11.996</span>
-                <span>...</span>
-                <a href="#">$3.200.000</a>
+            <div class="text">
+                <div>
+                    <h1>A TU ALCANCE</h1>
+                    <h2>TIENDA MAS</h1>
+                    <p>Conectamos a Catamarca con comercios
+                        de todo el país. Encuentra productos de
+                        calidad al mejor precio y con la garantía
+                        de un servicio mayorista confiable.</p>
+                    <a href="#">EXPLORAR CATÁLOGO <ion-icon name="cart-outline"></ion-icon></a>
+                </div>
+                <div>
+                    <img src="img/Stuck at Home - Shopping (1).png" alt="">
+                </div>
             </div>
-            <div class="slide">
-                <div><img src="img/slider 2/serum.png" alt="Producto 5"></div>
-                <small>portátil intel core hp probook hewlett-packard, notebook</small>
-                <span>Mismo precio en 3 cuotas de $11.996</span>
-                <span>...</span>
-                <a href="#">$2.570.000</a>
-            </div>
-            <div class="slide">
-                <div><img src="img/slider 2/computadoras.png" alt="Producto 2"></div>
-                <small>portátil intel core hp probook hewlett-packard, notebook</small>
-                <span>Mismo precio en 3 cuotas de $11.996</span>
-                <span>...</span>
-                <a href="#">$2.570.000</a>
-            </div>
-            <div class="slide">
-                <div><img src="img/slider 2/aire.png" alt="Producto 3"></div>
-                <small>Aire acondicionado Skyworth aire acondicionado, condición, rectángulo, Electrodoméstico</small>
-                <span>Mismo precio en 3 cuotas de $11.996</span>
-                <span>...</span>
-                <a href="#">$598.000</a>
+            <div class="slider-container">
+                <button class="btn prev">&#10094;</button>
+                <div class="slider">
+                    <div class="slide">
+                        <div><img src="img/slider 2/notebook.png" alt="Producto 1"></div>
+                        <small>Laptop intel core i7 republic of gamers, notebook</small>
+                        <span>Mismo precio en 3 cuotas de $11.996</span>
+                        <span>...</span>
+                        <a href="#">$758.000</a>
+                    </div>
+                    <div class="slide">
+                        <div><img src="img/slider 2/computadoras.png" alt="Producto 2"></div>
+                        <small>portátil intel core hp probook hewlett-packard, notebook</small>
+                        <span>Mismo precio en 3 cuotas de $11.996</span>
+                        <span>...</span>
+                        <a href="#">$2.570.000</a>
+                    </div>
+                    <div class="slide">
+                        <div><img src="img/slider 2/aire.png" alt="Producto 3"></div>
+                        <small>Aire acondicionado Skyworth aire acondicionado, condición, rectángulo, Electrodoméstico</small>
+                        <span>Mismo precio en 3 cuotas de $11.996</span>
+                        <span>...</span>
+                        <a href="#">$598.000</a>
+                    </div>
+                    <div class="slide">
+                        <div><img src="img/slider 2/phones.png" alt="Producto 4"></div>
+                        <small>Iphone 8 plus iphone x iphone 7 plus apple iphone se, apple iphone, artilugio, electrónica</small>
+                        <span>Mismo precio en 3 cuotas de $11.996</span>
+                        <span>...</span>
+                        <a href="#">$3.200.000</a>
+                    </div>
+                    <div class="slide">
+                        <div><img src="img/slider 2/serum.png" alt="Producto 5"></div>
+                        <small>portátil intel core hp probook hewlett-packard, notebook</small>
+                        <span>Mismo precio en 3 cuotas de $11.996</span>
+                        <span>...</span>
+                        <a href="#">$2.570.000</a>
+                    </div>
+                    <div class="slide">
+                        <div><img src="img/slider 2/computadoras.png" alt="Producto 2"></div>
+                        <small>portátil intel core hp probook hewlett-packard, notebook</small>
+                        <span>Mismo precio en 3 cuotas de $11.996</span>
+                        <span>...</span>
+                        <a href="#">$2.570.000</a>
+                    </div>
+                    <div class="slide">
+                        <div><img src="img/slider 2/aire.png" alt="Producto 3"></div>
+                        <small>Aire acondicionado Skyworth aire acondicionado, condición, rectángulo, Electrodoméstico</small>
+                        <span>Mismo precio en 3 cuotas de $11.996</span>
+                        <span>...</span>
+                        <a href="#">$598.000</a>
+                    </div>
+                </div>
+                <button class="btn next">&#10095;</button>
             </div>
         </div>
-        <button class="btn next">&#10095;</button>
     </div>
 
     <script>
         let slider = document.querySelector('.slider');
         let slides = document.querySelectorAll('.slide');
-        let slideWidth = slides[0].offsetWidth; // Ancho de una slide
+        let slideWidth = slides[0].offsetWidth + 10;
         let index = 0;
         let isMoving = false;
-
+        
         // Función para mover el slider con animación
+        
         function moveSlide(direction) {
             if (isMoving) return; // Evitar múltiples clics rápidos
             isMoving = true;
-
+        
             if (direction === 1) {
                 // Mover a la izquierda
                 slider.style.transition = "transform 0.5s ease-in-out";
                 slider.style.transform = `translateX(-${slideWidth}px)`;
-
+        
                 setTimeout(() => {
                     // Mueve el primer slide al final
                     let firstSlide = slider.firstElementChild;
@@ -177,7 +238,7 @@
                 slider.prepend(lastSlide);
                 slider.style.transition = "none";
                 slider.style.transform = `translateX(-${slideWidth}px)`;
-
+        
                 setTimeout(() => {
                     slider.style.transition = "transform 0.5s ease-in-out";
                     slider.style.transform = "translateX(0)";
@@ -185,33 +246,43 @@
                 }, 20);
             }
         }
+        
+
 
         // Agregar funcionalidad a los botones
         document.querySelector('.prev').addEventListener('click', () => moveSlide(-1));
         document.querySelector('.next').addEventListener('click', () => moveSlide(1));
-
+        
         // Autoplay cada 3 segundos
         let autoPlay = setInterval(() => moveSlide(1), 3000);
-
+        
         // Detener autoplay cuando el mouse está encima
         document.querySelector('.slider-container').addEventListener('mouseenter', () => clearInterval(autoPlay));
         document.querySelector('.slider-container').addEventListener('mouseleave', () => autoPlay = setInterval(() => moveSlide(1), 3000));
-
+        
         // Función para swipe en móviles
         let touchStartX = 0;
         let touchEndX = 0;
-
+        
         slider.addEventListener("touchstart", (e) => {
             touchStartX = e.touches[0].clientX;
         });
-
+        
         slider.addEventListener("touchend", (e) => {
             touchEndX = e.changedTouches[0].clientX;
             if (touchStartX > touchEndX + 50) moveSlide(1);  // Swipe izquierda
             if (touchStartX < touchEndX - 50) moveSlide(-1); // Swipe derecha
         });
+        
+        
+
+
+
+
+
 
     </script>
-
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
