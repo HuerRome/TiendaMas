@@ -243,50 +243,109 @@
 }
 
 /*-------------------------------------------slider-2-------------------------------------------*/
+/*-------------------------------------------slider-2-------------------------------------------*/
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-.slider-container {
-    width: 94vw;
-    padding: 4vh 3vw;
-    overflow: hidden;
-    margin: auto;
-    position: relative;
+.slider-2{
+    width: 100%;
+    padding: 5vh 4vw;
     background: #EBEBEB;
-    border-radius: 5px;
-} 
-.slider {
-    display: flex;
-    gap: 10px;
-    transition: transform 0.5s ease-in-out;
+    position: relative;
 }
-.slide {
-    min-width: 220px;
-    padding: 10px;
+/*
+.slider-2 > div{
+    width: 100%;
+    height: auto;
     display: flex;
-    gap: 10px;
+    padding: 4vh 3vw;
+    border-radius: 5px;
+    overflow: hidden;
+    justify-content: space-between;
+    background-color: #ffffff;
+}*/
+
+.slider-2 > div {
+    width: 100%;
+    display: flex;
+    padding: 4vh 3vw;
+    border-radius: 5px;
+    overflow: hidden;
+    justify-content: space-between;
+    background-color: #ffffff;
+    align-items: stretch; /* Hace que los hijos ocupen la misma altura */
+}
+
+
+.slider-2 > button{
+    position: absolute;
+    background: rgba(4, 10, 189, 0.6); /* Fondo semitransparente */
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.slider-2 > button:hover {
+    background: rgba(73, 113, 245, 0.8);
+    transform: scale(1.1);
+}
+
+.slider-2 > button:first-child{
+    margin-left: 8px;
+    left: 0; /* Alineado al borde izquierdo */
+    top: 50%; /* Posicionado al 50% de la altura del contenedor */
+    transform: translateY(-50%); /* Ajuste para centrarlo verticalmente */
+}
+
+.slider-2 > button:last-child{
+    margin-right: 8px;
+    right: 0;
+    top: 50%; /* Posicionado al 50% de la altura del contenedor */
+    transform: translateY(-50%); /* Ajuste para centrarlo verticalmente */
+}
+/*
+.slider-2 > div > div > div{
+    width: 22vw;
+    background: #6f3f3f;
+    height: auto;
+    gap: 5px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+*/
+
+.slider-2 > div > div > div {
+    width: 20vw;
+    gap: 5px;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    height: 100%; /* Forzar altura igual */
     text-align: center;
+    margin-right: 5px;
 }
 
-.slide span{
-    width: 100%;
+.slider-2 > div > div > div span{
     font-size: 14px;
     color: #00a650;
     margin: 0 20px;
-}    
-.slide small{
+}
+
+.slider-2 > div > div > div small{
     font-size: 14px;
     color: #000000;
     margin: 0 20px;
 }
-.slide a{
+
+.slider-2 > div > div > div a{
     text-align: center;
     width: 80%;
     font-weight: bold;
@@ -296,32 +355,46 @@
     padding: 10px 20px;
     border-radius: 5px;
 }
-.slide > div{
-    width: 96%;
-    height: 24vh;
-    border-radius: 5px;
+
+.slider-2 > div > div > div > div{
+    width: 16vw;
+    height: 35vh;
+}
+
+.slider-2 > div > div > div:first-child > div{
+    background-image: url('img/slider\ 2/notebook.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+} 
+
+.slider-2 > div > div > div:nth-child(2) > div{
+    background-image: url('img/slider\ 2/computadoras.png'); /* Imagen SVG de fondo */
     background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
     background-position: center; /* Centra la imagen */
 }
 
-img {
-    width: auto; /* Mantiene la proporción */
-    max-width: 100%; /* Evita que sobrepase el contenedor */
-    height: 100%; /* Ajusta la altura al contenedor */
+.slider-2 > div > div > div:nth-child(3) > div{
+    background-image: url('img/slider\ 2/aire.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
 }
 
-.btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    z-index: 10;
+.slider-2 > div > div > div:nth-child(4) > div{
+    background-image: url('img/slider\ 2/phones.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
 }
-.prev { left: 0; }
-.next { right: 0; }
+
+.slider-2 > div > div > div:nth-child(5) > div{
+    background-image: url('img/slider\ 2/notebook.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+
 

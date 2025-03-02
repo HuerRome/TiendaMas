@@ -115,7 +115,7 @@
             lista.forEach(producto => {
                 const div = document.createElement("div");
                 div.classList.add("producto");
-                div.innerHTML = `<h3>${producto.nombre}</h3><p>Precio: ${producto.precio}</p>`;
+                div.innerHTML = <h3>${producto.nombre}</h3><p>Precio: ${producto.precio}</p>;
                 contenedor.appendChild(div);
             });
         }
