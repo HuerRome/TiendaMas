@@ -1,14 +1,56 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda Mas</title>
     <link rel="shortcut icon" href="img/Logo.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css">
     <link rel="stylesheet" href="script.js">
-    <!-- Swiper.js CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+        <!-- Swiper.js CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            .slider-container {
+                width: 94vw;
+                padding: 4vh 3vw;
+                margin: auto;
+                background: #EBEBEB;
+                border-radius: 5px;
+            }
+            .swiper-slide {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                background: #FFF;
+                padding: 15px;
+                border-radius: 5px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            }
+            .swiper-slide div {
+                width: 96%;
+                height: 24vh;
+                border-radius: 5px;
+                background-size: cover;
+                background-position: center;
+            }
+            /*.swiper-slide img {
+                max-width: 100%;
+                height: auto;
+            }*/
+            .swiper-button-next, .swiper-button-prev {
+                color: #333;
+            }
+            .swiper-pagination-bullet-active {
+                background: #00a650;
+            }
+        </style>
 </head>
 <body>
     <div class="container">
@@ -296,4 +338,3 @@
         </script>
 </body>
 </html>
-

@@ -1,9 +1,0 @@
-.sticky-div {
-    position: sticky;
-    top: 20px;  /* Se fija cuando llega a 20px del top */
-    background: #4120a9;
-    color: white;
-    padding: 15px;
-    border-radius: 8px;
-    width: 200px;
-}
