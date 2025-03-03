@@ -1,0 +1,404 @@
+.categorias > div:last-child{
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.categorias > div:last-child > div:first-child{
+    width: 100%;
+    padding: 5vh 0;
+}
+
+.categorias > div:last-child > div:last-child{
+    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch; 
+}
+
+.categorias > div:last-child > div:last-child > div{
+
+    width: 240px;
+    gap: 2px;
+    height: auto; /* Permite que los divs se adapten */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para distribuir los elementos internos */
+    padding: 15px 10px;
+    background: #fff;
+    margin-bottom: 2vh;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.10);
+}
+
+.categorias > div:last-child > div:last-child > div a{
+    width: 100%;
+    margin: 20px 20px 5px 20px;
+    background: #fbb03b; /* Color naranja */
+    color: #2c2c72; /* Color azul oscuro del texto */
+    border: none; /* Sin borde */
+    padding: 10px 20px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente */
+    border-radius: 30px; /* Bordes redondeados */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    display: flex; /* Permite centrar el texto */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+}
+
+.categorias > div:last-child > div:last-child > div h1{
+    font-size: 22px;
+    color: #403f3f;
+}
+
+.categorias > div:last-child > div:last-child > div span{
+    font-size: 16px; /* Tamaño del título */
+    margin: 4px 0; /* Separación del título */
+    color: #333; /* Color del texto */
+}
+
+.categorias > div:last-child > div:last-child > div small{
+    font-size: 14px; /* Tamaño del texto */
+    color: #666; /* Color del texto */
+    margin: 4px 10px; /* Espaciado entre párrafos */
+}
+
+.categorias > div:last-child > div:last-child > div a:hover {
+    background: #e89c26; /* Color más oscuro al pasar el mouse */
+}
+
+.categorias > div:last-child > div:last-child > div > div{
+    width: 96%;
+    height: 24vh;
+    border-radius: 15px;
+}
+
+.categorias > div:last-child > div:last-child > div > div{
+    background-image: url('img/Imagenes de la web/Slider/Botellas.jpeg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.categorias > div:last-child > div:last-child > div:nth-child(2) > div{
+    background-image: url('img/Imagenes de la web/Slider/envases\ de\ plastico.jpeg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.categorias > div:last-child > div:last-child > div:nth-child(3) > div{
+    background-image: url('img/Imagenes de la web/Slider/descarga.jpeg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.categorias > div:last-child > div:last-child > div:nth-child(4) > div{
+    background-image: url('img/Imagenes de la web/Slider/Maquillaje.jpeg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.categorias > div:last-child > div:last-child > div:nth-child(5) > div{
+    background-image: url('img/Imagenes de la web/Slider/Hierro.jpeg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.categorias > div:last-child > div:last-child > div:nth-child(6) > div{
+    background-image: url('img/Imagenes de la web/Slider/Plastico.jpeg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.categorias > div:last-child > div:last-child > div:nth-child(7) > div{
+    background-image: url('img/Imagenes de la web/Slider/Remeras.jpg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.categorias > div:last-child > div:last-child > div:nth-child(8) > div{
+    background-image: url('img/Imagenes de la web/Slider/D_759307-MLU74866439346_032024-C\ \(1\).jpg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.categorias > div:last-child > div:last-child > div:nth-child(9) > div{
+    background-image: url('img/Imagenes de la web/Slider/cable.jpg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.categorias > div:last-child > div:last-child > div:nth-child(10) > div{
+    background-image: url('img/Imagenes de la web/Slider/Botellas.jpeg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.categorias > div:last-child > div:last-child > div:nth-child(11) > div{
+    background-image: url('img/Imagenes de la web/Slider/envases\ de\ plastico.jpeg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.categorias > div:last-child > div:last-child > div:nth-child(12) > div{
+    background-image: url('img/Imagenes de la web/Slider/Jabones.jpeg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.categorias > div:last-child > div:last-child > div:nth-child(13) > div{
+    background-image: url('img/Imagenes de la web/Slider/descarga.jpeg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.categorias > div:last-child > div:last-child > div:nth-child(14) > div{
+    background-image: url('img/Imagenes de la web/Slider/descarga.jpeg'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+/*---------------------------------footer---------------------------------*/
+.footer{
+    width: 100%;
+    gap: 20px;
+    display: flex;
+    padding: 30px;
+    background-image: url('img/footer.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.footer > div:first-child{
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    background-color: #3f51b5; /* Color de fondo */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer > div:first-child img{
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer > div:first-child h1{
+    color: #fff;
+}
+
+.footer > div:last-child{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer > div:last-child div{
+    display: flex;
+}
+
+.footer > div:last-child div:first-child{
+    display: flex;
+    background: #fff;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.footer > div:last-child div:last-child img{
+    width: 50px;
+}
+
+.footer > div:last-child div:last-child{
+    width: 100%;
+    display: flex;
+    margin-right: 8vw;
+    gap: 20px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+
+.footer > div:last-child div:first-child p{
+    font-size: 20px;
+}
+
+.footer > div:last-child div:first-child img{
+    border-radius: 15px;
+}
+
+/*-------------------------------------------slider-2-------------------------------------------*/
+
+.slider-2{
+    width: 100%;
+    padding: 5vh 4vw;
+    background: #EBEBEB;
+    position: relative;
+}
+/*
+.slider-2 > div{
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 4vh 3vw;
+    border-radius: 5px;
+    overflow: hidden;
+    justify-content: space-between;
+    background-color: #ffffff;
+}*/
+
+.slider-2 > div {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 4vh 3vw;
+    border-radius: 5px;
+    overflow: hidden;
+    justify-content: space-between;
+    background-color: #ffffff;
+    align-items: stretch; /* Hace que los hijos ocupen la misma altura */
+}
+
+
+.slider-2 > button{
+    position: absolute;
+    background: rgba(4, 10, 189, 0.6); /* Fondo semitransparente */
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.slider-2 > button:hover {
+    background: rgba(73, 113, 245, 0.8);
+    transform: scale(1.1);
+}
+
+.slider-2 > button:first-child{
+    margin-left: 8px;
+    left: 0; /* Alineado al borde izquierdo */
+    top: 50%; /* Posicionado al 50% de la altura del contenedor */
+    transform: translateY(-50%); /* Ajuste para centrarlo verticalmente */
+}
+
+.slider-2 > button:last-child{
+    margin-right: 8px;
+    right: 0;
+    top: 50%; /* Posicionado al 50% de la altura del contenedor */
+    transform: translateY(-50%); /* Ajuste para centrarlo verticalmente */
+}
+/*
+.slider-2 > div > div > div{
+    width: 22vw;
+    background: #6f3f3f;
+    height: auto;
+    gap: 5px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+*/
+
+.slider-2 > div > div {
+    width: 20vw;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto; /* Forzar altura igual */
+    text-align: center;
+    margin-right: 5px;
+}
+
+.slider-2 > div > div span{
+    font-size: 14px;
+    color: #00a650;
+    margin: 0 20px;
+}
+
+.slider-2 > div > div small{
+    font-size: 14px;
+    color: #000000;
+    margin: 0 20px;
+}
+
+.slider-2 > div > div a{
+    text-align: center;
+    width: 80%;
+    font-weight: bold;
+    font-size: 18px;
+    background: rgb(60, 66, 241);
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.slider-2 > div > div > div{
+    width: 16vw;
+    height: 35vh;
+}
+
+.slider-2 > div > div:first-child > div{
+    background-image: url('img/slider\ 2/notebook.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+} 
+
+.slider-2 > div > div:nth-child(2) > div{
+    background-image: url('img/slider\ 2/computadoras.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.slider-2 > div > div:nth-child(3) > div{
+    background-image: url('img/slider\ 2/aire.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.slider-2 > div > div:nth-child(4) > div{
+    background-image: url('img/slider\ 2/phones.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.slider-2 > div > div:nth-child(5) > div{
+    background-image: url('img/slider\ 2/serum.png'); /* Imagen SVG de fondo */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}
+
+.slider-2 > div > div:nth-child(6) > div{
+    background-image: url('img/slider\ 2/computadoras.png'); 
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+}

@@ -9,6 +9,80 @@
     <link rel="stylesheet" href="script.js">
     <!-- Swiper.js CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .slider-container-2 {
+            width: 100%;
+            padding: 20px;
+            padding-left: 40px;
+            padding-right: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .slider-container-2 .swiper-slide {
+            display: flex;
+            height: auto;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 15px;
+            justify-content: space-between;
+            border-radius: 10px;
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .slider-container-2 .swiper-slide:hover {
+            transform: translateY(-5px);
+        }
+        .slider-container-2 .swiper-slide img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .slider-container-2 .swiper-slide small {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+        .slider-container-2 .swiper-slide a {
+            color: #007bff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        /* Estilos personalizados para los botones de navegación */
+        .slider-container-2 .swiper-button-next, .slider-container-2 .swiper-button-prev {
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .slider-container-2 .swiper-button-next:hover,.slider-container-2  .swiper-button-prev:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+        .slider-container-2 .swiper-button-next:after,.slider-container-2 .swiper-button-prev:after {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .slider-container-2 .swiper-pagination-bullet-active {
+            background-color: #007bff;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -66,6 +140,57 @@
             </div>
             <div>
                 <img src="img/Stuck at Home - Shopping (1).png" alt="">
+            </div>
+        </div>
+        <div class="slider-container-2">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="img/slider 2/notebook.png" alt="Producto 1">
+                        <small>Laptop intel core i7 republic of gamers, notebook</small>
+                        <span>Mismo precio en 3 cuotas de $11.996</span>
+                        <a href="#">$758.000</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/slider 2/computadoras.png" alt="Producto 2">
+                        <small>portátil intel core hp probook hewlett-packard, notebook</small>
+                        <span>Mismo precio en 3 cuotas de $11.996</span>
+                        <a href="#">$2.570.000</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/slider 2/notebook.png" alt="Producto 1">
+                        <small>Laptop intel core i7 republic of gamers, notebook</small>
+                        <span>Mismo precio en 3 cuotas de $11.996</span>
+                        <a href="#">$758.000</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/slider 2/computadoras.png" alt="Producto 2">
+                        <small>portátil intel core hp probook hewlett-packard, notebook</small>
+                        <span>Mismo precio en 3 cuotas de $11.996</span>
+                        <a href="#">$2.570.000</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/slider 2/aire.png" alt="Producto 3">
+                        <small>Aire acondicionado Skyworth, electrodoméstico</small>
+                        <span>Mismo precio en 3 cuotas de $11.996</span>
+                        <a href="#">$598.000</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/slider 2/phones.png" alt="Producto 4">
+                        <small>Iphone 8 plus iphone x iphone 7 plus apple, electrónica</small>
+                        <span>Mismo precio en 3 cuotas de $11.996</span>
+                        <a href="#">$3.200.000</a>
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="img/slider 2/serum.png" alt="Producto 5">
+                        <small>Sérum facial Garnier, cuidado personal</small>
+                        <span>Mismo precio en 3 cuotas de $11.996</span>
+                        <a href="#">$2.570.000</a>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
         <div class="categorias">
