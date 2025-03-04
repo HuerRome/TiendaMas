@@ -414,6 +414,13 @@ nav img{
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.10);
 }
 
+.categorias > div:last-child > div:last-child .informacion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .categorias > div:last-child > div:last-child > div a{
     width: 100%;
     margin: 20px 0px 5px 0px;
@@ -450,109 +457,29 @@ nav img{
     background: #e89c26; /* Color más oscuro al pasar el mouse */
 }
 
-.categorias > div:last-child > div:last-child > div > div{
+.categorias > div:last-child > div:last-child > div .imagen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 96%;
-    height: 24vh;
     border-radius: 15px;
+    height: 24vh;
+    overflow: hidden;
+    border-radius: 5px;
+    background-size: cover;
+    background-position: center;
 }
 
-.categorias > div:last-child > div:last-child > div > div{
-    background-image: url('img/Imagenes de la web/Slider/Botellas.jpeg'); /* Imagen SVG de fondo */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
+.categorias > div:last-child > div:last-child > div .imagen img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    height: auto;
 }
 
-.categorias > div:last-child > div:last-child > div:nth-child(2) > div{
-    background-image: url('img/Imagenes de la web/Slider/envases\ de\ plastico.jpeg'); /* Imagen SVG de fondo */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-}
 
-.categorias > div:last-child > div:last-child > div:nth-child(3) > div{
-    background-image: url('img/Imagenes de la web/Slider/descarga.jpeg'); /* Imagen SVG de fondo */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-}
 
-.categorias > div:last-child > div:last-child > div:nth-child(4) > div{
-    background-image: url('img/Imagenes de la web/Slider/Maquillaje.jpeg'); /* Imagen SVG de fondo */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-}
 
-.categorias > div:last-child > div:last-child > div:nth-child(5) > div{
-    background-image: url('img/Imagenes de la web/Slider/Hierro.jpeg'); /* Imagen SVG de fondo */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-}
-
-.categorias > div:last-child > div:last-child > div:nth-child(6) > div{
-    background-image: url('img/Imagenes de la web/Slider/Plastico.jpeg'); /* Imagen SVG de fondo */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-}
-
-.categorias > div:last-child > div:last-child > div:nth-child(7) > div{
-    background-image: url('img/Imagenes de la web/Slider/Remeras.jpg'); /* Imagen SVG de fondo */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-}
-
-.categorias > div:last-child > div:last-child > div:nth-child(8) > div{
-    background-image: url('img/Imagenes de la web/Slider/D_759307-MLU74866439346_032024-C\ \(1\).jpg'); /* Imagen SVG de fondo */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-}
-
-.categorias > div:last-child > div:last-child > div:nth-child(9) > div{
-    background-image: url('img/Imagenes de la web/Slider/cable.jpg'); /* Imagen SVG de fondo */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-}
-
-.categorias > div:last-child > div:last-child > div:nth-child(10) > div{
-    background-image: url('img/Imagenes de la web/Slider/Botellas.jpeg'); /* Imagen SVG de fondo */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-}
-
-.categorias > div:last-child > div:last-child > div:nth-child(11) > div{
-    background-image: url('img/Imagenes de la web/Slider/envases\ de\ plastico.jpeg'); /* Imagen SVG de fondo */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-}
-
-.categorias > div:last-child > div:last-child > div:nth-child(12) > div{
-    background-image: url('img/Imagenes de la web/Slider/Jabones.jpeg'); /* Imagen SVG de fondo */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-}
-
-.categorias > div:last-child > div:last-child > div:nth-child(13) > div{
-    background-image: url('img/Imagenes de la web/Slider/descarga.jpeg'); /* Imagen SVG de fondo */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-}
-
-.categorias > div:last-child > div:last-child > div:nth-child(14) > div{
-    background-image: url('img/Imagenes de la web/Slider/descarga.jpeg'); /* Imagen SVG de fondo */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: center; /* Centra la imagen */
-}
 
 /*---------------------------------footer---------------------------------*/
 .footer{
