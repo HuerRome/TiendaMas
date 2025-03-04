@@ -1,0 +1,1600 @@
+
+/*--------------------El responsive para celulares------------------------*/
+/*----------------------------Moviles pequeños----------------------------*/
+@media (max-width: 480px) {
+    /* Estilos para móviles pequeños */
+}
+
+@media (max-width: 480px) {
+    /* Estilos para móviles grandes y tablets pequeñas */
+    .menu-active{
+        width: 50%;
+        display: none;
+        flex-direction: column;
+        padding: 4vh 2vw;
+        margin-top: 15vh;
+        transition: left 0.9s ease-in-out;
+        color: #131212;
+        background: #fff;
+        z-index: 1000; 
+    }
+    .menu-active a{
+        color: #131212;
+        padding: 6px;
+        font-size: 14px;
+    }
+    .menu-active a:hover{
+        color: #ffffff;
+        background: #fcaf3c;
+    }
+    .menu-active h1{
+        font-size: 20px;
+    
+    }
+    
+    .menu-active div{
+        width: 100%;
+        height: 1px;
+        background: #000000;
+    }
+    
+    .metodos-pago{
+        width: 100%;
+        height: 40vh;
+        background-image: url('img/deddwd.png'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .menu-active.active{
+        position: fixed;
+        display: flex;
+        transition: left 0.9s ease-in-out;
+    }
+    
+    nav{
+        width: 100%;
+        display: flex;
+        padding: 2vh 4vw;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    nav img{
+        width: 5vw;
+    }
+    
+    .search-box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #8c8b8b;
+        border-radius: 24px;
+    }
+    
+    .search-box input{
+        width: 60vw;
+        outline: none;
+        
+        border: none;
+        /*padding-left: 35px;*/
+        border-radius: 0 24px 24px 0;
+    }
+    
+    .search-box button{
+        display: flex;
+        outline: none;
+        border: none;
+        font-size: 22px;
+        background: white;
+        padding: 10px 12px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 24px;
+    }
+    
+    .links .menu{
+        font-size: 48px;
+        color: #4c4c4c;
+    }
+    
+    .logo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .logo img{
+        width: 20vw;
+    }
+    
+    .nav{
+        width: 100%;
+        padding: 0px 10px;
+        display: flex;
+        background: #fcaf3c;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    /*-------------------------opciones del navegador del web------------------------------*/
+    .nav a{
+        font-size: 15px;
+        background: #fff;
+        color: #131212;
+        padding: 8px 15px;
+        margin: 10px 10px;
+        font-weight: 600;
+        border-radius: 20px;
+    }
+    
+    .nav a:first-child{
+        background: #4059d4;
+        color: #fff;
+    }
+    
+    .nav a:hover{
+        background: #4059d4;
+        color: #fff;
+    }
+    
+    .nav div:last-child a{
+        gap: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #25d366;
+    }
+    
+    .nav div:last-child a ion-icon{
+        font-size: 25px;
+    }
+    
+    .text{
+        width: 100%;
+        padding: 4vh 0;
+        display: flex;
+        justify-content: space-between;
+        background-image: url('img/blurry-gradient-haikei\ \(3\).svg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .text div:first-child{
+        width: 50%;
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .text div:last-child{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .text div:last-child img{
+        width: 60%;
+        transform: scale(1.05) on hover;
+    }
+    
+    .text h1{
+        color: #fff;
+        font-size: 30px;
+        font-weight: lighter;
+    }
+    
+    .text h2{
+        color: #fff;
+        font-size: 60px;
+    }
+    
+    .text p{
+        font-size: 20px;
+        color: #fff;
+        font-weight: lighter;
+    }
+    
+    .text a{
+        margin-top: 4vh;
+        font-size: 15px;
+        background: #fff;
+        color: #4059d4;
+        padding: 15px 45px;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .text a ion-icon{
+        font-size: 20px;
+    }
+    
+    .text a:hover{
+        color: #fff;
+        background: #4059d4;
+    }
+    
+    .text div:first-child{
+        padding: 5vh 5vw;
+    }
+    
+    /*------------------------------------Categorias------------------------------------------------*/
+    .categorias{
+        width: 100%;
+        display: flex;
+        height: auto;
+        background-image: url('img/layered-waves-haikei\ \(1\)\ \(1\).svg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+        background: #EBEBEB;
+    }
+    
+    .categorias > div:first-child{
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 10vh 0;
+        align-items: center;
+        justify-content:space-between;
+        width: 20vw;
+    }
+    
+    .menu-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 250px;
+        background: #f8f8f8;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .menu-container .menu-categoria{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .menu-container h3 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 0px;
+    }
+    
+    .menu-container hr {
+        border: none;
+        height: 1px;
+        width: 100%;
+        background: #ddd;
+        margin: 10px 0;
+    }
+    
+    .menu-container h4 {
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: #555;
+    }
+    
+    .menu-container a {
+        display: block;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        padding: 8px;
+        border-radius: 5px;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+    
+    .menu-container a:hover {
+        background: #4120a9;
+        color: #fff;
+    }
+    
+    .categorias > div:first-child > a{
+        margin-top: 4vh;
+        font-size: 15px;
+        background: #fff;
+        color: #4120a9;
+        padding: 15px 45px;
+        border-radius: 25px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .categorias > div:last-child > div:first-child{
+        display: flex;
+        justify-content:space-around;
+        align-items: center;
+        margin-top: 4vh;
+    }
+    
+    .categorias > div:last-child > div:first-child a:first-child{
+        
+        font-size: 15px;
+        background: #fff;
+        color: #4120a9;
+        padding: 15px 45px;
+        border-radius: 25px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .categorias > div:last-child > div:first-child a:last-child{
+        background: #5a65f2; /* Color de fondo azul */
+        color: white; /* Color del texto */
+        border: 1px solid white; /* Borde blanco */
+        padding: 10px 20px; /* Espaciado interno */
+        font-size: 16px; /* Tamaño de fuente */
+        font-weight: lighter; /* Texto en negrita */
+        border-radius: 8px; /* Bordes redondeados */
+        cursor: pointer; /* Cambia el cursor al pasar */
+        display: flex; /* Permite alinear el icono y el texto */
+        align-items: center; /* Alinea el icono y el texto */
+        gap: 10px; /* Espacio entre el texto y el icono */
+        transition: 0.3s; /* Suaviza el efecto al pasar el mouse */
+    }
+    
+    .categorias > div:last-child > div:first-child a:last-child:hover{
+        background: #3f4dc9; /* Cambio de color al pasar el mouse */
+    }
+    
+    .categorias > div:last-child{
+        width: 80vw;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .categorias > div:last-child > div:first-child{
+        width: 100%;
+        padding: 5vh 0;
+    }
+    
+    .categorias > div:last-child > div:last-child{
+        gap: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: stretch; 
+    }
+    
+    .categorias > div:last-child > div:last-child > div{
+        width: 240px;
+        gap: 2px;
+        height: auto; /* Permite que los divs se adapten */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Para distribuir los elementos internos */
+        padding: 15px 10px;
+        background: #fff;
+        margin-bottom: 2vh;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.10);
+    }
+    
+    .categorias > div:last-child > div:last-child > div a{
+        width: 100%;
+        margin: 20px 0px 5px 0px;
+        background: #fbb03b; /* Color naranja */
+        color: #2c2c72; /* Color azul oscuro del texto */
+        border: none; /* Sin borde */
+        padding: 10px 20px; /* Espaciado interno */
+        font-size: 14px; /* Tamaño de fuente */
+        border-radius: 30px; /* Bordes redondeados */
+        text-transform: uppercase; /* Texto en mayúsculas */
+        display: flex; /* Permite centrar el texto */
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+    }
+    
+    .categorias > div:last-child > div:last-child > div h1{
+        font-size: 22px;
+        color: #403f3f;
+    }
+    
+    .categorias > div:last-child > div:last-child > div span{
+        font-size: 16px; /* Tamaño del título */
+        margin: 4px 0; /* Separación del título */
+        color: #333; /* Color del texto */
+    }
+    
+    .categorias > div:last-child > div:last-child > div small{
+        font-size: 14px; /* Tamaño del texto */
+        color: #666; /* Color del texto */
+        margin: 4px 10px; /* Espaciado entre párrafos */
+    }
+    
+    .categorias > div:last-child > div:last-child > div a:hover {
+        background: #e89c26; /* Color más oscuro al pasar el mouse */
+    }
+    
+    .categorias > div:last-child > div:last-child > div > div{
+        width: 96%;
+        height: 24vh;
+        border-radius: 15px;
+    }
+    
+    .categorias > div:last-child > div:last-child > div > div{
+        background-image: url('img/Imagenes de la web/Slider/Botellas.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(2) > div{
+        background-image: url('img/Imagenes de la web/Slider/envases\ de\ plastico.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(3) > div{
+        background-image: url('img/Imagenes de la web/Slider/descarga.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(4) > div{
+        background-image: url('img/Imagenes de la web/Slider/Maquillaje.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(5) > div{
+        background-image: url('img/Imagenes de la web/Slider/Hierro.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(6) > div{
+        background-image: url('img/Imagenes de la web/Slider/Plastico.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(7) > div{
+        background-image: url('img/Imagenes de la web/Slider/Remeras.jpg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(8) > div{
+        background-image: url('img/Imagenes de la web/Slider/D_759307-MLU74866439346_032024-C\ \(1\).jpg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(9) > div{
+        background-image: url('img/Imagenes de la web/Slider/cable.jpg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(10) > div{
+        background-image: url('img/Imagenes de la web/Slider/Botellas.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(11) > div{
+        background-image: url('img/Imagenes de la web/Slider/envases\ de\ plastico.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(12) > div{
+        background-image: url('img/Imagenes de la web/Slider/Jabones.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(13) > div{
+        background-image: url('img/Imagenes de la web/Slider/descarga.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(14) > div{
+        background-image: url('img/Imagenes de la web/Slider/descarga.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    /*---------------------------------footer---------------------------------*/
+    .footer{
+        width: 100%;
+        gap: 20px;
+        display: flex;
+        padding: 30px;
+        align-items: center;
+        background-image: url('img/footer.png'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .footer > div:first-child{
+        display: flex;
+        flex-direction: column;
+        border-radius: 12px;
+        background-color: #3f51b5; /* Color de fondo */
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .footer > div:first-child img{
+        width: 200px;
+        margin-bottom: 20px;
+    }
+    
+    .footer > div:first-child h1{
+        color: #fff;
+    }
+    
+    .footer > div:last-child{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .footer > div:last-child div{
+        display: flex;
+    }
+    
+    .footer > div:last-child div:first-child{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #fff;
+        border-radius: 15px;
+        padding: 5px;
+    }
+    
+    .footer > div:last-child div:last-child img{
+        width: 50px;
+    }
+    
+    .footer > div:last-child div:last-child{
+        width: 100%;
+        display: flex;
+        margin-right: 8vw;
+        gap: 20px;
+        justify-content: flex-end;
+        margin-top: 20px;
+    }
+    
+    .footer > div:last-child div:first-child p{
+        font-size: 20px;
+    }
+    
+    .footer > div:last-of-type > div:first-child img{
+        width: 300px;
+    }
+    
+    .footer > div:last-child div:first-child img{
+        border-radius: 15px;
+    }
+    
+    footer {
+        text-align: center;
+        padding: 30px;
+        background: #5b49ff;
+        background: #5D0CF2;
+        color: white;
+    }
+    
+    /*-------------------------------------------slideres-------------------------------------------*/
+    
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .slider-container {
+        width: 94vw;
+        padding: 4vh 3vw;
+        margin: auto;
+        background: #EBEBEB;
+        border-radius: 5px;
+        display: flex;
+        align-items: stretch; /* Hace que todos los elementos tengan la misma altura */
+        overflow-x: auto;
+    }
+    .slider-container .swiper-slide {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        text-align: center;
+        background: #FFF;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .slider-container .swiper-slide div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 96%;
+        height: 24vh;
+        overflow: hidden;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center;
+    }
+    .slider-container .swiper-slide div img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        height: auto;
+    }
+    .slider-container .swiper-button-next, .swiper-button-prev {
+        color: #333;
+    }
+    .slider-container .swiper-pagination-bullet-active {
+        background: #00a650;
+    }
+    
+    .slider-container .swiper-slide span{
+        font-size: 14px;
+        color: #00a650;
+    }
+    
+    .slider-container .swiper-slide small{
+        font-size: 12px;
+        color: #000000;
+        text-overflow: ellipsis;
+    }
+    
+    .slider-container .swiper-slide a{
+        text-align: center;
+        width: 100%;
+        font-weight: bold;
+        font-size: 18px;
+        background: rgb(60, 66, 241);
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+    
+    /*-------------------------------------------slider-------------------------------------------*/
+    
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .slider-container {
+        width: 94vw;
+        padding: 4vh 3vw;
+        margin: auto;
+        background: #EBEBEB;
+        border-radius: 5px;
+        display: flex;
+        align-items: stretch; /* Hace que todos los elementos tengan la misma altura */
+        overflow-x: auto;
+    }
+    .slider-container .swiper-slide {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        justify-content: space-between;
+        text-align: center;
+        background: #FFF;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .slider-container .swiper-slide div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 96%;
+        height: 24vh;
+        overflow: hidden;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center;
+    }
+    .slider-container .swiper-slide div img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        height: auto;
+    }
+    .slider-container .swiper-button-next,.slider-container .swiper-button-prev {
+        color: #333;
+    }
+    
+    /*------------------------------------------------------*/
+    .slider-container .swiper-button-next, .slider-container .swiper-button-prev {
+        background: rgba(4, 10, 189, 0.6); /* Fondo semitransparente */
+        color: white;
+        border: none;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s, transform 0.2s;
+    }
+    .slider-container .swiper-button-next:hover,.slider-container  .swiper-button-prev:hover {
+        background: rgba(73, 113, 245, 0.8);
+        transform: scale(1.1);
+    }
+    .slider-container .swiper-button-next:after,.slider-container .swiper-button-prev:after {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    /*------------------------------------------------------*/
+    
+    
+    .slider-container .swiper-pagination-bullet-active {
+        background: #00a650;
+    }
+    
+    .slider-container .swiper-slide span{
+        font-size: 14px;
+        color: #00a650;
+    }
+    
+    .slider-container .swiper-slide small{
+        font-size: 12px;
+        color: #000000;
+        text-overflow: ellipsis;
+    }
+    
+    .slider-container .swiper-slide a{
+        text-align: center;
+        width: 100%;
+        font-weight: bold;
+        font-size: 18px;
+        background: rgb(60, 66, 241);
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+    
+    /*-------------------------------------------slider-2-------------------------------------------*/
+    
+    
+    
+    
+}
+
+
+
+
+/*----------------------------Moviles medianos----------------------------*/
+@media (max-width: 768px) {
+    /* Estilos para móviles grandes y tablets pequeñas */
+    .menu-active{
+        width: 50%;
+        display: none;
+        flex-direction: column;
+        padding: 4vh 2vw;
+        margin-top: 15vh;
+        transition: left 0.9s ease-in-out;
+        color: #131212;
+        background: #fff;
+        z-index: 1000; 
+    }  
+    .menu-active a{
+        color: #131212;
+        padding: 6px;
+        font-size: 14px;
+    }
+    .menu-active a:hover{
+        color: #ffffff;
+        background: #fcaf3c;
+    }
+    .menu-active h1{
+        font-size: 20px;
+    
+    }
+    .menu-active div{
+        width: 100%;
+        height: 1px;
+        background: #000000;
+    }
+    .metodos-pago{
+        width: 100%;
+        height: 40vh;
+        background-image: url('img/deddwd.png'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    .menu-active.active{
+        position: fixed;
+        display: flex;
+        transition: left 0.9s ease-in-out;
+    }   
+    nav{
+        width: 100%;
+        display: flex;
+        padding: 5px;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .search-box{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #8c8b8b;
+        border-radius: 24px;
+    } 
+    .search-box input{
+        width: 60vw;
+        outline: none;
+        border: none;
+        border-radius: 0 20px 20px 0;
+    }
+    .search-box button{
+        display: flex;
+        outline: none;
+        border: none;
+        font-size: 22px;
+        background: white;
+        padding: 10px 12px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 24px;
+    }
+    .links .menu{
+        font-size: 40px;
+        color: #4c4c4c;
+    }
+    .links img{
+        width: 35px;
+        
+    }
+    .logo{
+        padding: 5px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .logo img{
+        width: 200px;
+    }
+    .nav{
+        width: 100%;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: none;
+    }
+    /*-------------------------opciones del navegador del web------------------------------*/
+    .nav div:first-child{
+        display: none;
+    }
+    .nav div:last-child{
+        width: 100%;
+        display: flex;
+        padding: 5px 5px 5px 10px;
+        margin: 8px 1vw;
+        gap: 0;
+        border-radius: 10px;
+        background: rgb(33, 20, 214);
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav div:last-child span{
+        display: flex;
+        font-size: 12px;
+        color: #ffffff;
+    }   
+    .nav div:last-child a{
+        gap: 5px;
+        margin: 0;
+        padding: 5px 5px 5px 10px;
+        font-size: 8px;
+        color: #FFF;
+        display: flex;
+        align-items: center;
+        border-radius: 10px;
+        justify-content: center;
+        background: #25d366;
+    }
+    .nav div:last-child a ion-icon{
+        font-size: 18px;
+    }
+    .text{
+        width: 100%;
+        padding: 4vh 0;
+        display: flex;
+        justify-content: space-between;
+        background-image: url('img/blurry-gradient-haikei\ \(3\).svg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .text div:first-child{
+        width: 100%;
+        display: flex;
+        gap: 5px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .text div:last-child{
+        display: none;
+    }
+  
+    .text h1{
+        color: #fff;
+        font-size: 25px;
+        font-weight: lighter;
+        text-align: center;
+    }
+    
+    .text h2{
+        color: #fff;
+        font-size: 40px;
+        text-align: center;
+    }
+    
+    .text p{
+        text-align: center;
+        font-size: 18px;
+        color: #fff;
+        font-weight: lighter;
+    }
+    
+    .text a{
+        margin-top: 20px;
+        font-size: 15px;
+        background: #fff;
+        color: #4059d4;
+        padding: 15px 30px;
+        border-radius: 25px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .text a ion-icon{
+        font-size: 20px;
+    }
+    
+    .text a:hover{
+        color: #fff;
+        background: #4059d4;
+    }
+    
+    .text div:first-child{
+        padding: 5vh 5vw;
+        
+    }
+    
+    /*------------------------------------Categorias------------------------------------------------*/
+    .categorias{
+        width: 100%;
+        display: flex;
+        height: auto;
+        flex-direction: column;
+        background-image: url('img/layered-waves-haikei\ \(1\)\ \(1\).svg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+        background: #EBEBEB;
+    }
+    
+    .categorias > div:first-child{
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        padding: 2vh 0;
+        align-items: center;
+        justify-content:space-between;
+        width: 100%;
+    }
+    
+    .menu-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 95vw;
+        background: #f8f8f8;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+    .menu-container .menu-categoria{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .menu-container h3 {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 0px;
+    }
+    
+    .menu-container hr {
+        border: none;
+        height: 1px;
+        width: 100%;
+        background: #ddd;
+        margin: 10px 0;
+    }
+    
+    .menu-container h4 {
+        font-size: 16px;
+        margin-bottom: 8px;
+        color: #555;
+    }
+    
+    .menu-container a {
+        display: block;
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        padding: 8px;
+        border-radius: 5px;
+        transition: background 0.3s ease, color 0.3s ease;
+    }
+    
+    .menu-container a:hover {
+        background: #4120a9;
+        color: #fff;
+    }
+    
+    .categorias > div:first-child > a{
+        margin-top: 4vh;
+        font-size: 15px;
+        background: #fff;
+        color: #4120a9;
+        padding: 15px 45px;
+        border-radius: 25px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .categorias > div:last-child{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        background: #000000;
+    }
+
+    .categorias > div:last-child > div:first-child{
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        margin-top: 0vh;
+    }
+    
+    .categorias > div:last-child > div:first-child a:first-child{
+        width: 90%;
+        text-align: center;
+        font-size: 15px;
+        background: #fff;
+        color: #4120a9;
+        padding: 15px 45px;
+        border-radius: 25px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    .categorias > div:last-child > div:first-child a:last-child{
+        width: 90%;
+        text-align: center;
+        background: #5a65f2; /* Color de fondo azul */
+        color: white; /* Color del texto */
+        border: 1px solid white; /* Borde blanco */
+        padding: 10px 20px; /* Espaciado interno */
+        font-size: 16px; /* Tamaño de fuente */
+        font-weight: lighter; /* Texto en negrita */
+        border-radius: 8px; /* Bordes redondeados */
+        cursor: pointer; /* Cambia el cursor al pasar */
+        display: flex; /* Permite alinear el icono y el texto */
+        align-items: center; /* Alinea el icono y el texto */
+        gap: 10px; /* Espacio entre el texto y el icono */
+        transition: 0.3s; /* Suaviza el efecto al pasar el mouse */
+    }
+    
+    .categorias > div:last-child > div:first-child a:last-child:hover{
+        background: #3f4dc9; /* Cambio de color al pasar el mouse */
+    }
+    
+    .categorias > div:last-child > div:first-child{
+        width: 100%;
+        padding: 10px 0;
+    }
+    
+    .categorias > div:last-child > div:last-child{
+        gap: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .categorias > div:last-child > div:last-child > div{
+        width: 90%;
+        gap: 2px;
+        height: auto; /* Permite que los divs se adapten */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Para distribuir los elementos internos */
+        padding: 15px 10px;
+        background: #fff;
+        margin-bottom: 2vh;
+        text-align: center;
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.10);
+    }
+    
+    .categorias > div:last-child > div:last-child > div a{
+        width: 100%;
+        margin: 20px 0px 5px 0px;
+        background: #fbb03b; /* Color naranja */
+        color: #2c2c72; /* Color azul oscuro del texto */
+        border: none; /* Sin borde */
+        padding: 10px 20px; /* Espaciado interno */
+        font-size: 14px; /* Tamaño de fuente */
+        border-radius: 30px; /* Bordes redondeados */
+        text-transform: uppercase; /* Texto en mayúsculas */
+        display: flex; /* Permite centrar el texto */
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center; /* Centra verticalmente */
+    }
+    
+    .categorias > div:last-child > div:last-child > div h1{
+        font-size: 22px;
+        color: #403f3f;
+    }
+    
+    .categorias > div:last-child > div:last-child > div span{
+        font-size: 16px; /* Tamaño del título */
+        margin: 4px 0; /* Separación del título */
+        color: #333; /* Color del texto */
+    }
+    
+    .categorias > div:last-child > div:last-child > div small{
+        font-size: 14px; /* Tamaño del texto */
+        color: #666; /* Color del texto */
+        margin: 4px 10px; /* Espaciado entre párrafos */
+    }
+    
+    .categorias > div:last-child > div:last-child > div a:hover {
+        background: #e89c26; /* Color más oscuro al pasar el mouse */
+    }
+    
+    .categorias > div:last-child > div:last-child > div > div{
+        width: 96%;
+        height: 24vh;
+        border-radius: 15px;
+    }
+    
+    .categorias > div:last-child > div:last-child > div > div{
+        background-image: url('img/Imagenes de la web/Slider/Botellas.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(2) > div{
+        background-image: url('img/Imagenes de la web/Slider/envases\ de\ plastico.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(3) > div{
+        background-image: url('img/Imagenes de la web/Slider/descarga.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(4) > div{
+        background-image: url('img/Imagenes de la web/Slider/Maquillaje.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(5) > div{
+        background-image: url('img/Imagenes de la web/Slider/Hierro.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(6) > div{
+        background-image: url('img/Imagenes de la web/Slider/Plastico.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(7) > div{
+        background-image: url('img/Imagenes de la web/Slider/Remeras.jpg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(8) > div{
+        background-image: url('img/Imagenes de la web/Slider/D_759307-MLU74866439346_032024-C\ \(1\).jpg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(9) > div{
+        background-image: url('img/Imagenes de la web/Slider/cable.jpg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(10) > div{
+        background-image: url('img/Imagenes de la web/Slider/Botellas.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(11) > div{
+        background-image: url('img/Imagenes de la web/Slider/envases\ de\ plastico.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(12) > div{
+        background-image: url('img/Imagenes de la web/Slider/Jabones.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(13) > div{
+        background-image: url('img/Imagenes de la web/Slider/descarga.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .categorias > div:last-child > div:last-child > div:nth-child(14) > div{
+        background-image: url('img/Imagenes de la web/Slider/descarga.jpeg'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    /*---------------------------------footer---------------------------------*/
+    .footer{
+        width: 100%;
+        gap: 20px;
+        display: flex;
+        padding: 30px;
+        align-items: center;
+        background-image: url('img/footer.png'); /* Imagen SVG de fondo */
+        background-size: cover; /* Ajusta el tamaño de la imagen para cubrir el área */
+        background-repeat: no-repeat; /* Evita que la imagen se repita */
+        background-position: center; /* Centra la imagen */
+    }
+    
+    .footer > div:first-child{
+        display: flex;
+        flex-direction: column;
+        border-radius: 12px;
+        background-color: #3f51b5; /* Color de fondo */
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .footer > div:first-child img{
+        width: 200px;
+        margin-bottom: 20px;
+    }
+    
+    .footer > div:first-child h1{
+        color: #fff;
+    }
+    
+    .footer > div:last-child{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .footer > div:last-child div{
+        display: flex;
+    }
+    
+    .footer > div:last-child div:first-child{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #fff;
+        border-radius: 15px;
+        padding: 5px;
+    }
+    
+    .footer > div:last-child div:last-child img{
+        width: 50px;
+    }
+    
+    .footer > div:last-child div:last-child{
+        width: 100%;
+        display: flex;
+        margin-right: 8vw;
+        gap: 20px;
+        justify-content: flex-end;
+        margin-top: 20px;
+    }
+    
+    .footer > div:last-child div:first-child p{
+        font-size: 20px;
+    }
+    
+    .footer > div:last-of-type > div:first-child img{
+        width: 300px;
+    }
+    
+    .footer > div:last-child div:first-child img{
+        border-radius: 15px;
+    }
+    
+    footer {
+        text-align: center;
+        padding: 30px;
+        background: #5b49ff;
+        background: #5D0CF2;
+        color: white;
+    }
+    
+    /*-------------------------------------------slideres-------------------------------------------*/
+    
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .slider-container {
+        width: 94vw;
+        padding: 4vh 3vw;
+        margin: auto;
+        background: #EBEBEB;
+        border-radius: 5px;
+        display: flex;
+        align-items: stretch; /* Hace que todos los elementos tengan la misma altura */
+        overflow-x: auto;
+    }
+    .slider-container .swiper-slide {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        text-align: center;
+        background: #FFF;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .slider-container .swiper-slide div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 96%;
+        height: 24vh;
+        overflow: hidden;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center;
+    }
+    .slider-container .swiper-slide div img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        height: auto;
+    }
+    .slider-container .swiper-button-next, .swiper-button-prev {
+        color: #333;
+    }
+    .slider-container .swiper-pagination-bullet-active {
+        background: #00a650;
+    }
+    
+    .slider-container .swiper-slide span{
+        font-size: 14px;
+        color: #00a650;
+    }
+    
+    .slider-container .swiper-slide small{
+        font-size: 12px;
+        color: #000000;
+        text-overflow: ellipsis;
+    }
+    
+    .slider-container .swiper-slide a{
+        text-align: center;
+        width: 100%;
+        font-weight: bold;
+        font-size: 18px;
+        background: rgb(60, 66, 241);
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+    
+    /*-------------------------------------------slider-------------------------------------------*/
+    
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    .slider-container {
+        width: 94vw;
+        padding: 4vh 3vw;
+        margin: auto;
+        background: #EBEBEB;
+        border-radius: 5px;
+        display: flex;
+        align-items: stretch; /* Hace que todos los elementos tengan la misma altura */
+        overflow-x: auto;
+    }
+    .slider-container .swiper-slide {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        justify-content: space-between;
+        text-align: center;
+        background: #FFF;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .slider-container .swiper-slide div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 96%;
+        height: 24vh;
+        overflow: hidden;
+        border-radius: 5px;
+        background-size: cover;
+        background-position: center;
+    }
+    .slider-container .swiper-slide div img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        height: auto;
+    }
+    .slider-container .swiper-button-next,.slider-container .swiper-button-prev {
+        color: #333;
+    }
+    
+    /*------------------------------------------------------*/
+    .slider-container .swiper-button-next, .slider-container .swiper-button-prev {
+        background: rgba(4, 10, 189, 0.6); /* Fondo semitransparente */
+        color: white;
+        border: none;
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s, transform 0.2s;
+    }
+    .slider-container .swiper-button-next:hover,.slider-container  .swiper-button-prev:hover {
+        background: rgba(73, 113, 245, 0.8);
+        transform: scale(1.1);
+    }
+    .slider-container .swiper-button-next:after,.slider-container .swiper-button-prev:after {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    
+    /*------------------------------------------------------*/
+    
+    
+    .slider-container .swiper-pagination-bullet-active {
+        background: #00a650;
+    }
+    
+    .slider-container .swiper-slide span{
+        font-size: 14px;
+        color: #00a650;
+    }
+    
+    .slider-container .swiper-slide small{
+        font-size: 12px;
+        color: #000000;
+        text-overflow: ellipsis;
+    }
+    
+    .slider-container .swiper-slide a{
+        text-align: center;
+        width: 100%;
+        font-weight: bold;
+        font-size: 18px;
+        background: rgb(60, 66, 241);
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+    
+    /*-------------------------------------------slider-2-------------------------------------------*/
+    
+    
+    
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

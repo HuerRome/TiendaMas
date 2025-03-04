@@ -175,6 +175,7 @@ nav img{
 
 .nav div:last-child a{
     gap: 5px;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -816,3 +817,8 @@ footer {
 }
 
 /*-------------------------------------------slider-2-------------------------------------------*/
+
+
+.nav div:last-child span{
+    display: none;
+}
