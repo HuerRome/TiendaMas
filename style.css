@@ -761,6 +761,34 @@ footer {
 .slider-container .swiper-button-next,.slider-container .swiper-button-prev {
     color: #333;
 }
+
+/*------------------------------------------------------*/
+.slider-container .swiper-button-next, .slider-container .swiper-button-prev {
+    background: rgba(4, 10, 189, 0.6); /* Fondo semitransparente */
+    color: white;
+    border: none;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+.slider-container .swiper-button-next:hover,.slider-container  .swiper-button-prev:hover {
+    background: rgba(73, 113, 245, 0.8);
+    transform: scale(1.1);
+}
+.slider-container .swiper-button-next:after,.slider-container .swiper-button-prev:after {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/*------------------------------------------------------*/
+
+
 .slider-container .swiper-pagination-bullet-active {
     background: #00a650;
 }
