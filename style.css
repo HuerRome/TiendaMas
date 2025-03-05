@@ -461,25 +461,20 @@ nav img{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 96%;
-    border-radius: 15px;
-    height: 24vh;
+    width: 100%;
+    border-radius: 12px;
+    height:140px;
     overflow: hidden;
-    border-radius: 5px;
-    background-size: cover;
-    background-position: center;
+    position: relative;
+    background-color: #f0f0f0; /* Color de fondo para áreas vacías */
 }
 
 .categorias > div:last-child > div:last-child > div .imagen img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-    height: auto;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Llena el contenedor sin deformar */
+    border-radius: 12px;
 }
-
-
-
-
 
 /*---------------------------------footer---------------------------------*/
 .footer{
@@ -494,7 +489,11 @@ nav img{
     background-position: center; /* Centra la imagen */
 }
 
-.footer > div:first-child{
+.footer .borrar{
+    display: none;
+}
+
+.footer > div:first-child > div:first-child{
     display: flex;
     flex-direction: column;
     border-radius: 12px;
@@ -504,12 +503,12 @@ nav img{
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.footer > div:first-child img{
+.footer > div:first-child > div:first-child img{
     width: 200px;
     margin-bottom: 20px;
 }
 
-.footer > div:first-child h1{
+.footer > div:first-child > div:first-child h1{
     color: #fff;
 }
 
@@ -546,6 +545,7 @@ nav img{
 
 .footer > div:last-child div:first-child p{
     font-size: 20px;
+    margin-right: 10px;
 }
 
 .footer > div:last-of-type > div:first-child img{
