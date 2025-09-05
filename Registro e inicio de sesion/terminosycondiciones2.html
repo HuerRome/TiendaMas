@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones | Tienda Más</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --orange: #FF6B35;
+            --dark-blue: #004E89;
+            --light-gray: #f8f9fa;
+            --medium-gray: #e9ecef;
+            --dark-gray: #495057;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-gray);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--orange);
+        }
+        
+        /* Main Content */
+        main {
+            padding: 2rem 0;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 2rem 0;
+            background-color: var(--dark-blue);
+            color: white;
+            border-radius: 8px;
+        }
+        
+        .page-header h1 {
+            font-family: 'Roboto Condensed', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        /* Terms Sections */
+        .terms-container {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .intro-text {
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+        
+        .terms-section {
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .terms-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .terms-section h2 {
+            font-family: 'Roboto Condensed', sans-serif;
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--orange);
+            display: flex;
+            align-items: center;
+        }
+        
+        .terms-section h2 i {
+            margin-right: 10px;
+            color: var(--orange);
+        }
+        
+        .terms-section p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        .terms-section ol, .terms-section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .terms-section li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .highlight {
+            background-color: var(--medium-gray);
+            padding: 1.5rem;
+            border-left: 4px solid var(--orange);
+            margin: 1.5rem 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 1.5rem;
+            padding: 0 1rem;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Roboto Condensed', sans-serif;
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+            color: var(--orange);
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.7rem;
+        }
+        
+        .footer-column a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: var(--orange);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            font-size: 1.3rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--orange);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .terms-container {
+                padding: 1.5rem;
+            }
+            
+            .footer-column {
+                min-width: 50%;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .page-header {
+                padding: 1.5rem 0;
+            }
+            
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .terms-container {
+                padding: 1rem;
+            }
+            
+            .footer-column {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">TIENDA<span>MÁS</span></a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <section class="page-header">
+                <h1>TÉRMINOS Y CONDICIONES DE USO</h1>
+                <p>TIENDA MÁS</p>
+            </section>
+            
+            <section class="terms-container">
+                <div class="intro-text">
+                    <p>Bienvenido a Tienda Más. Este sitio web, en adelante "la Plataforma", es operado por [Nombre o razón social], CUIT N° [número], con domicilio en [Dirección], conforme a las leyes de la República Argentina, en especial a lo establecido por la Ley N.º 24.240 de Defensa del Consumidor, el Código Civil y Comercial de la Nación, la Ley de Comercio Electrónico, la Ley N.º 25.326 de Protección de Datos Personales, y demás normativa complementaria.</p>
+                    <p>El presente documento regula el uso de los servicios ofrecidos por Tienda Más, estableciendo las condiciones bajo las cuales los usuarios acceden y utilizan la Plataforma. El uso de la Plataforma implica la aceptación plena y sin reservas de estos Términos y Condiciones. Si no está de acuerdo con ellos, por favor absténgase de utilizarla.</p>
+                </div>
+                
+                <section class="terms-section" id="section1">
+                    <h2><i class="fas fa-box-open"></i> 1. Objeto de la Plataforma</h2>
+                    <p>Tienda Más es una plataforma de comercio electrónico destinada a facilitar la vinculación entre usuarios compradores y comercios independientes legalmente registrados en la República Argentina. Los productos ofrecidos en la Plataforma son provistos por dichos comercios, quienes actúan como vendedores directos y responsables legales de la transacción.</p>
+                    <p>La Plataforma actúa exclusivamente como intermediaria tecnológica, brindando el soporte digital para la promoción, consulta, selección y adquisición de productos. No participa de manera directa en la operación comercial, en la fabricación, distribución ni entrega de los productos.</p>
+                </section>
+                
+                <section class="terms-section" id="section2">
+                    <h2><i class="fas fa-store"></i> 2. Comercios Registrados y Responsabilidad</h2>
+                    <p>Los comercios registrados en Tienda Más declaran estar debidamente inscriptos ante la Administración Federal de Ingresos Públicos (AFIP) y cumplir con todas las normativas nacionales, provinciales y municipales vigentes para operar comercialmente. La veracidad de la información proporcionada por los comercios es de su exclusiva responsabilidad.</p>
+                    <p>Cada comercio se obliga a cumplir con la Ley de Defensa del Consumidor (Ley N.º 24.240), la Ley de Lealtad Comercial (Ley N.º 22.802), y todas las normativas que regulan la oferta de productos, condiciones de garantía, publicidad, entrega y devoluciones.</p>
+                    <div class="highlight">
+                        <p>Tienda Más no asume responsabilidad alguna por daños, perjuicios, reclamos o cualquier otra consecuencia que pudiera derivarse de la relación entre el usuario y el comercio. Dicha relación se celebra bajo exclusiva responsabilidad de las partes intervinientes.</p>
+                    </div>
+                </section>
+                
+                <section class="terms-section" id="section3">
+                    <h2><i class="fas fa-balance-scale"></i> 3. Competencia y Libre Ejercicio Comercial</h2>
+                    <p>La Plataforma permite que diversos comercios ofrezcan sus productos en un entorno digital de libre competencia, garantizando igualdad de condiciones. Se reconoce la facultad de cada comercio para operar bajo su propia razón social, política de atención, precios y condiciones de venta, siempre respetando la legislación vigente.</p>
+                </section>
+                
+                <section class="terms-section" id="section4">
+                    <h2><i class="fas fa-truck"></i> 4. Política de Envíos y Responsabilidad de los Correo</h2>
+                    <p>Los productos adquiridos a través de la Plataforma serán enviados por empresas de logística y transporte asociadas a Tienda Más. La responsabilidad sobre la entrega, manipulación, integridad, trazabilidad y tiempos de entrega es exclusiva de las empresas de correo y no de la Plataforma.</p>
+                    <p>Los usuarios aceptan que toda eventualidad derivada del proceso de envío (retrasos, pérdida, deterioro, entrega en dirección errónea, etc.) deberá ser reclamada directamente ante el operador logístico correspondiente, conforme a los términos de la Ley N.º 24.240 y las regulaciones aplicables al transporte de mercadería.</p>
+                </section>
+                
+                <section class="terms-section" id="section5">
+                    <h2><i class="fas fa-exclamation-triangle"></i> 5. Limitación de Responsabilidad de Tienda Más</h2>
+                    <p>Tienda Más no será responsable, en ningún caso, por los daños directos, indirectos, incidentales, especiales o consecuentes que puedan derivarse del uso o imposibilidad de uso de la Plataforma, ni por disputas, incumplimientos, inconformidades o fraudes en las operaciones entre usuarios y comercios.</p>
+                    <p>El usuario exonera expresamente a Tienda Más de toda responsabilidad que no le sea legalmente exigible en su carácter de intermediario digital, conforme a lo previsto en el Código Civil y Comercial de la Nación y la jurisprudencia aplicable.</p>
+                </section>
+                
+                <section class="terms-section" id="section6">
+                    <h2><i class="fas fa-shield-alt"></i> 6. Protección de Datos Personales</h2>
+                    <p>Los datos personales brindados por los usuarios serán tratados conforme a la Ley N.º 25.326 y su decreto reglamentario. Tienda Más adoptará medidas técnicas y organizativas para proteger la confidencialidad, integridad y seguridad de los datos, utilizándolos solo para los fines autorizados.</p>
+                    <p>El usuario podrá ejercer los derechos de acceso, rectificación y supresión previstos por la legislación vigente, contactando a [email de contacto o canal oficial].</p>
+                </section>
+                
+                <section class="terms-section" id="section7">
+                    <h2><i class="fas fa-gavel"></i> 7. Jurisdicción y Legislación Aplicable</h2>
+                    <p>Estos Términos y Condiciones se regirán e interpretarán conforme a las leyes de la República Argentina. Ante cualquier conflicto legal, las partes se someten a la jurisdicción de los tribunales ordinarios con competencia en la Ciudad de [Ciudad], renunciando a cualquier otro fuero que pudiera corresponder.</p>
+                </section>
+                
+                <section class="terms-section" id="section8">
+                    <h2><i class="fas fa-edit"></i> 8. Modificaciones</h2>
+                    <p>Tienda Más se reserva el derecho de modificar estos Términos y Condiciones en cualquier momento. Las modificaciones serán informadas y entrarán en vigencia desde su publicación en la Plataforma. El uso continuo de la Plataforma implica la aceptación de los términos actualizados.</p>
+                </section>
+            </section>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Tienda Más</h3>
+                    <p>Plataforma de comercio electrónico que conecta compradores con comercios independientes en toda Argentina.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces útiles</h3>
+                    <ul>
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="#">Comercios</a></li>
+                        <li><a href="#">Ayuda</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Términos y condiciones</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                        <li><a href="#">Defensa del consumidor</a></li>
+                        <li><a href="#">Botón de arrepentimiento</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> [Dirección completa]</li>
+                        <li><i class="fas fa-phone"></i> [Teléfono]</li>
+                        <li><i class="fas fa-envelope"></i> [Email]</li>
+                        <li><i class="fas fa-clock"></i> Lunes a Viernes 9-18hs</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Tienda Más. Todos los derechos reservados. CUIT N° [número]</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Efecto de aparición progresiva al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.terms-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad | Tienda Más</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --orange: #FF6B35;
+            --dark-blue: #004E89;
+            --light-blue: #E6F0F7;
+            --white: #FFFFFF;
+            --gray-100: #F8F9FA;
+            --gray-200: #E9ECEF;
+            --gray-600: #6C757D;
+            --gray-800: #343A40;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--gray-800);
+            background-color: var(--gray-100);
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--orange);
+            margin-left: 0.3rem;
+        }
+        
+        .logo-icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+            color: var(--orange);
+        }
+        
+        /* Main Content */
+        main {
+            padding: 3rem 0;
+        }
+        
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--dark-blue) 0%, #003A6B 100%);
+            color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 78, 137, 0.15);
+        }
+        
+        .page-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Privacy Sections */
+        .privacy-container {
+            background-color: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            padding: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .intro-text {
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--gray-600);
+        }
+        
+        .privacy-section {
+            margin-bottom: 3rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .privacy-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .privacy-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--orange);
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+        }
+        
+        .privacy-section h2 i {
+            margin-right: 12px;
+            color: var(--orange);
+            font-size: 1.3rem;
+        }
+        
+        .privacy-section h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-blue);
+            margin: 1.5rem 0 1rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .privacy-section p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        .privacy-section ul, .privacy-section ol {
+            margin-left: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .privacy-section li {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+        
+        .highlight-box {
+            background-color: var(--light-blue);
+            padding: 1.8rem;
+            border-left: 4px solid var(--orange);
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0;
+            color: var(--gray-800);
+        }
+        
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--orange);
+            color: var(--white);
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--orange);
+        }
+        
+        .back-button:hover {
+            background-color: transparent;
+            color: var(--orange);
+        }
+        
+        .back-button i {
+            margin-right: 8px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-col h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: var(--orange);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-col a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-col a:hover {
+            color: var(--orange);
+        }
+        
+        .footer-col a i {
+            margin-right: 8px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--white);
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--orange);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .privacy-container {
+                padding: 2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .page-header {
+                padding: 2rem 1.5rem;
+            }
+            
+            .page-header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .privacy-container {
+                padding: 1.5rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .page-header {
+                padding: 1.5rem 1rem;
+            }
+            
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .privacy-container {
+                padding: 1.2rem;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-col {
+                margin-bottom: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">
+                    <i class="fas fa-store logo-icon"></i>
+                    TIENDA<span>MÁS</span>
+                </a>
+            </nav>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <section class="page-header">
+                <h1>POLÍTICA DE PRIVACIDAD</h1>
+                <p>En Tienda Más respetamos tu privacidad y protegemos tus datos personales</p>
+            </section>
+            
+            <article class="privacy-container">
+                <section class="intro-text">
+                    <p>En Tienda Más respetamos la privacidad de nuestros usuarios y estamos comprometidos con la protección de sus datos personales. Esta Política de Privacidad describe cómo recopilamos, utilizamos, almacenamos y protegemos la información proporcionada por los usuarios a través de nuestra plataforma.</p>
+                </section>
+                
+                <section class="privacy-section" id="section1">
+                    <h2><i class="fas fa-database"></i> 1. Información que recopilamos</h2>
+                    <p>Podemos recolectar información personal como:</p>
+                    <ul>
+                        <li>Nombre completo</li>
+                        <li>Dirección de correo electrónico</li>
+                        <li>Domicilio postal</li>
+                        <li>Número de teléfono</li>
+                        <li>Datos de pago (tarjetas, transferencias)</li>
+                        <li>Información relevante para procesar pedidos</li>
+                        <li>Datos para brindar asistencia al cliente</li>
+                    </ul>
+                </section>
+                
+                <section class="privacy-section" id="section2">
+                    <h2><i class="fas fa-laptop-code"></i> 2. Uso de la información</h2>
+                    <p>Utilizamos los datos recopilados para los siguientes propósitos:</p>
+                    <ol>
+                        <li>Procesar y gestionar compras</li>
+                        <li>Brindar soporte y atención al cliente</li>
+                        <li>Enviar comunicaciones promocionales (solo con consentimiento explícito)</li>
+                        <li>Mejorar nuestros servicios y experiencia de usuario</li>
+                        <li>Cumplir con obligaciones legales</li>
+                        <li>Prevenir fraudes y garantizar la seguridad</li>
+                    </ol>
+                </section>
+                
+                <section class="privacy-section" id="section3">
+                    <h2><i class="fas fa-shield-alt"></i> 3. Protección de los datos</h2>
+                    <p>Implementamos medidas de seguridad técnicas y organizativas avanzadas para garantizar:</p>
+                    <div class="highlight-box">
+                        <p>La confidencialidad, integridad y disponibilidad de los datos personales, conforme a lo establecido por la Ley N.º 25.326 de Protección de Datos Personales y su reglamentación.</p>
+                    </div>
+                    <h3>Medidas implementadas</h3>
+                    <ul>
+                        <li>Encriptación de datos sensibles</li>
+                        <li>Accesos restringidos y autenticación</li>
+                        <li>Procedimientos de auditoría regular</li>
+                        <li>Capacitación del personal</li>
+                        <li>Protocolos de respuesta a incidentes</li>
+                    </ul>
+                </section>
+                
+                <section class="privacy-section" id="section4">
+                    <h2><i class="fas fa-handshake"></i> 4. Terceros</h2>
+                    <p>Nuestra política respecto al compartir información:</p>
+                    <ul>
+                        <li><strong>No compartimos</strong> información personal con terceros sin necesidad</li>
+                        <li>Excepciones:
+                            <ul>
+                                <li>Cumplimiento de obligaciones legales</li>
+                                <li>Proveedores de servicios esenciales (logística, pagos)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <p>Todos los terceros que acceden a datos están obligados contractualmente a cumplir con esta Política de Privacidad y normativas vigentes.</p>
+                </section>
+                
+                <section class="privacy-section" id="section5">
+                    <h2><i class="fas fa-user-check"></i> 5. Derechos del usuario</h2>
+                    <p>De acuerdo con la Ley 25.326, tienes derecho a:</p>
+                    <ol>
+                        <li>Acceder a tus datos personales</li>
+                        <li>Rectificar información inexacta</li>
+                        <li>Actualizar información incompleta</li>
+                        <li>Solicitar la eliminación de tus datos (derecho al olvido)</li>
+                        <li>Revocar consentimientos otorgados</li>
+                    </ol>
+                    <div class="highlight-box">
+                        <p>Para ejercer estos derechos, podés escribirnos a: <strong>privacidad@tiendamas.com</strong></p>
+                    </div>
+                </section>
+                
+                <section class="privacy-section" id="section6">
+                    <h2><i class="fas fa-cookie-bite"></i> 6. Cookies</h2>
+                    <p>Utilizamos cookies y tecnologías similares para:</p>
+                    <ul>
+                        <li>Mejorar la experiencia de navegación</li>
+                        <li>Recordar preferencias</li>
+                        <li>Analizar uso del sitio</li>
+                        <li>Personalizar contenido</li>
+                    </ul>
+                    <h3>Control de cookies</h3>
+                    <p>Podés configurar tu navegador para:</p>
+                    <ul>
+                        <li>Rechazar todas las cookies</li>
+                        <li>Eliminar cookies existentes</li>
+                        <li>Notificarte al recibir una cookie</li>
+                    </ul>
+                    <p><strong>Nota:</strong> Algunas funciones pueden no trabajar correctamente sin cookies.</p>
+                </section>
+                
+                <section class="privacy-section" id="section7">
+                    <h2><i class="fas fa-edit"></i> 7. Modificaciones</h2>
+                    <p>Tienda Más se reserva el derecho de modificar esta Política de Privacidad para:</p>
+                    <ul>
+                        <li>Adaptarse a cambios legales</li>
+                        <li>Reflejar nuevas prácticas</li>
+                        <li>Mejorar la protección de datos</li>
+                    </ul>
+                    <p>Los cambios se notificarán mediante su publicación en la plataforma. Te recomendamos revisar periódicamente esta política.</p>
+                </section>
+                
+                <section class="privacy-section" id="section8">
+                    <h2><i class="fas fa-envelope"></i> 8. Contacto</h2>
+                    <p>Para consultas sobre esta Política de Privacidad, podés comunicarte con nosotros a través de:</p>
+                    <ul>
+                        <li><strong>Email:</strong> privacidad@tiendamas.com</li>
+                        <li><strong>Formulario de contacto:</strong> www.tiendamas.com/contacto</li>
+                        <li><strong>Correo postal:</strong> [Dirección completa]</li>
+                    </ul>
+                </section>
+                
+                <a href="#" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Volver al inicio
+                </a>
+            </article>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Tienda Más</h3>
+                    <p>Conectamos compradores con los mejores comercios de Argentina.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Información</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Sobre nosotros</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Preguntas frecuentes</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cómo comprar</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Métodos de pago</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Envíos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Términos y condiciones</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Política de privacidad</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Defensa del consumidor</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Botón de arrepentimiento</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> [Dirección completa]</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> [Teléfono]</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> contacto@tiendamas.com</a></li>
+                        <li><a href="#"><i class="fas fa-clock"></i> Lunes a Viernes 9-18hs</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Tienda Más. Todos los derechos reservados. CUIT N° [número]</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Efecto de aparición al hacer scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.privacy-section');
+            
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+            
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            // Smooth scroll para enlaces internos
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
