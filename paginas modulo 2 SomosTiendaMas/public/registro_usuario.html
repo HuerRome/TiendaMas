@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta | Tienda Mas</title>
+    <meta name="description" content="Create an account with Tienda Mas for faster checkout and personalized shopping">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FF6B35;
+            --primary-hover: #E55627;
+            --secondary-color: #004E89;
+            --light-gray: #F8F9FA;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--light-gray); color: #333;}
+        .form-container { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+        .input-icon { transition: all 0.2s ease; }
+        .input-field:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.12); }
+        .btn-primary { transition: all 0.2s ease; background-color: var(--primary-color); }
+        .btn-primary:hover { background-color: var(--primary-hover); }
+        .password-toggle { right: 12px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #6B7280; }
+        .password-toggle:hover { color: #374151; }
+        .spinner { display: none; width: 20px; height: 20px; border: 3px solid rgba(255, 255, 255, 0.3); border-radius: 50%; border-top-color: white; animation: spin 1s ease-in-out infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .section-title { font-weight: 600; color: #1f2937; margin-bottom: .5rem; }
+        .section { border: 1px solid #e5e7eb; padding: 1rem; border-radius: .5rem; background: #fff; }
+        .muted { color: #6b7280; font-size: .9rem; }
+        .error-message { color: #dc2626; font-size: .85rem; margin-top: .4rem; }
+        /* Inicio Estado de Sesion */
+        #session-status { position: fixed; top:12px; right:12px; width:260px; background:#fff; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.12); padding:10px 12px; font-size:13px; z-index:9999; color:#222; }
+        #session-status .row { display:flex; justify-content:space-between; margin:6px 0; align-items:center; }
+        #session-status .label { color:#666; }
+        .status-dot { width:12px; height:12px; border-radius:50%; display:inline-block; margin-left:8px; vertical-align:middle; }
+        .dot-green { background:#28a745; }
+        .dot-red { background:#dc3545; }
+        /* Fin Estado de Sesion */
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <main class="form-container bg-white rounded-xl p-8 w-full max-w-2xl space-y-6">
+        <header class="text-center mb-2">
+            <h1 class="text-3xl font-bold text-gray-800 mb-1 flex items-center justify-center">
+                <span class="text-orange-500">Tienda</span>
+                <span class="text-blue-600 ml-1">Mas</span>
+            </h1>
+            <p class="text-gray-600">Registrate y empezá a comprar fácil, rápido y seguro</p>
+        </header>
+
+        <form id="registrationForm" class="space-y-5" novalidate>
+            <!-- USUARIO -->
+            <section class="section space-y-4">
+                <div class="section-title">Datos de usuario</div>
+
+                <div class="grid grid-cols-1 gap-4">
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-gray-700">Usuario <span class="text-red-500">*</span></label>
+                        <input type="text" id="username" name="username" required minlength="6" maxlength="16" class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Elige un nombre de usuario" autocomplete="username">
+                        <!-- error-message placeholder -->
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="firstName" class="block text-sm font-medium text-gray-700">Nombre <span class="text-red-500">*</span></label>
+                            <input type="text" id="firstName" name="firstName" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Ingresa tu nombre" autocomplete="given-name">
+                        </div>
+                        <div>
+                            <label for="lastName" class="block text-sm font-medium text-gray-700">Apellido <span class="text-red-500">*</span></label>
+                            <input type="text" id="lastName" name="lastName" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Ingresa tu apellido" autocomplete="family-name">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="gender" class="block text-sm font-medium text-gray-700">Género <span class="text-red-500">*</span></label>
+                            <select id="gender" name="gender" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg">
+                                <option value="">Selecciona tu género</option>
+                                <option value="MASCULINO">Masculino</option>
+                                <option value="FEMENINO">Femenino</option>
+                                <option value="OTRO">Otro</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="document" class="block text-sm font-medium text-gray-700">Documento (DNI/CUIL) <span class="text-red-500">*</span></label>
+                            <input type="text" id="document" name="document" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Ingresa tu documento">
+                        </div>
+                    </div>
+
+                    <!-- Fecha de nacimiento (izquierda) y correo (derecha) -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="birthDate" class="block text-sm font-medium text-gray-700">Fecha de nacimiento <span class="text-red-500">*</span></label>
+                            <input type="date" id="birthDate" name="birthDate" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="YYYY-MM-DD">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico <span class="text-red-500">*</span></label>
+                            <input type="email" id="email" name="email" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="tu@email.com" autocomplete="email">
+                        </div>
+                    </div>
+
+                    <!-- Contraseña y repetir contraseña -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="password" class="block text-sm font-medium text-gray-700">Contraseña <span class="text-red-500">*</span></label>
+                            <input type="password" id="password" name="password" required minlength="6" maxlength="16" class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="••••••••" autocomplete="new-password">
+                        </div>
+                        <div>
+                            <label for="passwordConfirm" class="block text-sm font-medium text-gray-700">Repetir contraseña <span class="text-red-500">*</span></label>
+                            <input type="password" id="passwordConfirm" name="passwordConfirm" required minlength="6" maxlength="16" class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Repite la contraseña" autocomplete="new-password">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DIRECCION -->
+            <section class="section space-y-4">
+                <div class="section-title">Dirección de entrega</div>
+                <p class="muted">Seleccioná ubicación en orden. Campos marcados con * son obligatorios.</p>
+
+                <div class="grid grid-cols-1 gap-4">
+                    <!-- Cascading selects para ubicación -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="provinciaSelect" class="block text-sm font-medium text-gray-700">Provincia <span class="text-red-500">*</span></label>
+                            <select id="provinciaSelect" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg"></select>
+                        </div>
+                        <div>
+                            <label for="departamentoSelect" class="block text-sm font-medium text-gray-700">Departamento (jurisdicción) <span class="text-red-500">*</span></label>
+                            <select id="departamentoSelect" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" disabled></select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="municipioSelect" class="block text-sm font-medium text-gray-700">Municipio <span class="text-red-500">*</span></label>
+                            <select id="municipioSelect" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" disabled></select>
+                        </div>
+                        <div>
+                            <label for="localidadSelect" class="block text-sm font-medium text-gray-700">Localidad <span class="text-red-500">*</span></label>
+                            <select id="localidadSelect" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" disabled></select>
+                        </div>
+                    </div>
+
+                    <!-- Calle, numero, piso, departamento interno, cp y referencia -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="street" class="block text-sm font-medium text-gray-700">Calle <span class="text-red-500">*</span></label>
+                            <input type="text" id="street" name="street" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Ej: San Martín">
+                        </div>
+                        <div>
+                            <label for="number" class="block text-sm font-medium text-gray-700">Número <span class="text-red-500">*</span></label>
+                            <input type="text" id="number" name="number" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Ej: 1234">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-4">
+                        <div>
+                            <label for="floor" class="block text-sm font-medium text-gray-700">Piso</label>
+                            <input type="text" id="floor" name="floor" class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Ej: 2">
+                        </div>
+                        <div>
+                            <label for="apartment" class="block text-sm font-medium text-gray-700">Departamento (interno)</label>
+                            <input type="text" id="apartment" name="apartment" class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Ej: A">
+                        </div>
+                        <div>
+                            <label for="postalCode" class="block text-sm font-medium text-gray-700">Código Postal <span class="text-red-500">*</span></label>
+                            <input type="text" id="postalCode" name="postalCode" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Ej: 1000">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="reference" class="block text-sm font-medium text-gray-700">Referencia</label>
+                        <textarea id="reference" name="reference" class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Ej: Frente a la plaza"></textarea>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TELEFONO -->
+            <section class="section space-y-4">
+                <div class="section-title">Teléfono</div>
+                <div class="grid grid-cols-3 gap-4">
+                    <div>
+                        <label for="phoneCode" class="block text-sm font-medium text-gray-700">Código <span class="text-red-500">*</span></label>
+                        <input type="text" id="phoneCode" name="phoneCode" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="011">
+                    </div>
+                    <div class="col-span-2">
+                        <label for="phoneNumber" class="block text-sm font-medium text-gray-700">Número <span class="text-red-500">*</span></label>
+                        <input type="text" id="phoneNumber" name="phoneNumber" required class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="12345678">
+                    </div>
+                </div>
+            </section>
+
+            <!-- TÉRMINOS Y BOTÓN -->
+            <div class="flex items-start">
+                <input id="terms" name="terms" type="checkbox" required class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-2 focus:ring-orange-500">
+                <label for="terms" class="ml-3 text-sm text-gray-700">Acepto los <a href="#" class="text-orange-600 hover:underline">Términos y Condiciones</a> y la <a href="#" class="text-orange-600 hover:underline">Política de Privacidad</a><span class="text-red-500">*</span></label>
+            </div>
+
+            <button id="submitBtn" type="submit" class="btn-primary w-full text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center">
+                <span id="btnText">Crear cuenta</span>
+                <div id="spinner" class="spinner ml-2"></div>
+            </button>
+
+            <div class="text-center text-sm text-gray-600">¿Ya tienes una cuenta? - <a href="iniciarSesion.html" class="font-medium text-orange-600 hover:underline">Iniciar sesión</a></div>
+        </form>
+    </main>
+
+    <script>
+        // ---------- Inicialización y utilidades ----------
+        document.addEventListener('DOMContentLoaded', () => {
+            initBirthDateConstraints();
+            try { if (typeof initLocationSelectors === 'function') initLocationSelectors(); } catch(e){/* ignore */ }
+            attachValidationHandlers();
+            // Form submit listener (centralizado)
+            const form = document.getElementById('registrationForm');
+            if (form) form.addEventListener('submit', handleSubmit);
+        });
+
+        function initBirthDateConstraints() {
+            const bd = document.getElementById('birthDate');
+            if (!bd) return;
+            const today = new Date();
+            bd.max = today.toISOString().split('T')[0];
+            bd.min = '1900-01-01';
+        }
+
+        // Helper para mostrar/crear error
+        function showError(input, message) {
+            if (!input) return;
+            // evita crear múltiples elementos
+            let err = input.parentElement.querySelector('.error-message');
+            if (!err) {
+                err = document.createElement('p');
+                err.className = 'error-message';
+                input.parentElement.appendChild(err);
+            }
+            err.textContent = message || '';
+            if (message) {
+                input.classList.add('border-red-500');
+                err.style.display = 'block';
+            } else {
+                input.classList.remove('border-red-500');
+                err.style.display = 'none';
+            }
+        }
+
+        // Validaciones (expresiones regulares)
+        const usernameRegex = /^[a-zA-Z0-9._-]{6,16}$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const passwordRegex = /^[A-Za-z0-9!@#$%^&*()_+\-={}\[\]:;,.?/]{6,16}$/;
+        const nameRegex = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s'’-]{1,50}$/;
+        const documentRegex = /^[0-9.\-]{6,12}$/; // acepta números, puntos y guiones
+        const postalRegex = /^[A-Za-z0-9\s\-]{3,10}$/;
+        const phoneCodeRegex = /^\d{2,4}$/;
+        const phoneNumberRegex = /^\d{6,12}$/;
+        const numberRegex = /^[0-9A-Za-z\-]{1,6}$/;
+
+        // ---------- Validadores individuales ----------
+        function validateUsername() {
+            const el = document.getElementById('username');
+            const value = el.value.trim();
+            if (!value) { showError(el, 'El usuario es obligatorio.'); return false; }
+            if (!usernameRegex.test(value)) { showError(el, '6-16 caracteres. Permitidos: letras, números, . _ -'); return false; }
+            showError(el, '');
+            return true;
+        }
+
+        function validateFirstName() {
+            const el = document.getElementById('firstName');
+            const v = el.value.trim();
+            if (!v) { showError(el, 'El nombre es obligatorio.'); return false; }
+            if (!nameRegex.test(v)) { showError(el, 'Nombre invalido.'); return false; }
+            showError(el, ''); return true;
+        }
+
+        function validateLastName() {
+            const el = document.getElementById('lastName');
+            const v = el.value.trim();
+            if (!v) { showError(el, 'El apellido es obligatorio.'); return false; }
+            if (!nameRegex.test(v)) { showError(el, 'Apellido invalido.'); return false; }
+            showError(el, ''); return true;
+        }
+
+        function validateGender() {
+            const el = document.getElementById('gender');
+            if (!el) return true;
+            if (!el.value) { showError(el, 'Seleccioná el género.'); return false; }
+            showError(el, ''); return true;
+        }
+
+        function validateDocument() {
+            const el = document.getElementById('document');
+            const v = el.value.trim();
+            if (!v) { showError(el, 'Documento obligatorio.'); return false; }
+            if (!documentRegex.test(v)) { showError(el, 'Documento inválido. Solo números, puntos o guiones (6-12 dígitos).'); return false; }
+            showError(el, ''); return true;
+        }
+
+        function validateBirthDate() {
+            const el = document.getElementById('birthDate');
+            const v = el.value;
+            if (!v) { showError(el, 'Fecha de nacimiento obligatoria.'); return false; }
+            const selected = new Date(v);
+            const today = new Date();
+            if (selected > today) { showError(el, 'La fecha no puede ser futura.'); return false; }
+            showError(el, ''); return true;
+        }
+
+        function validateEmail() {
+            const el = document.getElementById('email');
+            const v = el.value.trim();
+            if (!v) { showError(el, 'El correo es obligatorio.'); return false; }
+            if (!emailRegex.test(v)) { showError(el, 'Formato de correo no válido.'); return false; }
+            showError(el, ''); return true;
+        }
+
+        function validatePassword() {
+            const el = document.getElementById('password');
+            const v = el.value;
+            if (!v) { showError(el, 'La contraseña es obligatoria.'); return false; }
+            if (!passwordRegex.test(v)) { showError(el, '6-16 caracteres. Permitidos: letras, números y !@#$%^&*()_+-={}[]:;,.?/'); return false; }
+            showError(el, ''); return true;
+        }
+
+        function validatePasswordConfirm() {
+            const el = document.getElementById('passwordConfirm');
+            const v = el.value;
+            const pw = document.getElementById('password').value;
+            if (!v) { showError(el, 'Debes repetir la contraseña.'); return false; }
+            if (v !== pw) { showError(el, 'Las contraseñas no coinciden.'); return false; }
+            showError(el, ''); return true;
+        }
+
+        function validateProvincia() {
+            const el = document.getElementById('provinciaSelect');
+            if (!el) return true;
+            if (!el.value) { showError(el, 'Seleccioná provincia.'); return false; }
+            showError(el, ''); return true;
+        }
+        function validateDepartamento() {
+            const el = document.getElementById('departamentoSelect');
+            if (!el) return true;
+            if (el.disabled) { showError(el, 'Seleccioná departamento.'); return false; }
+            if (!el.value) { showError(el, 'Seleccioná departamento.'); return false; }
+            showError(el, ''); return true;
+        }
+        function validateMunicipio() {
+            const el = document.getElementById('municipioSelect');
+            if (!el) return true;
+            if (el.disabled) { showError(el, 'Seleccioná municipio.'); return false; }
+            if (!el.value) { showError(el, 'Seleccioná municipio.'); return false; }
+            showError(el, ''); return true;
+        }
+        function validateLocalidad() {
+            const el = document.getElementById('localidadSelect');
+            if (!el) return true;
+            if (el.disabled) { showError(el, 'Seleccioná localidad.'); return false; }
+            if (!el.value) { showError(el, 'Seleccioná localidad.'); return false; }
+            showError(el, ''); return true;
+        }
+
+        function validateStreet() {
+            const el = document.getElementById('street');
+            const v = el.value.trim();
+            if (!v) { showError(el, 'La calle es obligatoria.'); return false; }
+            showError(el, ''); return true;
+        }
+        function validateNumber() {
+            const el = document.getElementById('number');
+            const v = el.value.trim();
+            if (!v) { showError(el, 'El número es obligatorio.'); return false; }
+            if (!numberRegex.test(v)) { showError(el, 'Número inválido.'); return false; }
+            showError(el, ''); return true;
+        }
+        function validatePostal() {
+            const el = document.getElementById('postalCode');
+            const v = el.value.trim();
+            if (!v) { showError(el, 'Código postal obligatorio.'); return false; }
+            if (!postalRegex.test(v)) { showError(el, 'Código postal inválido.'); return false; }
+            showError(el, ''); return true;
+        }
+
+        function validatePhoneCode() {
+            const el = document.getElementById('phoneCode');
+            const v = el.value.trim();
+            if (!v) { showError(el, 'Código de área obligatorio.'); return false; }
+            if (!phoneCodeRegex.test(v)) { showError(el, 'Código inválido.'); return false; }
+            showError(el, ''); return true;
+        }
+        function validatePhoneNumber() {
+            const el = document.getElementById('phoneNumber');
+            const v = el.value.trim();
+            if (!v) { showError(el, 'Número telefónico obligatorio.'); return false; }
+            if (!phoneNumberRegex.test(v)) { showError(el, 'Número inválido.'); return false; }
+            showError(el, ''); return true;
+        }
+
+        function validateTerms() {
+            const el = document.getElementById('terms');
+            if (!el) return true;
+            if (!el.checked) { const labelEl = el.parentElement.querySelector('label') || el; showError(el, 'Debes aceptar los términos.'); return false; }
+            // remove error displayed on checkbox parent (if any)
+            showError(document.getElementById('terms'), '');
+            return true;
+        }
+
+        // Ejecuta todas las validaciones y devuelve boolean
+        function validateAll() {
+            const results = [
+                validateUsername(),
+                validateFirstName(),
+                validateLastName(),
+                validateGender(),
+                validateDocument(),
+                validateBirthDate(),
+                validateEmail(),
+                validatePassword(),
+                validatePasswordConfirm(),
+                validateProvincia(),
+                validateDepartamento(),
+                validateMunicipio(),
+                validateLocalidad(),
+                validateStreet(),
+                validateNumber(),
+                validatePostal(),
+                validatePhoneCode(),
+                validatePhoneNumber(),
+                validateTerms()
+            ];
+            // si algún val es false => no pasar
+            return results.every(v => v === true);
+        }
+
+        // Adjunta handlers de validación en eventos 'blur' y 'input' donde tiene sentido
+        function attachValidationHandlers() {
+            const map = [
+                ['username', 'blur', validateUsername],
+                ['firstName','blur', validateFirstName],
+                ['lastName','blur', validateLastName],
+                ['gender','change', validateGender],
+                ['document','blur', validateDocument],
+                ['birthDate','change', validateBirthDate],
+                ['email','blur', validateEmail],
+                ['password','blur', validatePassword],
+                ['passwordConfirm','blur', validatePasswordConfirm],
+                ['provinciaSelect','change', validateProvincia],
+                ['departamentoSelect','change', validateDepartamento],
+                ['municipioSelect','change', validateMunicipio],
+                ['localidadSelect','change', validateLocalidad],
+                ['street','blur', validateStreet],
+                ['number','blur', validateNumber],
+                ['postalCode','blur', validatePostal],
+                ['phoneCode','blur', validatePhoneCode],
+                ['phoneNumber','blur', validatePhoneNumber],
+                ['terms','change', validateTerms]
+            ];
+            map.forEach(([id, ev, fn]) => {
+                const el = document.getElementById(id);
+                if (!el) return;
+                el.addEventListener(ev, () => { try { fn(); } catch(e) { /* ignore */ } });
+                // en input también validamos para dar feedback instantáneo
+                if (ev !== 'change') {
+                    el.addEventListener('input', () => { try { fn(); } catch(e) { /* ignore */ } });
+                }
+            });
+        }
+
+        // ---------- Envío: handleSubmit (usa validateAll) ----------
+        function handleSubmit(evt) {
+            evt.preventDefault();
+            // Validar todo
+            const ok = validateAll();
+            if (!ok) {
+                // buscar primer error visible y hacer focus
+                const firstErr = document.querySelector('.error-message:not([style*="display: none"]), .error-message');
+                if (firstErr && firstErr.textContent.trim()) {
+                    const field = firstErr.parentElement.querySelector('input, select, textarea');
+                    if (field) field.focus();
+                }
+                alert('Corrige los errores antes de continuar.');
+                return;
+            }
+
+            // Mostrar spinner y enviar
+            const btn = document.getElementById('submitBtn');
+            const spinner = document.getElementById('spinner');
+            const btnText = document.getElementById('btnText');
+            spinner.style.display = 'inline-block';
+            btnText.textContent = 'Creando...';
+            btn.disabled = true;
+
+            // convertir fecha a ISO yyyy-MM-dd
+            const bdVal = document.getElementById('birthDate').value;
+            const fechaNacimiento = bdVal ? bdVal : null;
+
+            // armar objeto usuario (ajusta según tu DTO backend)
+            const usuarioPayload = {
+                username: document.getElementById('username').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                password: document.getElementById('password').value,
+                nombreResponsable: document.getElementById('firstName').value.trim(),
+                apellidoResponsable: document.getElementById('lastName').value.trim(),
+                documentoResponsable: document.getElementById('document').value.trim(),
+                generoResponsable: document.getElementById('gender').value,
+                fechaNacimientoResponsable: fechaNacimiento,
+                tipoUsuario: "PERSONA_FISICA",
+                idioma: "es",
+                timezone: "America/Argentina/Buenos_Aires",
+                rol: "ROLE_USUARIO",
+                aceptaTerminos: document.getElementById('terms').checked,
+                aceptaPoliticaPriv: document.getElementById('terms').checked
+            };
+
+            const telefonoPayload = {
+                caracteristica: document.getElementById('phoneCode').value.trim(),
+                numero: document.getElementById('phoneNumber').value.trim(),
+                tipo: 'PRINCIPAL'
+            };
+
+            const direccionPayload = {
+                tipo: 'ENVIO',
+                idPais: 1,
+                idProvincia: parseInt(document.getElementById('provinciaSelect').value) || null,
+                idDepartamento: parseInt(document.getElementById('departamentoSelect').value) || null,
+                idMunicipio: parseInt(document.getElementById('municipioSelect').value) || null,
+                idLocalidad: parseInt(document.getElementById('localidadSelect').value) || null,
+                calle: document.getElementById('street').value.trim(),
+                numero: document.getElementById('number').value.trim(),
+                piso: document.getElementById('floor') ? document.getElementById('floor').value.trim() || null : null,
+                referencia: document.getElementById('reference') ? document.getElementById('reference').value.trim() || null : null,
+                codigoPostal: document.getElementById('postalCode').value.trim(),
+                activa: document.getElementById('addressActive') ? document.getElementById('addressActive').checked : false,
+                esPrincipal: document.getElementById('addressPrimary') ? document.getElementById('addressPrimary').checked : false
+            };
+
+            const payload = {
+                usuario: Object.assign({}, usuarioPayload),
+                direcciones: [direccionPayload],
+                telefonos: [telefonoPayload],
+                perfilEmpresa: null
+            };
+
+            fetch('/api/gestionusuario/public/usuario/registro', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(async res => {
+                spinner.style.display = 'none';
+                btnText.textContent = 'Crear cuenta';
+                btn.disabled = false;
+                if (res.ok) {
+                    // redirigir a la página de "correo enviado" al obtener 200
+                    window.location.href = '/public/correoEnviado(verificarCorreo).html';
+                    return;
+                }
+                const text = await res.text().catch(()=>null);
+                return Promise.reject(text || `HTTP ${res.status}`);
+            })
+            .catch(err => {
+                spinner.style.display = 'none';
+                btnText.textContent = 'Crear cuenta';
+                btn.disabled = false;
+                console.error('Error registro:', err);
+                alert(typeof err === 'string' ? err : 'Error al crear cuenta. Ver consola para más detalles.');
+            });
+        }
+    </script>
+
+    <div id="session-status" aria-live="polite">
+        <div style="font-weight:600; margin-bottom:6px;">Estado de sesión</div>
+        <div class="row"><div class="label">Sesión:</div><div><span id="ss-sesion-label">Comprobando...</span> <span id="ss-dot" class="status-dot"></span></div></div>
+        <div class="row"><div class="label">Usuario:</div><div id="ss-usuario">---</div></div>
+        <div class="row"><div class="label">Rol:</div><div id="ss-rol">---</div></div>
+        <div class="row"><div class="label">JWT:</div><div id="ss-jwt">---</div></div>
+        <div class="row"><div class="label">Refresh:</div><div id="ss-refresh">---</div></div>
+        <div style="margin-top:6px; font-size:11px; color:#666;">Última comprobación: <span id="ss-last">nunca</span></div>
+    </div>
+
+    <script src="/js/ubicaciones.js"></script>
+    <script src="/js/auth-client.js"></script>
+    <script src="/js/session-status.js"></script>
+</body>
+</html>

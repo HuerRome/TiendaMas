@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Moderna</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .slider-container {
+            scroll-behavior: smooth;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .slider-container::-webkit-scrollbar {
+            display: none;
+        }
+        .product-card {
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+        }
+        .slider-dot {
+            transition: all 0.3s ease;
+        }
+        .slider-dot.active {
+            background-color: #3b82f6;
+            transform: scale(1.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-blue-600">MiTienda</div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-blue-600 transition">Inicio</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 transition">Productos</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 transition">Ofertas</a>
+                    <a href="#" class="text-gray-700 hover:text-blue-600 transition">Contacto</a>
+                </nav>
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 rounded-full hover:bg-gray-100 transition">
+                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                    </button>
+                    <button class="p-2 rounded-full hover:bg-gray-100 transition">
+                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-20">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Descubre Nuestros Productos</h1>
+            <p class="text-xl md:text-2xl mb-8">Calidad y estilo en un solo lugar</p>
+            <button class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition transform hover:scale-105">
+                Ver Colección
+            </button>
+        </div>
+    </section>
+
+    <!-- Products Slider -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Productos Destacados</h2>
+                <p class="text-gray-600 text-lg">Los artículos más populares de nuestra tienda</p>
+            </div>
+
+            <div class="relative">
+                <!-- Slider Container -->
+                <div id="slider" class="slider-container flex overflow-x-auto snap-x snap-mandatory space-x-6 pb-8">
+                    <!-- Product Cards will be inserted here by JavaScript -->
+                </div>
+
+                <!-- Navigation Buttons -->
+                <button id="prevBtn" class="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition opacity-0 group-hover:opacity-100">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button id="nextBtn" class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition opacity-0 group-hover:opacity-100">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Dots Indicator -->
+            <div id="dots" class="flex justify-center space-x-2 mt-8">
+                <!-- Dots will be inserted here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="bg-blue-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Calidad Garantizada</h3>
+                    <p class="text-gray-600">Todos nuestros productos pasan por estrictos controles de calidad</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-green-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Envío Rápido</h3>
+                    <p class="text-gray-600">Recibe tus pedidos en 24-48 horas con envío express</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-purple-100 rounded-full p-4 w-16 h-16 mx-auto mb-4 flex items-center justify-center">
+                        <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Soporte 24/7</h3>
+                    <p class="text-gray-600">Nuestro equipo de soporte está disponible para ayudarte</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">MiTienda</h3>
+                    <p class="text-gray-400">Tu destino de compras online de confianza desde 2024.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Enlaces Rápidos</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Inicio</a></li>
+                        <li><a href="#" class="hover:text-white transition">Productos</a></li>
+                        <li><a href="#" class="hover:text-white transition">Ofertas</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Categorías</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Electrónicos</a></li>
+                        <li><a href="#" class="hover:text-white transition">Hogar</a></li>
+                        <li><a href="#" class="hover:text-white transition">Moda</a></li>
+                        <li><a href="#" class="hover:text-white transition">Deportes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contacto</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Email: info@mitienda.com</li>
+                        <li>Teléfono: +1 234 567 890</li>
+                        <li>Dirección: Calle Principal 123</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 MiTienda. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Product data
+        const products = [
+            {
+                id: 1,
+                name: "Smartphone Pro",
+                price: 799.99,
+                image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=300&fit=crop",
+                description: "El último smartphone con todas las características premium"
+            },
+            {
+                id: 2,
+                name: "Auriculares Inalámbricos",
+                price: 199.99,
+                image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop",
+                description: "Sonido de alta calidad con cancelación de ruido"
+            },
+            {
+                id: 3,
+                name: "Reloj Inteligente",
+                price: 299.99,
+                image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=300&fit=crop",
+                description: "Monitoriza tu salud y mantente conectado"
+            },
+            {
+                id: 4,
+                name: "Tablet Elite",
+                price: 499.99,
+                image: "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=400&h=300&fit=crop",
+                description: "Perfecta para trabajo y entretenimiento"
+            },
+            {
+                id: 5,
+                name: "Cámara Profesional",
+                price: 899.99,
+                image: "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=300&fit=crop",
+                description: "Captura momentos increíbles con calidad profesional"
+            },
+            {
+                id: 6,
+                name: "Portátil Gaming",
+                price: 1299.99,
+                image: "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=300&fit=crop",
+                description: "Potencia extrema para gamers y creadores de contenido"
+            }
+        ];
+
+        class ProductSlider {
+            constructor() {
+                this.slider = document.getElementById('slider');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.dotsContainer = document.getElementById('dots');
+                this.currentIndex = 0;
+                this.autoPlayInterval = null;
+                this.isDragging = false;
+                this.startPos = 0;
+                this.currentTranslate = 0;
+                this.prevTranslate = 0;
+                this.animationId = 0;
+                this.productsPerView = this.getProductsPerView();
+
+                this.init();
+            }
+
+            getProductsPerView() {
+                if (window.innerWidth < 640) return 1;
+                if (window.innerWidth < 1024) return 2;
+                return 3;
+            }
+
+            init() {
+                this.renderProducts();
+                this.renderDots();
+                this.setupEventListeners();
+                this.startAutoPlay();
+                this.updateSliderPosition();
+            }
+
+            renderProducts() {
+                this.slider.innerHTML = products.map(product => `
+                    <div class="product-card w-80 md:w-96 bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="relative overflow-hidden rounded-t-lg">
+                            <img src="${product.image}" alt="${product.name}" class="w-full h-48 object-cover">
+                            <div class="absolute top-4 right-4 bg-red-500 text-white px-2 py-1 rounded text-sm font-semibold">
+                                Nuevo
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">${product.name}</h3>
+                            <p class="text-gray-600 text-sm mb-4">${product.description}</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-2xl font-bold text-blue-600">$${product.price}</span>
+                                <button class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
+                                    Comprar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            renderDots() {
+                const totalSlides = Math.ceil(products.length / this.productsPerView);
+                this.dotsContainer.innerHTML = Array.from({ length: totalSlides }, (_, i) => 
+                    `<button class="slider-dot w-3 h-3 rounded-full bg-gray-300 ${i === 0 ? 'active' : ''}" data-index="${i}"></button>`
+                ).join('');
+            }
+
+            setupEventListeners() {
+                this.prevBtn.addEventListener('click', () => this.prev());
+                this.nextBtn.addEventListener('click', () => this.next());
+
+                // Touch events for mobile swipe
+                this.slider.addEventListener('touchstart', this.touchStart.bind(this));
+                this.slider.addEventListener('touchmove', this.touchMove.bind(this));
+                this.slider.addEventListener('touchend', this.touchEnd.bind(this));
+
+                // Mouse events for desktop drag
+                this.slider.addEventListener('mousedown', this.touchStart.bind(this));
+                this.slider.addEventListener('mousemove', this.touchMove.bind(this));
+                this.slider.addEventListener('mouseup', this.touchEnd.bind(this));
+                this.slider.addEventListener('mouseleave', this.touchEnd.bind(this));
+
+                // Dot clicks
+                this.dotsContainer.addEventListener('click', (e) => {
+                    if (e.target.classList.contains('slider-dot')) {
+                        this.goToSlide(parseInt(e.target.dataset.index));
+                    }
+                });
+
+                // Window resize
+                window.addEventListener('resize', () => {
+                    this.productsPerView = this.getProductsPerView();
+                    this.renderDots();
+                    this.updateSliderPosition();
+                });
+
+                // Pause autoplay on hover
+                this.slider.addEventListener('mouseenter', () => this.stopAutoPlay());
+                this.slider.addEventListener('mouseleave', () => this.startAutoPlay());
+            }
+
+            touchStart(e) {
+                if (e.type === 'mousedown') {
+                    e.preventDefault();
+                }
+                this.isDragging = true;
+                this.startPos = this.getPositionX(e);
+                this.animationId = requestAnimationFrame(this.animation.bind(this));
+                this.slider.style.cursor = 'grabbing';
+                this.stopAutoPlay();
+            }
+
+            touchMove(e) {
+                if (!this.isDragging) return;
+                e.preventDefault();
+                const currentPosition = this.getPositionX(e);
+                this.currentTranslate = this.prevTranslate + currentPosition - this.startPos;
+            }
+
+            touchEnd() {
+                this.isDragging = false;
+                cancelAnimationFrame(this.animationId);
+                this.slider.style.cursor = 'grab';
+
+                const movedBy = this.currentTranslate - this.prevTranslate;
+                const slideWidth = this.slider.offsetWidth / this.productsPerView;
+
+                if (movedBy < -50 && this.currentIndex < Math.ceil(products.length / this.productsPerView) - 1) {
+                    this.next();
+                } else if (movedBy > 50 && this.currentIndex > 0) {
+                    this.prev();
+                } else {
+                    this.updateSliderPosition();
+                }
+
+                this.startAutoPlay();
+            }
+
+            getPositionX(e) {
+                return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+            }
+
+            animation() {
+                this.setSliderPosition();
+                if (this.isDragging) {
+                    requestAnimationFrame(this.animation.bind(this));
+                }
+            }
+
+            setSliderPosition() {
+                this.slider.style.transform = `translateX(${this.currentTranslate}px)`;
+            }
+
+            updateSliderPosition() {
+                const slideWidth = this.slider.offsetWidth / this.productsPerView;
+                this.currentTranslate = -this.currentIndex * slideWidth;
+                this.prevTranslate = this.currentTranslate;
+                this.setSliderPosition();
+                this.updateDots();
+            }
+
+            updateDots() {
+                document.querySelectorAll('.slider-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentIndex);
+                });
+            }
+
+            next() {
+                const maxIndex = Math.ceil(products.length / this.productsPerView) - 1;
+                this.currentIndex = this.currentIndex >= maxIndex ? 0 : this.currentIndex + 1;
+                this.updateSliderPosition();
+            }
+
+            prev() {
+                const maxIndex = Math.ceil(products.length / this.productsPerView) - 1;
+                this.currentIndex = this.currentIndex <= 0 ? maxIndex : this.currentIndex - 1;
+                this.updateSliderPosition();
+            }
+
+            goToSlide(index) {
+                this.currentIndex = index;
+                this.updateSliderPosition();
+            }
+
+            startAutoPlay() {
+                this.stopAutoPlay();
+                this.autoPlayInterval = setInterval(() => this.next(), 5000);
+            }
+
+            stopAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+            }
+        }
+
+        // Initialize slider when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new ProductSlider();
+        });
+    </script>
+</body>
+</html>

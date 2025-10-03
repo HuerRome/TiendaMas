@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Mas - Mayorista en Catamarca</title>
+    <link rel="shortcut icon" href="img/Logo.png">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+        
+        .swiper-slide {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .swiper-slide:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .menu-active {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .menu-active.open {
+            transform: translateX(0);
+        }
+        
+        .product-card {
+            transition: all 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Mobile Menu -->
+    <div class="menu-active fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-xl p-6 overflow-y-auto">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-xl font-bold text-gray-800">MENÚ</h1>
+            <button id="close-menu" class="text-gray-600 hover:text-gray-900">
+                <ion-icon name="close-outline" class="text-2xl"></ion-icon>
+            </button>
+        </div>
+        <nav class="space-y-4">
+            <a href="#tienda-online" class="block py-2 px-4 hover:bg-yellow-100 rounded-lg transition">TIENDA ONLINE</a>
+            <a href="#hogar" class="block py-2 px-4 hover:bg-yellow-100 rounded-lg transition">HOGAR</a>
+            <a href="#bazar" class="block py-2 px-4 hover:bg-yellow-100 rounded-lg transition">BAZAR</a>
+            <a href="#ferreteria" class="block py-2 px-4 hover:bg-yellow-100 rounded-lg transition">FERRETERÍA</a>
+            <a href="#otros" class="block py-2 px-4 hover:bg-yellow-100 rounded-lg transition">
+                <ion-icon name="ellipsis-horizontal-outline" class="align-middle mr-2"></ion-icon> OTROS
+            </a>
+            <div class="border-t my-4"></div>
+            <a href="#contacto" class="block py-2 px-4 hover:bg-yellow-100 rounded-lg transition">
+                <ion-icon name="logo-whatsapp" class="align-middle mr-2"></ion-icon> CONTACTO
+            </a>
+            <a href="#info-util" class="block py-2 px-4 hover:bg-yellow-100 rounded-lg transition">
+                <ion-icon name="help-outline" class="align-middle mr-2"></ion-icon> INFO ÚTIL
+            </a>
+            <a href="#inicio" class="block py-2 px-4 hover:bg-yellow-100 rounded-lg transition">
+                <ion-icon name="home-outline" class="align-middle mr-2"></ion-icon> INICIO
+            </a>
+        </nav>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-3">
+            <!-- Top Bar -->
+            <div class="flex justify-between items-center mb-4">
+                <!-- Search Box -->
+                <div class="relative flex-1 max-w-md mr-4">
+                    <input type="text" placeholder="Buscar productos..." 
+                           class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+                    <ion-icon name="search-outline" class="absolute left-3 top-2.5 text-gray-400 text-lg"></ion-icon>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="menu-button" class="lg:hidden text-2xl text-gray-700">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+                
+                <!-- Location -->
+                <a href="https://www.google.com.ar/maps/place/San+Fernando+del+Valle+de+Catamarca" 
+                   class="hidden lg:flex items-center text-sm text-gray-600 hover:text-yellow-600 ml-4">
+                    <img src="img/zona.png" alt="Zona de entrega" class="w-5 h-5 mr-1">
+                    <span>Catamarca</span>
+                </a>
+            </div>
+
+            <!-- Logo -->
+            <div class="text-center mb-4">
+                <img src="img/Logo 2.png" alt="Tienda Mas" class="h-16 mx-auto">
+            </div>
+
+            <!-- Navigation -->
+            <nav class="hidden lg:flex justify-between items-center border-t border-b border-gray-200 py-3">
+                <div class="flex space-x-8">
+                    <a href="#" class="font-medium hover:text-yellow-600 transition">TIENDA ONLINE</a>
+                    <a href="#" class="font-medium hover:text-yellow-600 transition">HOGAR</a>
+                    <a href="#" class="font-medium hover:text-yellow-600 transition">BAZAR</a>
+                    <a href="#" class="font-medium hover:text-yellow-600 transition">FERRETERÍA</a>
+                    <a href="#" class="font-medium hover:text-yellow-600 transition">OTROS</a>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span class="text-sm text-gray-600">Contactanos:</span>
+                    <a href="#" class="flex items-center font-medium text-yellow-600 hover:text-yellow-700">
+                        <span>+54 9 341 2005545</span>
+                        <ion-icon name="logo-whatsapp" class="ml-1"></ion-icon>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-yellow-400 to-yellow-500 py-12 lg:py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0 fade-in">
+                    <h1 class="text-4xl lg:text-5xl font-bold text-white mb-4">A TU ALCANCE</h1>
+                    <h2 class="text-3xl lg:text-4xl font-bold text-white mb-6">TIENDA MAS</h2>
+                    <p class="text-white text-lg mb-8 leading-relaxed">
+                        Conectamos a Catamarca con comercios de todo el país. Encuentra productos de calidad al mejor precio y con la garantía de un servicio mayorista confiable.
+                    </p>
+                    <a href="#" class="inline-flex items-center bg-white text-yellow-600 font-semibold px-6 py-3 rounded-lg shadow-lg hover:shadow-xl transition">
+                        EXPLORAR CATÁLOGO
+                        <ion-icon name="cart-outline" class="ml-2"></ion-icon>
+                    </a>
+                </div>
+                <div class="lg:w-1/2 flex justify-center fade-in">
+                    <img src="img/Stuck at Home - Shopping (1).png" alt="Compra online" class="w-full max-w-md">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nuevos Productos Slider -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="slider-container-2 bg-white rounded-xl shadow-lg p-6">
+                <div class="swiper productos-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Special Slide -->
+                        <div class="swiper-slide">
+                            <div class="productos-nuevos bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6 h-full flex flex-col justify-center items-center text-center">
+                                <h1 class="text-2xl font-bold text-gray-800 mb-4">Nuevos Productos</h1>
+                                <a class="see-more bg-yellow-400 hover:bg-yellow-500 text-white font-medium px-6 py-2 rounded-lg transition" href="#">
+                                    VER MÁS
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Product Slides -->
+                        <div class="swiper-slide">
+                            <div class="product-card bg-white rounded-lg shadow-md p-4 h-full flex flex-col">
+                                <div class="flex justify-center items-center h-48 mb-4">
+                                    <img src="img/Imagenes de la web/Slider/pngwing.com (4).png" alt="Auricular Aiwa" class="max-h-full">
+                                </div>
+                                <small class="text-gray-500 text-sm">COD. 12345</small>
+                                <span class="font-medium text-gray-800 my-2 flex-grow">Auricular Vincha Aiwa Ava-bt501n Negro</span>
+                                <a href="formulario.html" class="text-yellow-600 font-bold text-lg hover:text-yellow-700">$39.091</a>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="product-card bg-white rounded-lg shadow-md p-4 h-full flex flex-col">
+                                <div class="flex justify-center items-center h-48 mb-4">
+                                    <img src="img/Imagenes de la web/Slider/pngwing.com (5).png" alt="Parlante Frei Chain" class="max-h-full">
+                                </div>
+                                <small class="text-gray-500 text-sm">COD. 12345</small>
+                                <span class="font-medium text-gray-800 my-2 flex-grow">Parlante Frei Chain Portatil Tws Bluetooth Color Gold</span>
+                                <a href="formulario.html" class="text-yellow-600 font-bold text-lg hover:text-yellow-700">$343.825</a>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="product-card bg-white rounded-lg shadow-md p-4 h-full flex flex-col">
+                                <div class="flex justify-center items-center h-48 mb-4">
+                                    <img src="img/Imagenes de la web/Slider/pngwing.com (6).png" alt="Smart TV BGH" class="max-h-full">
+                                </div>
+                                <small class="text-gray-500 text-sm">COD. 12345</small>
+                                <span class="font-medium text-gray-800 my-2 flex-grow">Smart Tv Hd 32 Bgh Android B3222s5a</span>
+                                <a href="formulario.html" class="text-yellow-600 font-bold text-lg hover:text-yellow-700">$283.999</a>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="product-card bg-white rounded-lg shadow-md p-4 h-full flex flex-col">
+                                <div class="flex justify-center items-center h-48 mb-4">
+                                    <img src="img/Imagenes de la web/Slider/pngwing.com (2).png" alt="Combo Maquillaje" class="max-h-full">
+                                </div>
+                                <small class="text-gray-500 text-sm">COD. 12345</small>
+                                <span class="font-medium text-gray-800 my-2 flex-grow">Combo Maquillaje Tejar 12 Productos Total Nude</span>
+                                <a href="formulario.html" class="text-yellow-600 font-bold text-lg hover:text-yellow-700">$35.583</a>
+                            </div>
+                        </div>
+                        
+                        <div class="swiper-slide">
+                            <div class="product-card bg-white rounded-lg shadow-md p-4 h-full flex flex-col">
+                                <div class="flex justify-center items-center h-48 mb-4">
+                                    <img src="img/Imagenes de la web/Slider/mochila.png" alt="Mochila Urban Oxford" class="max-h-full">
+                                </div>
+                                <small class="text-gray-500 text-sm">COD. 12345</small>
+                                <span class="font-medium text-gray-800 my-2 flex-grow">Mochila Porta Notebook 15.6'' Urban Oxford Musette Color Negro</span>
+                                <a href="formulario.html" class="text-yellow-600 font-bold text-lg hover:text-yellow-700">$19.499</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <div class="swiper-button-next bg-black bg-opacity-50 hover:bg-opacity-70 text-white rounded-full w-10 h-10 flex items-center justify-center transition"></div>
+                    <div class="swiper-button-prev bg-black bg-opacity-50 hover:bg-opacity-70 text-white rounded-full w-10 h-10 flex items-center justify-center transition"></div>
+                    
+                    <!-- Pagination -->
+                    <div class="swiper-pagination mt-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Grid Section -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row gap-8">
+                <!-- Filters Sidebar -->
+                <div class="lg:w-1/4">
+                    <div class="bg-white rounded-lg shadow-md p-6 sticky top-24">
+                        <h3 class="font-bold text-lg mb-4">Filtrar búsqueda</h3>
+                        <hr class="mb-4">
+                        
+                        <div class="menu-categoria mb-4">
+                            <h4 class="font-semibold mb-2">Categoría</h4>
+                            <div class="space-y-2">
+                                <a href="#" class="block text-gray-600 hover:text-yellow-600">Todos</a>
+                                <a href="#" class="block text-gray-600 hover:text-yellow-600">Hogar</a>
+                                <a href="#" class="block text-gray-600 hover:text-yellow-600">Bazar</a>
+                                <a href="#" class="block text-gray-600 hover:text-yellow-600">Ferretería</a>
+                                <a href="#" class="block text-gray-600 hover:text-yellow-600">Otros</a>
+                            </div>
+                        </div>
+                        
+                        <hr class="mb-4">
+                        
+                        <div class="menu-precio">
+                            <a href="#" class="flex justify-between items-center text-gray-600 hover:text-yellow-600">
+                                <span>Precio</span>
+                                <ion-icon name="chevron-down-outline"></ion-icon>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="mt-4 block text-center bg-yellow-400 hover:bg-yellow-500 text-white font-medium py-2 rounded-lg transition">
+                        CARGAR MÁS
+                    </a>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="lg:w-3/4">
+                    <div class="flex justify-between items-center mb-6">
+                        <a href="#" class="text-gray-600 hover:text-yellow-600 font-medium">CARGAR ANTERIORES</a>
+                        <div class="flex items-center space-x-2">
+                            <span class="text-gray-600">Mostrar primero</span>
+                            <ion-icon name="chevron-down-outline"></ion-icon>
+                        </div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Product Cards -->
+                        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="imagen h-48 flex items-center justify-center p-4">
+                                <img src="img/Imagenes de la web/Slider/Botellas.jpeg" alt="Botellas plástico" class="max-h-full">
+                            </div>
+                            <div class="informacion p-4">
+                                <span class="font-medium block mb-2">Botellas de plastico por mayor x10 unid.</span>
+                                <small class="text-gray-500 block mb-2">Distribuidor: La Mendocina</small>
+                                <h1 class="text-yellow-600 font-bold text-lg mb-3">DESDE $6700</h1>
+                                <a href="formulario.html" class="block text-center bg-gray-800 hover:bg-gray-900 text-white py-2 rounded-lg transition">
+                                    CONTACTARNOS
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Repeat other product cards similarly -->
+                        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="imagen h-48 flex items-center justify-center p-4">
+                                <img src="img/Imagenes de la web/Slider/envases de plastico.jpeg" alt="Envases cosméticos" class="max-h-full">
+                            </div>
+                            <div class="informacion p-4">
+                                <span class="font-medium block mb-2">Envases de productos cosméticos</span>
+                                <small class="text-gray-500 block mb-2">Distribuidor: Fadep envases</small>
+                                <h1 class="text-yellow-600 font-bold text-lg mb-3">DESDE $11300</h1>
+                                <a href="formulario.html" class="block text-center bg-gray-800 hover:bg-gray-900 text-white py-2 rounded-lg transition">
+                                    CONTACTARNOS
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card bg-white rounded-lg shadow-md overflow-hidden">
+                            <div class="imagen h-48 flex items-center justify-center p-4">
+                                <img src="img/Imagenes de la web/Slider/descarga.jpeg" alt="Tejas coloniales" class="max-h-full">
+                            </div>
+                            <div class="informacion p-4">
+                                <span class="font-medium block mb-2">Tejas coloniales x100 unid.</span>
+                                <small class="text-gray-500 block mb-2">Distribuidor: Corralon San Javier</small>
+                                <h1 class="text-yellow-600 font-bold text-lg mb-3">DESDE $110900</h1>
+                                <a href="formulario.html" class="block text-center bg-gray-800 hover:bg-gray-900 text-white py-2 rounded-lg transition">
+                                    CONTACTARNOS
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Second Slider -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="slider-container bg-white rounded-xl shadow-lg p-6">
+                <div class="swiper ofertas-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Product Slides -->
+                        <div class="swiper-slide">
+                            <div class="product-card bg-white rounded-lg shadow-md p-4 h-full flex flex-col">
+                                <div class="flex justify-center items-center h-48 mb-4">
+                                    <img src="img/slider 2/notebook.png" alt="Laptop ROG" class="max-h-full">
+                                </div>
+                                <small class="text-gray-500 text-sm mb-2">Laptop intel core i7 republic of gamers, notebook</small>
+                                <span class="text-green-600 font-medium text-sm mb-2">Mismo precio en 3 cuotas de $11.996</span>
+                                <span class="text-gray-400 mb-2">...</span>
+                                <a href="formulario.html" class="text-yellow-600 font-bold text-lg hover:text-yellow-700">$758.000</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Add other slides similarly -->
+                    </div>
+                    
+                    <!-- Navigation Buttons -->
+                    <div class="swiper-button-next bg-black bg-opacity-50 hover:bg-opacity-70 text-white rounded-full w-10 h-10"></div>
+                    <div class="swiper-button-prev bg-black bg-opacity-50 hover:bg-opacity-70 text-white rounded-full w-10 h-10"></div>
+                    
+                    <!-- Pagination -->
+                    <div class="swiper-pagination mt-4"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div class="flex flex-col items-center md:items-start">
+                    <img src="img/Data-Fiscal.png" alt="Data Fiscal" class="h-16 mb-2">
+                    <a href="#" class="font-medium hover:text-yellow-400">DATA FISCAL</a>
+                </div>
+                
+                <div class="text-center">
+                    <p class="mb-4">No dudes en contactarnos!</p>
+                    <div class="flex justify-center space-x-4">
+                        <a href="#" class="bg-gray-700 hover:bg-gray-600 p-2 rounded-full transition">
+                            <img src="img/facebook (1).png" alt="Facebook" class="w-5 h-5">
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-gray-600 p-2 rounded-full transition">
+                            <img src="img/instagram (1).png" alt="Instagram" class="w-5 h-5">
+                        </a>
+                        <a href="#" class="bg-gray-700 hover:bg-gray-600 p-2 rounded-full transition">
+                            <img src="img/social (1).png" alt="Social" class="w-5 h-5">
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="text-center md:text-right">
+                    <img src="img/Logo 2.png" alt="Tienda Mas" class="h-12 mx-auto md:ml-auto md:mr-0 mb-2">
+                    <p class="text-sm">©2024 Tienda Mas+. tienda online Catamarca. Todos los derechos reservados.</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-4 text-center">
+                <p class="text-sm">&copy; 2024 Tienda Mas+. Tienda online Catamarca. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <script>
+        // Mobile Menu Toggle
+        const menuButton = document.getElementById('menu-button');
+        const closeMenu = document.getElementById('close-menu');
+        const mobileMenu = document.querySelector('.menu-active');
+        
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.add('open');
+        });
+        
+        closeMenu.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !menuButton.contains(e.target)) {
+                mobileMenu.classList.remove('open');
+            }
+        });
+
+        // Initialize Swiper sliders
+        const productosSwiper = new Swiper(".productos-swiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".productos-swiper .swiper-button-next",
+                prevEl: ".productos-swiper .swiper-button-prev",
+            },
+            pagination: {
+                el: ".productos-swiper .swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                480: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 4 },
+                1280: { slidesPerView: 5 }
+            }
+        });
+
+        const ofertasSwiper = new Swiper(".ofertas-swiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".ofertas-swiper .swiper-button-next",
+                prevEl: ".ofertas-swiper .swiper-button-prev",
+            },
+            pagination: {
+                el: ".ofertas-swiper .swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                480: { slidesPerView: 2 },
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 4 },
+                1280: { slidesPerView: 5 }
+            }
+        });
+
+        // Add fade-in animation to elements when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.product-card, .slider-container').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

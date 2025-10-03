@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Cuenta | Tienda Mas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FF6B35;
+            --primary-hover: #E55627;
+            --secondary-color: #004E89;
+            --light-gray: #F8F9FA;
+        }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--light-gray); 
+            color: #333; 
+        }
+        .form-container { 
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); 
+        }
+        .input-field:focus { 
+            border-color: var(--primary-color); 
+            box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.12); 
+        }
+        .btn-primary { 
+            transition: all 0.2s ease; 
+            background-color: var(--primary-color); 
+        }
+        .btn-primary:hover { 
+            background-color: var(--primary-hover); 
+        }
+        .password-toggle { 
+            right: 12px; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            cursor: pointer; 
+            color: #6B7280; 
+        }
+        .password-toggle:hover { 
+            color: #374151; 
+        }
+        .spinner { 
+            display: none; 
+            width: 20px; 
+            height: 20px; 
+            border: 3px solid rgba(255, 255, 255, 0.3); 
+            border-radius: 50%; 
+            border-top-color: white; 
+            animation: spin 1s ease-in-out infinite; 
+        }
+        @keyframes spin { 
+            to { 
+                transform: rotate(360deg); 
+            } 
+        }
+        .section-title { 
+            font-weight: 600; 
+            color: #1f2937; 
+            margin-bottom: .5rem; 
+        }
+        .section { 
+            border: 1px solid #e5e7eb; 
+            padding: 1rem; 
+            border-radius: .5rem; 
+            background: #fff; 
+        }
+        .muted { 
+            color: #6b7280; 
+            font-size: .9rem; 
+        }
+        .error-message { 
+            color: #dc2626; 
+            font-size: .85rem; 
+            margin-top: .4rem; 
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <main class="form-container bg-white rounded-xl p-8 w-full max-w-4xl space-y-6">
+        <header class="text-center mb-2">
+            <h1 class="text-3xl font-bold text-gray-800 mb-1 flex items-center justify-center">
+                <span class="text-orange-500">Tienda</span>
+                <span class="text-blue-600 ml-1">Mas</span>
+            </h1>
+            <p class="text-gray-600">Registrate y empezá a comprar fácil, rápido y seguro</p>
+        </header>
+
+        <form id="registrationForm" class="space-y-5" novalidate>
+            <!-- DATOS DE CUENTA -->
+            <section class="section space-y-4">
+                <div class="section-title">Datos de Cuenta</div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-gray-700">Usuario <span class="text-red-500">*</span></label>
+                        <input type="text" id="username" name="username" required minlength="6" maxlength="16" 
+                               class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                               placeholder="Elige un nombre de usuario" autocomplete="username">
+                        <p class="error-message hidden" id="username-error"></p>
+                    </div>
+
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email <span class="text-red-500">*</span></label>
+                        <input type="email" id="email" name="email" required 
+                               class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                               placeholder="tu@email.com" autocomplete="email">
+                        <p class="error-message hidden" id="email-error"></p>
+                    </div>
+
+                    <div class="relative">
+                        <label for="password" class="block text-sm font-medium text-gray-700">Contraseña <span class="text-red-500">*</span></label>
+                        <input type="password" id="password" name="password" required minlength="6" maxlength="16" 
+                               class="input-field w-full px-4 py-3 pr-10 border border-gray-300 rounded-lg" 
+                               placeholder="••••••••" autocomplete="new-password">
+                        <button type="button" class="password-toggle absolute inset-y-0 right-3 flex items-center mt-6" 
+                                onclick="togglePassword('password', this)">
+                            <i class="fas fa-eye-slash"></i>
+                        </button>
+                        <p class="error-message hidden" id="password-error"></p>
+                    </div>
+
+                    <div class="relative">
+                        <label for="passwordConfirm" class="block text-sm font-medium text-gray-700">Confirmar Contraseña <span class="text-red-500">*</span></label>
+                        <input type="password" id="passwordConfirm" name="passwordConfirm" required minlength="6" maxlength="16" 
+                               class="input-field w-full px-4 py-3 pr-10 border border-gray-300 rounded-lg" 
+                               placeholder="Repite la contraseña" autocomplete="new-password">
+                        <button type="button" class="password-toggle absolute inset-y-0 right-3 flex items-center mt-6" 
+                                onclick="togglePassword('passwordConfirm', this)">
+                            <i class="fas fa-eye-slash"></i>
+                        </button>
+                        <p class="error-message hidden" id="passwordConfirm-error"></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TUS DATOS PERSONALES -->
+            <section class="section space-y-4">
+                <div class="section-title">Tus Datos Personales</div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="firstName" class="block text-sm font-medium text-gray-700">Nombre <span class="text-red-500">*</span></label>
+                        <input type="text" id="firstName" name="firstName" required 
+                               class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                               placeholder="Ingresa tu nombre" autocomplete="given-name">
+                        <p class="error-message hidden" id="firstName-error"></p>
+                    </div>
+
+                    <div>
+                        <label for="lastName" class="block text-sm font-medium text-gray-700">Apellido <span class="text-red-500">*</span></label>
+                        <input type="text" id="lastName" name="lastName" required 
+                               class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                               placeholder="Ingresa tu apellido" autocomplete="family-name">
+                        <p class="error-message hidden" id="lastName-error"></p>
+                    </div>
+
+                    <div>
+                        <label for="gender" class="block text-sm font-medium text-gray-700">Género <span class="text-red-500">*</span></label>
+                        <select id="gender" name="gender" required 
+                                class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg">
+                            <option value="">Selecciona tu género</option>
+                            <option value="MASCULINO">Masculino</option>
+                            <option value="FEMENINO">Femenino</option>
+                            <option value="OTRO">Otro</option>
+                        </select>
+                        <p class="error-message hidden" id="gender-error"></p>
+                    </div>
+
+                    <div>
+                        <label for="document" class="block text-sm font-medium text-gray-700">Documento (DNI/CUIL) <span class="text-red-500">*</span></label>
+                        <input type="text" id="document" name="document" required 
+                               class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                               placeholder="Ingresa tu documento">
+                        <p class="error-message hidden" id="document-error"></p>
+                    </div>
+                </div>
+
+                <!-- DIRECCIÓN -->
+                <div class="mt-6">
+                    <h3 class="text-lg font-medium text-gray-800 mb-3">Dirección</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="street" class="block text-sm font-medium text-gray-700">Calle <span class="text-red-500">*</span></label>
+                            <input type="text" id="street" name="street" required 
+                                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                                   placeholder="Ej: San Martín">
+                            <p class="error-message hidden" id="street-error"></p>
+                        </div>
+
+                        <div>
+                            <label for="number" class="block text-sm font-medium text-gray-700">Número <span class="text-red-500">*</span></label>
+                            <input type="text" id="number" name="number" required 
+                                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                                   placeholder="Ej: 1234">
+                            <p class="error-message hidden" id="number-error"></p>
+                        </div>
+
+                        <div>
+                            <label for="floor" class="block text-sm font-medium text-gray-700">Piso</label>
+                            <input type="text" id="floor" name="floor" 
+                                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                                   placeholder="Ej: 2">
+                        </div>
+
+                        <div>
+                            <label for="apartment" class="block text-sm font-medium text-gray-700">Departamento</label>
+                            <input type="text" id="apartment" name="apartment" 
+                                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                                   placeholder="Ej: A">
+                        </div>
+
+                        <div>
+                            <label for="city" class="block text-sm font-medium text-gray-700">Ciudad <span class="text-red-500">*</span></label>
+                            <input type="text" id="city" name="city" required 
+                                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                                   placeholder="Ej: Buenos Aires">
+                            <p class="error-message hidden" id="city-error"></p>
+                        </div>
+
+                        <div>
+                            <label for="province" class="block text-sm font-medium text-gray-700">Provincia <span class="text-red-500">*</span></label>
+                            <input type="text" id="province" name="province" required 
+                                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                                   placeholder="Ej: Buenos Aires">
+                            <p class="error-message hidden" id="province-error"></p>
+                        </div>
+
+                        <div>
+                            <label for="postalCode" class="block text-sm font-medium text-gray-700">Código Postal <span class="text-red-500">*</span></label>
+                            <input type="text" id="postalCode" name="postalCode" required 
+                                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                                   placeholder="Ej: 1000">
+                            <p class="error-message hidden" id="postalCode-error"></p>
+                        </div>
+
+                        <div class="md:col-span-2">
+                            <label for="reference" class="block text-sm font-medium text-gray-700">Referencia</label>
+                            <textarea id="reference" name="reference" 
+                                      class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                                      placeholder="Ej: Frente a la plaza"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TELÉFONO -->
+                <div class="mt-6">
+                    <h3 class="text-lg font-medium text-gray-800 mb-3">Teléfono</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div>
+                            <label for="phoneCode" class="block text-sm font-medium text-gray-700">Característica <span class="text-red-500">*</span></label>
+                            <input type="text" id="phoneCode" name="phoneCode" required 
+                                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                                   placeholder="011">
+                            <p class="error-message hidden" id="phoneCode-error"></p>
+                        </div>
+                        <div class="md:col-span-2">
+                            <label for="phoneNumber" class="block text-sm font-medium text-gray-700">Número <span class="text-red-500">*</span></label>
+                            <input type="text" id="phoneNumber" name="phoneNumber" required 
+                                   class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg" 
+                                   placeholder="12345678">
+                            <p class="error-message hidden" id="phoneNumber-error"></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CHECK OBLIGATORIOS -->
+            <section class="section space-y-4">
+                <div class="section-title">Aceptación de Términos</div>
+                
+                <div class="space-y-3">
+                    <div class="flex items-start">
+                        <input id="terms" name="terms" type="checkbox" required 
+                               class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-2 focus:ring-orange-500 mt-1">
+                        <label for="terms" class="ml-3 text-sm text-gray-700">
+                            Acepto los <a href="#" class="text-orange-600 hover:underline">Términos y Condiciones</a> <span class="text-red-500">*</span>
+                        </label>
+                    </div>
+                    <p class="error-message hidden" id="terms-error"></p>
+
+                    <div class="flex items-start">
+                        <input id="privacy" name="privacy" type="checkbox" required 
+                               class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-2 focus:ring-orange-500 mt-1">
+                        <label for="privacy" class="ml-3 text-sm text-gray-700">
+                            Acepto la <a href="#" class="text-orange-600 hover:underline">Política de Privacidad</a> <span class="text-red-500">*</span>
+                        </label>
+                    </div>
+                    <p class="error-message hidden" id="privacy-error"></p>
+                </div>
+            </section>
+
+            <!-- BOTÓN DE ENVÍO -->
+            <button id="submitBtn" type="submit" 
+                    class="btn-primary w-full text-white font-medium py-3 px-4 rounded-lg flex items-center justify-center">
+                <span id="btnText">Crear cuenta</span>
+                <div id="spinner" class="spinner ml-2"></div>
+            </button>
+
+            <div class="text-center text-sm text-gray-600">
+                ¿Ya tienes una cuenta? - 
+                <a href="iniciarSesion.html" class="font-medium text-orange-600 hover:underline">Iniciar sesión</a>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        // ---------- Inicialización ----------
+        document.addEventListener('DOMContentLoaded', () => {
+            attachValidationHandlers();
+            
+            // Form submit listener
+            const form = document.getElementById('registrationForm');
+            if (form) form.addEventListener('submit', handleSubmit);
+        });
+
+        // ---------- Expresiones regulares para validación ----------
+        const usernameRegex = /^[a-zA-Z0-9._-]{6,16}$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const passwordRegex = /^[A-Za-z0-9!@#$%^&*()_+\-={}\[\]:;,.?/]{6,16}$/;
+        const nameRegex = /^[A-Za-zÁÉÍÓÚáéíóúñÑ\s'’-]{1,50}$/;
+        const documentRegex = /^[0-9]{6,12}$/;
+        const postalRegex = /^[A-Za-z0-9\s\-]{3,10}$/;
+        const phoneCodeRegex = /^\d{2,4}$/;
+        const phoneNumberRegex = /^\d{6,12}$/;
+        const numberRegex = /^[0-9A-Za-z\-]{1,6}$/;
+
+        // ---------- Helper para mostrar/ocultar errores ----------
+        function showError(inputId, message) {
+            const input = document.getElementById(inputId);
+            const errorElement = document.getElementById(`${inputId}-error`);
+            
+            if (input && errorElement) {
+                if (message) {
+                    input.classList.add('border-red-500');
+                    errorElement.textContent = message;
+                    errorElement.classList.remove('hidden');
+                } else {
+                    input.classList.remove('border-red-500');
+                    errorElement.textContent = '';
+                    errorElement.classList.add('hidden');
+                }
+            }
+        }
+
+        // ---------- Función para mostrar/ocultar contraseña ----------
+        function togglePassword(inputId, button) {
+            const input = document.getElementById(inputId);
+            const icon = button.querySelector('i');
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+        }
+
+        // ---------- Validadores individuales ----------
+        function validateUsername() {
+            const value = document.getElementById('username').value.trim();
+            if (!value) {
+                showError('username', 'El usuario es obligatorio.');
+                return false;
+            }
+            if (!usernameRegex.test(value)) {
+                showError('username', '6-16 caracteres. Permitidos: letras, números, . _ -');
+                return false;
+            }
+            showError('username', '');
+            return true;
+        }
+
+        function validateEmail() {
+            const value = document.getElementById('email').value.trim();
+            if (!value) {
+                showError('email', 'El correo es obligatorio.');
+                return false;
+            }
+            if (!emailRegex.test(value)) {
+                showError('email', 'Formato de correo no válido.');
+                return false;
+            }
+            showError('email', '');
+            return true;
+        }
+
+        function validatePassword() {
+            const value = document.getElementById('password').value;
+            if (!value) {
+                showError('password', 'La contraseña es obligatoria.');
+                return false;
+            }
+            if (!passwordRegex.test(value)) {
+                showError('password', '6-16 caracteres. Permitidos: letras, números y !@#$%^&*()_+-={}[]:;,.?/');
+                return false;
+            }
+            showError('password', '');
+            return true;
+        }
+
+        function validatePasswordConfirm() {
+            const value = document.getElementById('passwordConfirm').value;
+            const password = document.getElementById('password').value;
+            if (!value) {
+                showError('passwordConfirm', 'Debes repetir la contraseña.');
+                return false;
+            }
+            if (value !== password) {
+                showError('passwordConfirm', 'Las contraseñas no coinciden.');
+                return false;
+            }
+            showError('passwordConfirm', '');
+            return true;
+        }
+
+        function validateFirstName() {
+            const value = document.getElementById('firstName').value.trim();
+            if (!value) {
+                showError('firstName', 'El nombre es obligatorio.');
+                return false;
+            }
+            if (!nameRegex.test(value)) {
+                showError('firstName', 'Nombre inválido.');
+                return false;
+            }
+            showError('firstName', '');
+            return true;
+        }
+
+        function validateLastName() {
+            const value = document.getElementById('lastName').value.trim();
+            if (!value) {
+                showError('lastName', 'El apellido es obligatorio.');
+                return false;
+            }
+            if (!nameRegex.test(value)) {
+                showError('lastName', 'Apellido inválido.');
+                return false;
+            }
+            showError('lastName', '');
+            return true;
+        }
+
+        function validateGender() {
+            const value = document.getElementById('gender').value;
+            if (!value) {
+                showError('gender', 'Selecciona tu género.');
+                return false;
+            }
+            showError('gender', '');
+            return true;
+        }
+
+        function validateDocument() {
+            const value = document.getElementById('document').value.trim();
+            if (!value) {
+                showError('document', 'Documento obligatorio.');
+                return false;
+            }
+            if (!documentRegex.test(value)) {
+                showError('document', 'Documento inválido. Solo números (6-12 dígitos).');
+                return false;
+            }
+            showError('document', '');
+            return true;
+        }
+
+        function validateStreet() {
+            const value = document.getElementById('street').value.trim();
+            if (!value) {
+                showError('street', 'La calle es obligatoria.');
+                return false;
+            }
+            showError('street', '');
+            return true;
+        }
+
+        function validateNumber() {
+            const value = document.getElementById('number').value.trim();
+            if (!value) {
+                showError('number', 'El número es obligatorio.');
+                return false;
+            }
+            if (!numberRegex.test(value)) {
+                showError('number', 'Número inválido.');
+                return false;
+            }
+            showError('number', '');
+            return true;
+        }
+
+        function validateCity() {
+            const value = document.getElementById('city').value.trim();
+            if (!value) {
+                showError('city', 'La ciudad es obligatoria.');
+                return false;
+            }
+            showError('city', '');
+            return true;
+        }
+
+        function validateProvince() {
+            const value = document.getElementById('province').value.trim();
+            if (!value) {
+                showError('province', 'La provincia es obligatoria.');
+                return false;
+            }
+            showError('province', '');
+            return true;
+        }
+
+        function validatePostalCode() {
+            const value = document.getElementById('postalCode').value.trim();
+            if (!value) {
+                showError('postalCode', 'Código postal obligatorio.');
+                return false;
+            }
+            if (!postalRegex.test(value)) {
+                showError('postalCode', 'Código postal inválido.');
+                return false;
+            }
+            showError('postalCode', '');
+            return true;
+        }
+
+        function validatePhoneCode() {
+            const value = document.getElementById('phoneCode').value.trim();
+            if (!value) {
+                showError('phoneCode', 'Código de área obligatorio.');
+                return false;
+            }
+            if (!phoneCodeRegex.test(value)) {
+                showError('phoneCode', 'Código inválido.');
+                return false;
+            }
+            showError('phoneCode', '');
+            return true;
+        }
+
+        function validatePhoneNumber() {
+            const value = document.getElementById('phoneNumber').value.trim();
+            if (!value) {
+                showError('phoneNumber', 'Número telefónico obligatorio.');
+                return false;
+            }
+            if (!phoneNumberRegex.test(value)) {
+                showError('phoneNumber', 'Número inválido.');
+                return false;
+            }
+            showError('phoneNumber', '');
+            return true;
+        }
+
+        function validateTerms() {
+            const isChecked = document.getElementById('terms').checked;
+            if (!isChecked) {
+                showError('terms', 'Debes aceptar los términos y condiciones.');
+                return false;
+            }
+            showError('terms', '');
+            return true;
+        }
+
+        function validatePrivacy() {
+            const isChecked = document.getElementById('privacy').checked;
+            if (!isChecked) {
+                showError('privacy', 'Debes aceptar la política de privacidad.');
+                return false;
+            }
+            showError('privacy', '');
+            return true;
+        }
+
+        // ---------- Validación completa del formulario ----------
+        function validateAll() {
+            const results = [
+                validateUsername(),
+                validateEmail(),
+                validatePassword(),
+                validatePasswordConfirm(),
+                validateFirstName(),
+                validateLastName(),
+                validateGender(),
+                validateDocument(),
+                validateStreet(),
+                validateNumber(),
+                validateCity(),
+                validateProvince(),
+                validatePostalCode(),
+                validatePhoneCode(),
+                validatePhoneNumber(),
+                validateTerms(),
+                validatePrivacy()
+            ];
+            
+            return results.every(v => v === true);
+        }
+
+        // ---------- Adjuntar handlers de validación ----------
+        function attachValidationHandlers() {
+            const validationMap = [
+                ['username', 'blur', validateUsername],
+                ['username', 'input', validateUsername],
+                ['email', 'blur', validateEmail],
+                ['email', 'input', validateEmail],
+                ['password', 'blur', validatePassword],
+                ['password', 'input', validatePassword],
+                ['passwordConfirm', 'blur', validatePasswordConfirm],
+                ['passwordConfirm', 'input', validatePasswordConfirm],
+                ['firstName', 'blur', validateFirstName],
+                ['firstName', 'input', validateFirstName],
+                ['lastName', 'blur', validateLastName],
+                ['lastName', 'input', validateLastName],
+                ['gender', 'change', validateGender],
+                ['document', 'blur', validateDocument],
+                ['document', 'input', validateDocument],
+                ['street', 'blur', validateStreet],
+                ['street', 'input', validateStreet],
+                ['number', 'blur', validateNumber],
+                ['number', 'input', validateNumber],
+                ['city', 'blur', validateCity],
+                ['city', 'input', validateCity],
+                ['province', 'blur', validateProvince],
+                ['province', 'input', validateProvince],
+                ['postalCode', 'blur', validatePostalCode],
+                ['postalCode', 'input', validatePostalCode],
+                ['phoneCode', 'blur', validatePhoneCode],
+                ['phoneCode', 'input', validatePhoneCode],
+                ['phoneNumber', 'blur', validatePhoneNumber],
+                ['phoneNumber', 'input', validatePhoneNumber],
+                ['terms', 'change', validateTerms],
+                ['privacy', 'change', validatePrivacy]
+            ];
+
+            validationMap.forEach(([id, event, validator]) => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener(event, validator);
+                }
+            });
+        }
+
+        // ---------- Manejo del envío del formulario ----------
+        function handleSubmit(evt) {
+            evt.preventDefault();
+            
+            // Validar todo
+            const isValid = validateAll();
+            
+            if (!isValid) {
+                // Encontrar el primer error y hacer focus
+                const firstErrorField = document.querySelector('.border-red-500');
+                if (firstErrorField) {
+                    firstErrorField.focus();
+                }
+                alert('Por favor, corrige los errores antes de continuar.');
+                return;
+            }
+
+            // Mostrar spinner y deshabilitar botón
+            const btn = document.getElementById('submitBtn');
+            const spinner = document.getElementById('spinner');
+            const btnText = document.getElementById('btnText');
+            
+            spinner.style.display = 'inline-block';
+            btnText.textContent = 'Creando...';
+            btn.disabled = true;
+
+            // Simular envío (aquí iría tu lógica de envío real)
+            setTimeout(() => {
+                spinner.style.display = 'none';
+                btnText.textContent = 'Crear cuenta';
+                btn.disabled = false;
+                
+                // Mostrar mensaje de éxito
+                alert('¡Cuenta creada exitosamente!');
+                
+                // Aquí podrías redirigir al usuario o resetear el formulario
+                // document.getElementById('registrationForm').reset();
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

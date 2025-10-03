@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ventajas — Tienda Mas</title>
+
+  <!-- Tailwind (Play CDN para prototipado). En producción compila Tailwind localmente -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tipografía -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    :root{
+      --tm-orange: #FF6B35;
+      --tm-orange-hover: #E55627;
+      --tm-blue: #004E89;
+      --tm-gray-light: #F8F9FA;
+      --max-width: 1200px;
+    }
+
+    /* Small utility for focus-visible */
+    .focus-ring:focus {
+      outline: 3px solid rgba(0,78,137,0.14);
+      outline-offset: 3px;
+      border-radius: 0.5rem;
+    }
+
+    /* Card lift effect */
+    .card-lift {
+      transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s cubic-bezier(.2,.9,.3,1);
+      will-change: transform;
+    }
+    .card-lift:hover, .card-lift:focus-within {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(2,6,23,.08);
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .card-lift { transition: none; transform: none; box-shadow: none; }
+    }
+
+    /* Utility to keep header background consistent on scroll */
+    .header-bg {
+      background: linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.6));
+      backdrop-filter: blur(6px);
+    }
+  </style>
+</head>
+<body class="antialiased bg-white text-slate-800 font-['Inter',system-ui,Arial]">
+
+  <!-- =========================
+       HEADER (coherente con landing)
+       ========================= -->
+  <header class="fixed inset-x-0 top-0 z-50 header-bg border-b border-slate-200">
+    <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-3" aria-label="Tienda Mas - Ir al inicio">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--tm-orange),var(--tm-orange-hover));">
+            <span class="text-white font-bold">TM</span>
+          </div>
+          <div class="hidden sm:block">
+            <span class="font-semibold text-lg">Tienda <span class="text-[var(--tm-blue)]">Mas</span></span>
+            <p class="text-xs text-slate-500">Marketplace mayorista</p>
+          </div>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex items-center gap-6" aria-label="Navegación principal">
+          <a href="categorias.html" class="text-sm hover:text-[var(--tm-blue)] transition">Categorías</a>
+          <a href="ventajas.html" class="text-sm text-[var(--tm-orange)] font-semibold">Ventajas</a>
+          <a href="destacados.html" class="text-sm hover:text-[var(--tm-blue)] transition">Destacados</a>
+          <a href="testimonios.html" class="text-sm hover:text-[var(--tm-blue)] transition">Testimonios</a>
+          <a href="planes.html" class="text-sm hover:text-[var(--tm-blue)] transition">Planes</a>
+        </nav>
+
+        <!-- Actions + Mobile toggle -->
+        <div class="flex items-center gap-3">
+          <a href="#vender" class="hidden md:inline-flex items-center gap-2 border border-[var(--tm-blue)] text-[var(--tm-blue)] px-4 py-2 rounded-full text-sm font-semibold hover:bg-[var(--tm-blue)] hover:text-white transition focus-ring" aria-label="Vender en Tienda Mas">
+            <i class="fa-solid fa-store"></i> Vender
+          </a>
+
+          <a href="#registrarse" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring transition" aria-label="Registrarse en Tienda Mas">
+            Registrarse
+          </a>
+
+          <button id="btn-mobile" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden p-2 rounded-lg focus-ring" title="Abrir menú">
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/></svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden" hidden aria-hidden="true">
+      <div class="px-4 pb-6 pt-2 border-t border-slate-200 bg-white">
+        <a href="categorias.html" class="block py-2 text-base">Categorías</a>
+        <a href="ventajas.html" class="block py-2 text-base text-[var(--tm-orange)] font-semibold">Ventajas</a>
+        <a href="destacados.html" class="block py-2 text-base">Destacados</a>
+        <a href="testimonios.html" class="block py-2 text-base">Testimonios</a>
+        <a href="planes.html" class="block py-2 text-base">Planes</a>
+
+        <div class="flex gap-2 mt-3">
+          <a href="#vender" class="flex-1 text-center py-2 rounded-full border border-[var(--tm-blue)] text-[var(--tm-blue)]">Vender</a>
+          <a href="#registrarse" class="flex-1 text-center py-2 rounded-full bg-[var(--tm-orange)] text-white">Registrarse</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Offset -->
+  <div class="h-16" aria-hidden="true"></div>
+
+  <!-- =========================
+       HERO
+       ========================= -->
+  <main>
+    <section class="bg-[var(--tm-gray-light)] py-16">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8 text-center">
+        <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white shadow-sm text-sm font-medium text-[var(--tm-blue)]">Ventajas · Tienda Mas</span>
+        <h1 class="mt-6 text-3xl sm:text-4xl font-extrabold leading-tight">Ventajas competitivas</h1>
+        <p class="mt-4 text-slate-600 max-w-2xl mx-auto text-lg">Herramientas y beneficios diseñados para que tu negocio mayorista crezca con confianza, velocidad y simplicidad.</p>
+      </div>
+    </section>
+
+    <!-- =========================
+         BENEFICIOS / VENTAJAS (cards)
+         ========================= -->
+    <section aria-labelledby="beneficios-title" class="py-16">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10">
+          <h2 id="beneficios-title" class="text-2xl font-semibold">¿Por qué elegir Tienda Mas?</h2>
+          <p class="mt-2 text-slate-500">Funciones pensadas para vendedores y compradores mayoristas, con soporte y tecnología de primer nivel.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <!-- Card: Pagos seguros -->
+          <article class="p-6 bg-white border rounded-2xl text-center card-lift" tabindex="0" aria-label="Pagos seguros">
+            <div class="w-16 h-16 rounded-lg mx-auto flex items-center justify-center bg-[var(--tm-gray-light)]">
+              <i class="fa-solid fa-shield-halved text-[var(--tm-blue)] text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="mt-4 text-lg font-semibold">Pagos seguros</h3>
+            <p class="mt-2 text-sm text-slate-600">Integración con gateways líderes y procesos de conciliación automáticos para proteger tus cobros.</p>
+          </article>
+
+          <!-- Card: Escalabilidad -->
+          <article class="p-6 bg-white border rounded-2xl text-center card-lift" tabindex="0" aria-label="Escalabilidad">
+            <div class="w-16 h-16 rounded-lg mx-auto flex items-center justify-center bg-[var(--tm-gray-light)]">
+              <i class="fa-solid fa-rocket text-[var(--tm-blue)] text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="mt-4 text-lg font-semibold">Escalabilidad</h3>
+            <p class="mt-2 text-sm text-slate-600">Arquitectura preparada para catalogos grandes, picos de tráfico y crecimiento sostenido.</p>
+          </article>
+
+          <!-- Card: Analytics -->
+          <article class="p-6 bg-white border rounded-2xl text-center card-lift" tabindex="0" aria-label="Analytics">
+            <div class="w-16 h-16 rounded-lg mx-auto flex items-center justify-center bg-[var(--tm-gray-light)]">
+              <i class="fa-solid fa-chart-line text-[var(--tm-blue)] text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="mt-4 text-lg font-semibold">Analytics</h3>
+            <p class="mt-2 text-sm text-slate-600">Dashboards con métricas de ventas, conversión y rendimiento para tomar decisiones rápidas.</p>
+          </article>
+
+          <!-- Card: Soporte dedicado -->
+          <article class="p-6 bg-white border rounded-2xl text-center card-lift" tabindex="0" aria-label="Soporte dedicado">
+            <div class="w-16 h-16 rounded-lg mx-auto flex items-center justify-center bg-[var(--tm-gray-light)]">
+              <i class="fa-solid fa-headset text-[var(--tm-blue)] text-2xl" aria-hidden="true"></i>
+            </div>
+            <h3 class="mt-4 text-lg font-semibold">Soporte dedicado</h3>
+            <p class="mt-2 text-sm text-slate-600">Equipo especializado para vendedores con canales prioritarios y SLA definidos.</p>
+          </article>
+        </div>
+
+        <!-- Optional: CTA debajo de las cards -->
+        <div class="mt-12 text-center">
+          <a href="#vender" class="inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-[var(--tm-orange)] text-white font-semibold hover:bg-[var(--tm-orange-hover)] focus-ring transition">
+            <i class="fa-solid fa-store"></i> Empezá a vender en Tienda Mas
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================
+       FOOTER (coherente con landing)
+       ========================= -->
+  <footer class="bg-slate-900 text-slate-300 mt-12">
+    <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8 py-8 grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div>
+        <a href="index.html" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--tm-orange),var(--tm-orange-hover));">
+            <span class="text-white font-bold">TM</span>
+          </div>
+          <div>
+            <div class="text-white font-semibold">Tienda Mas</div>
+            <div class="text-xs text-slate-400">Marketplace mayorista</div>
+          </div>
+        </a>
+        <p class="mt-4 text-sm text-slate-400">© <span id="year"></span> Tienda Mas. Todos los derechos reservados.</p>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-white mb-3">Empresa</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:underline">Acerca</a></li>
+          <li><a href="#" class="hover:underline">Prensa</a></li>
+          <li><a href="#" class="hover:underline">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-white mb-3">Vendedores</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:underline">Cómo vender</a></li>
+          <li><a href="#" class="hover:underline">Costos y comisiones</a></li>
+          <li><a href="#" class="hover:underline">Soporte</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-white mb-3">Síguenos</h4>
+        <div class="flex gap-3">
+          <a class="p-2 rounded-md bg-slate-800 hover:bg-slate-700" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="p-2 rounded-md bg-slate-800 hover:bg-slate-700" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="p-2 rounded-md bg-slate-800 hover:bg-slate-700" href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        </div>
+
+        <div class="mt-4 text-sm text-slate-400">
+          <a href="#" class="hover:underline">Términos y condiciones</a> ·
+          <a href="#" class="hover:underline">Política de privacidad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================
+       SCRIPTS: mobile menu + year + accessibility
+       ========================= -->
+  <script>
+    // Mobile menu toggle
+    (function(){
+      const btn = document.getElementById('btn-mobile');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if (menu.hasAttribute('hidden')) {
+          menu.removeAttribute('hidden');
+          menu.setAttribute('aria-hidden', 'false');
+          iconOpen.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+        } else {
+          menu.setAttribute('hidden', '');
+          menu.setAttribute('aria-hidden', 'true');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        }
+      });
+
+      // Close on ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          if (!menu.hasAttribute('hidden')) {
+            menu.setAttribute('hidden', '');
+            menu.setAttribute('aria-hidden', 'true');
+            btn.setAttribute('aria-expanded', 'false');
+            iconOpen.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+          }
+        }
+      });
+
+      // Footer year
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    })();
+  </script>
+
+  <!-- Production notes (comentario): 
+       - Para producción: compilar Tailwind y mover estilos a tailwind.config.js.
+       - Reemplazar icon fonts por SVGs optimizados si buscás más control.
+       - Lazy-load de imágenes y SSR/SSG para SEO.
+  -->
+</body>
+</html>

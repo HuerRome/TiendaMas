@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Mas - Mayorista en Catamarca</title>
+    <link rel="shortcut icon" href="img/Logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f59e0b;
+            --secondary-dark: #d97706;
+            --accent: #10b981;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --border: #e5e7eb;
+        }
+        
+        .swiper-slide {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: auto;
+        }
+        
+        .swiper-slide:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .menu-active {
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-active.open {
+            transform: translateX(0);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .filter-section {
+            transition: all 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .filter-section {
+                position: fixed;
+                top: 0;
+                left: -100%;
+                width: 80%;
+                height: 100vh;
+                z-index: 50;
+                background: white;
+                overflow-y: auto;
+                transition: left 0.3s ease;
+            }
+            
+            .filter-section.open {
+                left: 0;
+            }
+            
+            .overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 40;
+            }
+            
+            .overlay.active {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Mobile Menu Overlay -->
+    <div class="overlay"></div>
+    
+    <!-- Mobile Menu -->
+    <div class="menu-active fixed top-0 left-0 w-80 h-full bg-white z-50 shadow-xl p-6 overflow-y-auto">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-xl font-bold text-gray-800">MENÚ</h1>
+            <button id="close-menu" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-2xl"></i>
+            </button>
+        </div>
+        
+        <div class="space-y-4">
+            <a href="#tienda-online" class="block py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-700 font-medium transition-colors">TIENDA ONLINE</a>
+            <a href="#hogar" class="block py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-700 font-medium transition-colors">HOGAR</a>
+            <a href="#bazar" class="block py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-700 font-medium transition-colors">BAZAR</a>
+            <a href="#ferreteria" class="block py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-700 font-medium transition-colors">FERRETERÍA</a>
+            <a href="#otros" class="block py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-700 font-medium transition-colors flex items-center">
+                <i class="fas fa-ellipsis-h mr-2"></i> OTROS
+            </a>
+        </div>
+        
+        <div class="my-6 border-t border-gray-200"></div>
+        
+        <div class="space-y-4">
+            <a href="#contacto" class="block py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-700 font-medium transition-colors flex items-center">
+                <i class="fab fa-whatsapp mr-2 text-green-500"></i> CONTACTO
+            </a>
+            <a href="#info-util" class="block py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-700 font-medium transition-colors flex items-center">
+                <i class="fas fa-question-circle mr-2 text-blue-500"></i> INFO ÚTIL
+            </a>
+            <a href="#inicio" class="block py-3 px-4 rounded-lg hover:bg-blue-50 text-gray-700 font-medium transition-colors flex items-center">
+                <i class="fas fa-home mr-2 text-gray-600"></i> INICIO
+            </a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <img src="img/Logo 2.png" alt="Tienda Mas" class="h-10 md:h-12">
+                </div>
+                
+                <!-- Search and Actions -->
+                <div class="flex items-center space-x-4">
+                    <!-- Search Box -->
+                    <div class="hidden md:flex relative">
+                        <input type="text" placeholder="Buscar productos..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-full w-64 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                        <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                    </div>
+                    
+                    <!-- Mobile Search Button -->
+                    <button id="mobile-search-btn" class="md:hidden text-gray-600 hover:text-blue-500">
+                        <i class="fas fa-search text-xl"></i>
+                    </button>
+                    
+                    <!-- Location -->
+                    <a href="https://www.google.com.ar/maps/place/San+Fernando+del+Valle+de+Catamarca,+Catamarca/@-28.4645091,-65.8577338,21613m/data=!3m2!1e3!4b1!4m6!3m5!1s0x942428bf1d0f9fcd:0x7e1edd4b1609861a!8m2!3d-28.469581!4d-65.7795441!16zL20vMDJ0YjYx?hl=es&entry=ttu&g_ep=EgoyMDI1MDEyMi4wIKXMDSoASAFQAw%3D%3D" 
+                       class="text-gray-600 hover:text-blue-500 hidden sm:block">
+                        <i class="fas fa-map-marker-alt text-xl"></i>
+                    </a>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="menu-toggle" class="text-gray-600 hover:text-blue-500">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Search Box -->
+            <div id="mobile-search" class="mt-3 hidden md:hidden">
+                <div class="relative">
+                    <input type="text" placeholder="Buscar productos..." class="pl-10 pr-4 py-2 border border-gray-300 rounded-full w-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <i class="fas fa-search absolute left-3 top-3 text-gray-400"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="bg-blue-600 text-white hidden md:block">
+            <div class="container mx-auto px-4">
+                <div class="flex justify-between items-center py-3">
+                    <div class="flex space-x-6">
+                        <a href="#" class="hover:bg-blue-700 px-3 py-2 rounded-md transition-colors font-medium">TIENDA ONLINE</a>
+                        <a href="#" class="hover:bg-blue-700 px-3 py-2 rounded-md transition-colors font-medium">HOGAR</a>
+                        <a href="#" class="hover:bg-blue-700 px-3 py-2 rounded-md transition-colors font-medium">BAZAR</a>
+                        <a href="#" class="hover:bg-blue-700 px-3 py-2 rounded-md transition-colors font-medium">FERRETERÍA</a>
+                        <a href="#" class="hover:bg-blue-700 px-3 py-2 rounded-md transition-colors font-medium">OTROS</a>
+                    </div>
+                    
+                    <div class="flex items-center space-x-2">
+                        <span class="text-sm">Contactanos:</span>
+                        <a href="#" class="bg-green-500 hover:bg-green-600 px-3 py-1 rounded-full flex items-center space-x-1 transition-colors font-medium">
+                            <span>+54 9 341 2005545</span>
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg text-white py-12 md:py-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4 text-shadow">A TU ALCANCE</h1>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-shadow">TIENDA MAS</h2>
+                    <p class="text-lg md:text-xl mb-8 max-w-lg mx-auto md:mx-0">Conectamos a Catamarca con comercios de todo el país. Encuentra productos de calidad al mejor precio y con la garantía de un servicio mayorista confiable.</p>
+                    <a href="#" class="inline-flex items-center bg-white text-blue-600 font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transition-colors">
+                        EXPLORAR CATÁLOGO <i class="fas fa-shopping-cart ml-2"></i>
+                    </a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="img/Stuck at Home - Shopping (1).png" alt="Compras online" class="max-w-full h-auto md:max-w-md">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Products Slider -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="swiper new-products-slider mb-8">
+                <div class="swiper-wrapper">
+                    <!-- Special Slide for Title -->
+                    <div class="swiper-slide">
+                        <div class="product-card p-6 flex flex-col items-center justify-center bg-gradient-to-br from-blue-50 to-indigo-100 border-2 border-dashed border-blue-200">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Nuevos Productos</h2>
+                            <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg transition-colors">VER MÁS</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Product Slides -->
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-4 flex items-center justify-center h-48 bg-gray-100">
+                                <img src="img/Imagenes de la web/Slider/pngwing.com (4).png" alt="Auricular Vincha Aiwa" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4 flex-grow">
+                                <small class="text-gray-500 text-sm">COD. 12345</small>
+                                <h3 class="font-medium text-gray-800 my-2 line-clamp-2">Auricular Vincha Aiwa Ava-bt501n Negro</h3>
+                                <a href="formulario.html" class="text-blue-600 font-bold text-lg">$39.091</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-4 flex items-center justify-center h-48 bg-gray-100">
+                                <img src="img/Imagenes de la web/Slider/pngwing.com (5).png" alt="Parlante Frei Chain" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4 flex-grow">
+                                <small class="text-gray-500 text-sm">COD. 12345</small>
+                                <h3 class="font-medium text-gray-800 my-2 line-clamp-2">Parlante Frei Chain Portatil Tws Bluetooth Color Gold</h3>
+                                <a href="formulario.html" class="text-blue-600 font-bold text-lg">$343.825</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-4 flex items-center justify-center h-48 bg-gray-100">
+                                <img src="img/Imagenes de la web/Slider/pngwing.com (6).png" alt="Smart Tv Hd 32 Bgh" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4 flex-grow">
+                                <small class="text-gray-500 text-sm">COD. 12345</small>
+                                <h3 class="font-medium text-gray-800 my-2 line-clamp-2">Smart Tv Hd 32 Bgh Android B3222s5a</h3>
+                                <a href="formulario.html" class="text-blue-600 font-bold text-lg">$283.999</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-4 flex items-center justify-center h-48 bg-gray-100">
+                                <img src="img/Imagenes de la web/Slider/pngwing.com (2).png" alt="Combo Maquillaje Tejar" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4 flex-grow">
+                                <small class="text-gray-500 text-sm">COD. 12345</small>
+                                <h3 class="font-medium text-gray-800 my-2 line-clamp-2">Combo Maquillaje Tejar 12 Productos Total Nude</h3>
+                                <a href="#" class="text-blue-600 font-bold text-lg">$35.583</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-4 flex items-center justify-center h-48 bg-gray-100">
+                                <img src="img/Imagenes de la web/Slider/mochila.png" alt="Mochila Porta Notebook" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4 flex-grow">
+                                <small class="text-gray-500 text-sm">COD. 12345</small>
+                                <h3 class="font-medium text-gray-800 my-2 line-clamp-2">Mochila Porta Notebook 15.6'' Urban Oxford Musette Color Negro</h3>
+                                <a href="formulario.html" class="text-blue-600 font-bold text-lg">$19.499</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <div class="swiper-button-next bg-white text-blue-600 rounded-full w-12 h-12 shadow-lg hover:bg-gray-100 transition-colors"></div>
+                <div class="swiper-button-prev bg-white text-blue-600 rounded-full w-12 h-12 shadow-lg hover:bg-gray-100 transition-colors"></div>
+                
+                <!-- Pagination -->
+                <div class="swiper-pagination mt-4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-8">
+                <!-- Filters Sidebar -->
+                <div class="filter-section md:w-1/4 bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex justify-between items-center mb-4 md:hidden">
+                        <h3 class="text-lg font-bold">Filtros</h3>
+                        <button id="close-filters" class="text-gray-500">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    
+                    <h3 class="text-lg font-bold mb-4 hidden md:block">Filtrar búsqueda</h3>
+                    <hr class="my-4">
+                    
+                    <div class="mb-6">
+                        <h4 class="font-medium mb-3">Categoría</h4>
+                        <div class="space-y-2">
+                            <a href="#" class="block py-1 text-blue-600 font-medium">Todos</a>
+                            <a href="#" class="block py-1 text-gray-700 hover:text-blue-600">Hogar</a>
+                            <a href="#" class="block py-1 text-gray-700 hover:text-blue-600">Bazar</a>
+                            <a href="#" class="block py-1 text-gray-700 hover:text-blue-600">Ferretería</a>
+                            <a href="#" class="block py-1 text-gray-700 hover:text-blue-600">Otros</a>
+                        </div>
+                    </div>
+                    
+                    <hr class="my-4">
+                    
+                    <div class="mb-6">
+                        <h4 class="font-medium mb-3">Precio</h4>
+                        <a href="#" class="text-gray-700 hover:text-blue-600 flex items-center">
+                            <span>Precio +</span>
+                            <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                        </a>
+                    </div>
+                    
+                    <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg w-full text-center block transition-colors mt-6">CARGAR MÁS</a>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="md:w-3/4">
+                    <!-- Products Header -->
+                    <div class="flex flex-col sm:flex-row justify-between items-center mb-6">
+                        <button id="filter-toggle" class="md:hidden bg-blue-500 text-white px-4 py-2 rounded-lg mb-4 sm:mb-0 flex items-center">
+                            <i class="fas fa-filter mr-2"></i> Filtros
+                        </button>
+                        
+                        <div class="flex items-center space-x-4">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">CARGAR ANTERIORES</a>
+                            <a href="#" class="text-gray-700 hover:text-blue-600 flex items-center">
+                                <span>Mostrar primero</span>
+                                <i class="fas fa-chevron-down ml-1 text-xs"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Products Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Product Card -->
+                        <div class="product-card">
+                            <div class="p-4 flex items-center justify-center h-48 bg-gray-100">
+                                <img src="img/Imagenes de la web/Slider/Botellas.jpeg" alt="Botellas de plastico" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium text-gray-800 mb-2">Botellas de plastico por mayor x10 unid.</h3>
+                                <small class="text-gray-500">Distribuidor: La Mendocina</small>
+                                <div class="mt-3 flex justify-between items-center">
+                                    <span class="text-blue-600 font-bold">DESDE $6700</span>
+                                    <a href="formulario.html" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-1 px-3 rounded transition-colors">CONTACTARNOS</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Repeat for other products... -->
+                        <!-- Product cards 2-12 would go here following the same structure -->
+                        
+                        <!-- Example of another product card -->
+                        <div class="product-card">
+                            <div class="p-4 flex items-center justify-center h-48 bg-gray-100">
+                                <img src="img/Imagenes de la web/Slider/envases de plastico.jpeg" alt="Envases de productos cosméticos" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium text-gray-800 mb-2">Envases de productos cosméticos</h3>
+                                <small class="text-gray-500">Distribuidor: Fadep envases</small>
+                                <div class="mt-3 flex justify-between items-center">
+                                    <span class="text-blue-600 font-bold">DESDE $11300</span>
+                                    <a href="formulario.html" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-1 px-3 rounded transition-colors">CONTACTARNOS</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="product-card">
+                            <div class="p-4 flex items-center justify-center h-48 bg-gray-100">
+                                <img src="img/Imagenes de la web/Slider/descarga.jpeg" alt="Tejas coloniales" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-medium text-gray-800 mb-2">Tejas coloniales x100 unid.</h3>
+                                <small class="text-gray-500">Distribuidor: Corralon San Javier</small>
+                                <div class="mt-3 flex justify-between items-center">
+                                    <span class="text-blue-600 font-bold">DESDE $110900</span>
+                                    <a href="formulario.html" class="bg-blue-500 hover:bg-blue-600 text-white text-sm font-medium py-1 px-3 rounded transition-colors">CONTACTARNOS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Load More Button -->
+                    <div class="text-center mt-8">
+                        <a href="#" class="inline-block bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-6 rounded-lg transition-colors">CARGAR MÁS PRODUCTOS</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Slider -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-8">Productos Destacados</h2>
+            
+            <div class="swiper featured-products-slider">
+                <div class="swiper-wrapper">
+                    <!-- Product Slides -->
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-4 flex items-center justify-center h-48 bg-gray-100">
+                                <img src="img/slider 2/notebook.png" alt="Laptop intel core i7" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <small class="text-gray-500 text-sm">Laptop intel core i7 republic of gamers, notebook</small>
+                                <p class="text-green-600 text-sm my-2">Mismo precio en 3 cuotas de $11.996</p>
+                                <p class="text-gray-400 text-sm">...</p>
+                                <a href="formulario.html" class="text-blue-600 font-bold text-lg block mt-2">$758.000</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional product slides would go here -->
+                    <!-- Slides 2-7 following the same structure -->
+                    
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-4 flex items-center justify-center h-48 bg-gray-100">
+                                <img src="img/slider 2/computadoras.png" alt="Portátil intel core hp" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <small class="text-gray-500 text-sm">Portátil intel core hp probook hewlett-packard, notebook</small>
+                                <p class="text-green-600 text-sm my-2">Mismo precio en 3 cuotas de $11.996</p>
+                                <p class="text-gray-400 text-sm">...</p>
+                                <a href="formulario.html" class="text-blue-600 font-bold text-lg block mt-2">$2.570.000</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <div class="product-card">
+                            <div class="p-4 flex items-center justify-center h-48 bg-gray-100">
+                                <img src="img/slider 2/aire.png" alt="Aire acondicionado Skyworth" class="max-h-full max-w-full object-contain">
+                            </div>
+                            <div class="p-4">
+                                <small class="text-gray-500 text-sm">Aire acondicionado Skyworth aire acondicionado, condición, rectángulo, Electrodoméstico</small>
+                                <p class="text-green-600 text-sm my-2">Mismo precio en 3 cuotas de $11.996</p>
+                                <p class="text-gray-400 text-sm">...</p>
+                                <a href="formulario.html" class="text-blue-600 font-bold text-lg block mt-2">$598.000</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <div class="swiper-button-next bg-white text-blue-600 rounded-full w-12 h-12 shadow-lg hover:bg-gray-100 transition-colors"></div>
+                <div class="swiper-button-prev bg-white text-blue-600 rounded-full w-12 h-12 shadow-lg hover:bg-gray-100 transition-colors"></div>
+                
+                <!-- Pagination -->
+                <div class="swiper-pagination mt-4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Company Info -->
+                <div class="flex flex-col items-center md:items-start">
+                    <img src="img/Logo 2.png" alt="Tienda Mas" class="h-12 mb-4">
+                    <p class="text-gray-400 text-center md:text-left">©2024 Tienda Mas+. tienda online Catamarca. Todos los derechos reservados.</p>
+                </div>
+                
+                <!-- Data Fiscal -->
+                <div class="flex flex-col items-center">
+                    <img src="img/Data-Fiscal.png" alt="Data Fiscal" class="h-20 mb-2">
+                    <a href="#" class="text-blue-300 hover:text-white font-medium">DATA FISCAL</a>
+                </div>
+                
+                <!-- Social & Contact -->
+                <div class="flex flex-col items-center md:items-end">
+                    <p class="mb-4 text-center md:text-right">No dudes en contactarnos!</p>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="bg-blue-600 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="bg-pink-600 hover:bg-pink-700 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="bg-blue-400 hover:bg-blue-500 w-10 h-10 rounded-full flex items-center justify-center transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    <a href="#" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded-full flex items-center space-x-2 transition-colors font-medium">
+                        <span>Contactar por WhatsApp</span>
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper sliders
+        document.addEventListener('DOMContentLoaded', function() {
+            // New Products Slider
+            const newProductsSwiper = new Swiper('.new-products-slider', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.new-products-slider .swiper-button-next',
+                    prevEl: '.new-products-slider .swiper-button-prev',
+                },
+                pagination: {
+                    el: '.new-products-slider .swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: { slidesPerView: 2 },
+                    768: { slidesPerView: 3 },
+                    1024: { slidesPerView: 4 },
+                    1280: { slidesPerView: 5 }
+                }
+            });
+            
+            // Featured Products Slider
+            const featuredProductsSwiper = new Swiper('.featured-products-slider', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                },
+                navigation: {
+                    nextEl: '.featured-products-slider .swiper-button-next',
+                    prevEl: '.featured-products-slider .swiper-button-prev',
+                },
+                pagination: {
+                    el: '.featured-products-slider .swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: { slidesPerView: 2 },
+                    768: { slidesPerView: 3 },
+                    1024: { slidesPerView: 4 }
+                }
+            });
+            
+            // Mobile Menu Toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const closeMenu = document.getElementById('close-menu');
+            const mobileMenu = document.querySelector('.menu-active');
+            const overlay = document.querySelector('.overlay');
+            
+            menuToggle.addEventListener('click', function() {
+                mobileMenu.classList.add('open');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeMenu.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            overlay.addEventListener('click', function() {
+                mobileMenu.classList.remove('open');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // Mobile Search Toggle
+            const mobileSearchBtn = document.getElementById('mobile-search-btn');
+            const mobileSearch = document.getElementById('mobile-search');
+            
+            mobileSearchBtn.addEventListener('click', function() {
+                mobileSearch.classList.toggle('hidden');
+            });
+            
+            // Mobile Filter Toggle
+            const filterToggle = document.getElementById('filter-toggle');
+            const closeFilters = document.getElementById('close-filters');
+            const filterSection = document.querySelector('.filter-section');
+            
+            filterToggle.addEventListener('click', function() {
+                filterSection.classList.add('open');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeFilters.addEventListener('click', function() {
+                filterSection.classList.remove('open');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+            
+            // Close filters when clicking on overlay
+            overlay.addEventListener('click', function() {
+                filterSection.classList.remove('open');
+                overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+</body>
+</html>

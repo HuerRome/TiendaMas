@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tienda Mas — Marketplace para distribuidores & vendedores</title>
+
+  <!-- Tailwind Play CDN (rápido para prototipo) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tipografías -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome para iconos (opcional) -->
+  <script src="https://kit.fontawesome.com/your_kit_id.js" crossorigin="anonymous"></script>
+  <!-- Si no tenés kit, podés usar: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <!-- Paleta y pequeños estilos adicionales -->
+  <style>
+    :root{
+      --tm-orange: #FF6B35;
+      --tm-orange-hover: #E55627;
+      --tm-blue: #004E89;
+      --tm-gray-light: #F8F9FA;
+      --max-width: 1200px;
+    }
+
+    /* Focus visible personalizado para accesibilidad */
+    .focus-ring:focus {
+      outline: 3px solid rgba(0,78,137,0.18);
+      outline-offset: 3px;
+    }
+
+    /* Card subtle lift */
+    .card-lift {
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card-lift:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 14px 30px rgba(2,6,23,.08);
+    }
+
+    /* Tiny horizontal scroll snap para productos destacados */
+    .snap-x { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+    .snap-child { scroll-snap-align: start; }
+
+    /* Badge */
+    .badge {
+      background: linear-gradient(90deg, var(--tm-orange), var(--tm-orange-hover));
+      color: white;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body class="antialiased text-slate-800 bg-white font-['Inter',system-ui,Arial]">
+
+  <!-- ===========================
+       HEADER (FIXED)
+       =========================== -->
+  <header class="fixed inset-x-0 top-0 z-40 bg-white/60 backdrop-blur-md border-b border-slate-200">
+    <div class="mx-auto w-full max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--tm-orange),var(--tm-orange-hover));">
+            <span class="text-white font-bold">TM</span>
+          </div>
+          <div class="hidden sm:block">
+            <span class="font-semibold text-lg">Tienda <span class="text-[var(--tm-blue)]">Mas</span></span>
+            <p class="text-xs text-slate-500">Marketplace mayorista</p>
+          </div>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex items-center gap-6" aria-label="Main navigation">
+          <a href="#categorias" class="text-sm hover:text-[var(--tm-blue)] transition">Categorías</a>
+          <a href="#beneficios" class="text-sm hover:text-[var(--tm-blue)] transition">Ventajas</a>
+          <a href="#destacados" class="text-sm hover:text-[var(--tm-blue)] transition">Destacados</a>
+          <a href="#testimonios" class="text-sm hover:text-[var(--tm-blue)] transition">Testimonios</a>
+          <a href="#precios" class="text-sm hover:text-[var(--tm-blue)] transition">Planes</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-3">
+          <a href="#vender" class="hidden md:inline-flex items-center gap-2 border border-[var(--tm-blue)] text-[var(--tm-blue)] px-4 py-2 rounded-full text-sm font-semibold hover:bg-[var(--tm-blue)] hover:text-white transition focus-ring" aria-label="Vender en Tienda Mas">
+            <i class="fa-solid fa-store"></i> Vender
+          </a>
+
+          <a href="#registrarse" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring transition" aria-label="Registrarse en Tienda Mas">
+            Registrarse
+          </a>
+
+          <!-- Mobile menu button -->
+          <button id="btn-mobile" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden p-2 rounded-lg focus-ring">
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/></svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden" hidden>
+      <div class="px-4 pb-6 pt-2 border-t border-slate-200 bg-white">
+        <a href="#categorias" class="block py-2 text-base">Categorías</a>
+        <a href="#beneficios" class="block py-2 text-base">Beneficios</a>
+        <a href="#destacados" class="block py-2 text-base">Destacados</a>
+        <div class="flex gap-2 mt-3">
+          <a href="#vender" class="flex-1 text-center py-2 rounded-full border border-[var(--tm-blue)] text-[var(--tm-blue)]">Vender</a>
+          <a href="#registrarse" class="flex-1 text-center py-2 rounded-full bg-[var(--tm-orange)] text-white">Registrarse</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Spacing to offset fixed header -->
+  <div class="h-16" aria-hidden="true"></div>
+
+  <!-- ===========================
+       HERO
+       =========================== -->
+  <main>
+    <section class="bg-[var(--tm-gray-light)]">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <!-- Left: texto -->
+        <div class="space-y-6">
+          <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full badge text-sm">Mercado mayorista · Envíos a todo el país</span>
+          <h1 class="text-3xl md:text-4xl font-extrabold leading-tight tracking-tight">
+            Tu <span class="text-[var(--tm-blue)]">marketplace</span> para comprar y vender al por mayor — <span class="text-[var(--tm-orange)]">rápido</span> y <span class="font-semibold">confiable</span>.
+          </h1>
+          <p class="text-slate-600 max-w-xl">
+            Conecta con distribuidores y vendedores verificados. Paneles para vendedores, pagos seguros y herramientas para escalar tu negocio.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <a href="#registrarse" class="inline-flex items-center gap-3 px-5 py-3 rounded-lg text-white font-semibold bg-[var(--tm-orange)] hover:bg-[var(--tm-orange-hover)] focus-ring transition">
+              <i class="fa-solid fa-user-plus"></i> Registrarse
+            </a>
+            <a href="#destacados" class="inline-flex items-center gap-3 px-5 py-3 rounded-lg border border-slate-200 bg-white text-slate-700 hover:shadow-sm focus-ring transition">
+              Ver productos destacados
+            </a>
+          </div>
+
+          <!-- Trust & metrics -->
+          <div class="flex flex-wrap gap-4 mt-4 text-sm text-slate-600">
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-white shadow-sm">
+                <i class="fa-solid fa-boxes-stacked text-[var(--tm-blue)]"></i>
+              </div>
+              <div>
+                <div class="text-sm font-semibold">+1.200</div>
+                <div class="text-xs text-slate-500">Vendedores activos</div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-white shadow-sm">
+                <i class="fa-solid fa-truck text-[var(--tm-blue)]"></i>
+              </div>
+              <div>
+                <div class="text-sm font-semibold">Envíos a todo el país</div>
+                <div class="text-xs text-slate-500">Logística integrada</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: ilustración / imagen (sustituir por SVG o imagen optimizada) -->
+        <div class="hidden lg:flex justify-center">
+          <div class="w-full max-w-md rounded-2xl bg-white p-6 shadow-lg card-lift">
+            <!-- Placeholder ilustrativo -->
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="Marketplace illustration" class="w-full h-56 object-cover rounded-lg" />
+            <div class="mt-4">
+              <h3 class="text-lg font-semibold">Panel para Vendedores</h3>
+              <p class="text-sm text-slate-500 mt-1">Gestiona tus productos, pedidos y reportes con paneles pensados para escalar.</p>
+            </div>
+            <div class="mt-4 flex items-center justify-between gap-3">
+              <div class="text-xs text-slate-500">Pago seguro · Control de stock</div>
+              <a href="#vender" class="text-sm font-semibold text-[var(--tm-blue)]">Empieza a vender →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         CATEGORÍAS DESTACADAS
+         =========================== -->
+    <section id="categorias" class="py-12">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-semibold">Categorías destacadas</h2>
+          <a href="#categorias" class="text-sm text-[var(--tm-blue)] hover:underline">Ver todas</a>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+          <!-- Categoria card - reutilizable -->
+          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift hover:scale-[1.01] transition" aria-label="Tecnología">
+            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+              <i class="fa-solid fa-microchip text-[var(--tm-blue)] text-lg"></i>
+            </div>
+            <span class="text-sm font-medium">Tecnología</span>
+            <span class="text-xs text-slate-400">+1200 productos</span>
+          </a>
+
+          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Moda">
+            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+              <i class="fa-solid fa-tshirt text-[var(--tm-blue)]"></i>
+            </div>
+            <span class="text-sm font-medium">Moda</span>
+            <span class="text-xs text-slate-400">+800 productos</span>
+          </a>
+
+          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Hogar">
+            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+              <i class="fa-solid fa-house-chimney text-[var(--tm-blue)]"></i>
+            </div>
+            <span class="text-sm font-medium">Hogar</span>
+            <span class="text-xs text-slate-400">+600 productos</span>
+          </a>
+
+          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Belleza">
+            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+              <i class="fa-solid fa-magic-wand-sparkles text-[var(--tm-blue)]"></i>
+            </div>
+            <span class="text-sm font-medium">Belleza</span>
+            <span class="text-xs text-slate-400">+420 productos</span>
+          </a>
+
+          <!-- Ejemplo más -->
+          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Ferretería">
+            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+              <i class="fa-solid fa-wrench text-[var(--tm-blue)]"></i>
+            </div>
+            <span class="text-sm font-medium">Ferretería</span>
+            <span class="text-xs text-slate-400">+320 productos</span>
+          </a>
+
+          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Deportes">
+            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+              <i class="fa-solid fa-basketball text-[var(--tm-blue)]"></i>
+            </div>
+            <span class="text-sm font-medium">Deportes</span>
+            <span class="text-xs text-slate-400">+200 productos</span>
+          </a>
+
+          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Alimentos">
+            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+              <i class="fa-solid fa-bowl-food text-[var(--tm-blue)]"></i>
+            </div>
+            <span class="text-sm font-medium">Alimentos</span>
+            <span class="text-xs text-slate-400">+900 productos</span>
+          </a>
+
+          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Automotriz">
+            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+              <i class="fa-solid fa-car-side text-[var(--tm-blue)]"></i>
+            </div>
+            <span class="text-sm font-medium">Automotriz</span>
+            <span class="text-xs text-slate-400">+150 productos</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         BENEFICIOS / VENTAJAS
+         =========================== -->
+    <section id="beneficios" class="py-12 bg-white">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <h3 class="text-xl font-semibold">Por qué elegir Tienda Mas</h3>
+          <p class="text-sm text-slate-500">Herramientas pensadas para vendedores y compradores mayoristas.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b1">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-shield-check text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b1" class="font-semibold">Pagos seguros</h4>
+            <p class="mt-2 text-sm text-slate-600">Plataforma con integraciones de pago y conciliación automatizada.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b2">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-rocket text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b2" class="font-semibold">Escalabilidad</h4>
+            <p class="mt-2 text-sm text-slate-600">Soporta crecimiento de catálogo y tráfico con caching y microservicios.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b3">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-chart-line text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b3" class="font-semibold">Analytics</h4>
+            <p class="mt-2 text-sm text-slate-600">Métricas clave para vendedores: ventas, vistas y conversión.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b4">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-headset text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b4" class="font-semibold">Soporte dedicado</h4>
+            <p class="mt-2 text-sm text-slate-600">Atención a vendedores y compradores con SLA personalizado.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         PRODUCTOS / VENDEDORES DESTACADOS (Scrollable carousel simple)
+         =========================== -->
+    <section id="destacados" class="py-12 bg-[var(--tm-gray-light)]">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-semibold">Productos destacados</h2>
+          <a href="#" class="text-sm text-[var(--tm-blue)]">Explorar catálogo</a>
+        </div>
+
+        <!-- Scrollable horizontal list (touch friendly) -->
+        <div class="overflow-x-auto snap-x flex gap-4 pb-4">
+          <!-- Card product example -->
+          <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child" role="group" aria-label="Producto 1">
+            <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+              <img src="https://images.unsplash.com/photo-1585386959984-a415522c9f12?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="Producto ejemplo" class="object-cover w-full h-full" />
+            </div>
+            <h3 class="mt-3 font-semibold text-sm">Auricular Bluetooth inalámbrico</h3>
+            <p class="mt-1 text-xs text-slate-500">Código: A-12345 · Stock: 120</p>
+            <div class="mt-3 flex items-center justify-between">
+              <div>
+                <div class="text-sm font-bold">$39.091</div>
+                <div class="text-xs text-slate-500">Precio mayorista</div>
+              </div>
+              <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+            </div>
+          </article>
+
+          <!-- Repeat short list (sustituir con dinámica) -->
+          <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
+            <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+              <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="Producto ejemplo" class="object-cover w-full h-full" />
+            </div>
+            <h3 class="mt-3 font-semibold text-sm">Parlante portátil TWS</h3>
+            <p class="mt-1 text-xs text-slate-500">Código: P-23412 · Stock: 50</p>
+            <div class="mt-3 flex items-center justify-between">
+              <div>
+                <div class="text-sm font-bold">$343.825</div>
+                <div class="text-xs text-slate-500">Precio mayorista</div>
+              </div>
+              <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+            </div>
+          </article>
+
+          <article class="min-w-[240px] w-[240px] bg-white rounded-xl p-4 border card-lift snap-child">
+            <div class="aspect-[4/3] bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center">
+              <img src="https://images.unsplash.com/photo-1580910051074-0b0f5b1f9bf9?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="Producto ejemplo" class="object-cover w-full h-full" />
+            </div>
+            <h3 class="mt-3 font-semibold text-sm">Mochila porta notebook 15.6"</h3>
+            <p class="mt-1 text-xs text-slate-500">Código: M-77777 · Stock: 20</p>
+            <div class="mt-3 flex items-center justify-between">
+              <div>
+                <div class="text-sm font-bold">$19.499</div>
+                <div class="text-xs text-slate-500">Precio mayorista</div>
+              </div>
+              <a href="#" class="px-3 py-2 rounded-md text-xs font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring">Contactar</a>
+            </div>
+          </article>
+
+          <!-- Add more cards as needed / or render server-side -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         TESTIMONIOS (Cards)
+         =========================== -->
+    <section id="testimonios" class="py-12">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-2xl font-semibold">Historias de éxito</h2>
+          <a href="#" class="text-sm text-[var(--tm-blue)]">Ver más casos</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <figure class="p-6 bg-white rounded-xl border card-lift">
+            <figcaption class="flex items-center gap-3">
+              <img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="">
+              <div>
+                <div class="font-semibold">La Mendocina</div>
+                <div class="text-xs text-slate-500">Distribuidora · Mendoza</div>
+              </div>
+            </figcaption>
+            <blockquote class="mt-4 text-sm text-slate-600">"Desde que vendemos en Tienda Mas aumentamos 40% las ventas mayoristas. La gestión de stock y pagos es realmente sencilla."</blockquote>
+          </figure>
+
+          <figure class="p-6 bg-white rounded-xl border card-lift">
+            <figcaption class="flex items-center gap-3">
+              <img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1545996124-1b5c3da42d75?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="">
+              <div>
+                <div class="font-semibold">Distribuidora CI</div>
+                <div class="text-xs text-slate-500">Construcción · Salta</div>
+              </div>
+            </figcaption>
+            <blockquote class="mt-4 text-sm text-slate-600">"El sistema de pedidos y los canales de comunicación con compradores nos ahorraron muchas horas mensuales."</blockquote>
+          </figure>
+
+          <figure class="p-6 bg-white rounded-xl border card-lift">
+            <figcaption class="flex items-center gap-3">
+              <img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&s=..." alt="">
+              <div>
+                <div class="font-semibold">BM Distribuidora</div>
+                <div class="text-xs text-slate-500">Cosmética · Córdoba</div>
+              </div>
+            </figcaption>
+            <blockquote class="mt-4 text-sm text-slate-600">"Excelente soporte y entregas confiables a distintos puntos del país."</blockquote>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         CTA SECUNDARIA (Empieza a vender)
+         =========================== -->
+    <section id="vender" class="py-12 bg-[var(--tm-blue)] text-white">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h3 class="text-xl font-semibold">¿Tenés un negocio? Empieza a vender en Tienda Mas</h3>
+          <p class="text-sm text-slate-100 mt-2">Regístrate, subí tu catálogo y accedé a ventas mayoristas desde el primer día.</p>
+        </div>
+        <div class="flex gap-3">
+          <a href="#registrarse" class="px-5 py-3 bg-white text-[var(--tm-blue)] rounded-md font-semibold focus-ring">Crear cuenta vendedor</a>
+          <a href="#contacto" class="px-5 py-3 border border-white rounded-md text-white font-semibold focus-ring">Contactar soporte</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         FOOTER
+         =========================== -->
+    <footer class="bg-slate-900 text-slate-300 mt-12">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div>
+          <a href="#" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--tm-orange),var(--tm-orange-hover));">
+              <span class="text-white font-bold">TM</span>
+            </div>
+            <div>
+              <div class="text-white font-semibold">Tienda Mas</div>
+              <div class="text-xs text-slate-400">Marketplace mayorista</div>
+            </div>
+          </a>
+          <p class="mt-4 text-sm text-slate-400">© <span id="year"></span> Tienda Mas. Todos los derechos reservados.</p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-white mb-3">Empresa</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:underline">Acerca</a></li>
+            <li><a href="#" class="hover:underline">Prensa</a></li>
+            <li><a href="#" class="hover:underline">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-white mb-3">Vendedores</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="hover:underline">Cómo vender</a></li>
+            <li><a href="#" class="hover:underline">Costos y comisiones</a></li>
+            <li><a href="#" class="hover:underline">Soporte</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-white mb-3">Síguenos</h4>
+          <div class="flex gap-3">
+            <a class="p-2 rounded-md bg-slate-800 hover:bg-slate-700" href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a class="p-2 rounded-md bg-slate-800 hover:bg-slate-700" href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a class="p-2 rounded-md bg-slate-800 hover:bg-slate-700" href="#" aria-label="Linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+          </div>
+
+          <div class="mt-4">
+            <a href="#" class="text-xs text-slate-400 hover:underline">Términos y condiciones</a> ·
+            <a href="#" class="text-xs text-slate-400 hover:underline">Política de privacidad</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ===========================
+       SCRIPTS: interacción y accesibilidad
+       =========================== -->
+  <script>
+    // Header mobile toggle (accessible)
+    (function(){
+      const btn = document.getElementById('btn-mobile');
+      const menu = document.getElementById('mobile-menu');
+      const iconOpen = document.getElementById('icon-open');
+      const iconClose = document.getElementById('icon-close');
+
+      btn.addEventListener('click', () => {
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if (menu.hasAttribute('hidden')) {
+          menu.removeAttribute('hidden');
+          iconOpen.classList.add('hidden');
+          iconClose.classList.remove('hidden');
+        } else {
+          menu.setAttribute('hidden', '');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        }
+      });
+
+      // Keyboard: close mobile menu on ESC
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          menu.setAttribute('hidden', '');
+          btn.setAttribute('aria-expanded', 'false');
+          iconOpen.classList.remove('hidden');
+          iconClose.classList.add('hidden');
+        }
+      });
+
+      // Update footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+
+    // Small enhancement: prefer-reduced-motion respect
+    (function() {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) {
+        document.documentElement.classList.add('reduce-motion');
+      }
+    })();
+  </script>
+
+  <!-- ===========================
+       Notas / sugerencias de producción
+       ===========================
+       1) Para producción: compilar Tailwind (no Play CDN) y definir colores en tailwind.config.js.
+       2) Separar componentes (Header, Footer, Cards) en componentes reutilizables (React/Vue/Svelte).
+       3) Reemplazar imágenes por assets optimizados (webp, size-specified) y usar lazy-loading.
+       4) Implementar carga de productos mediante API (render SSR/SSG para SEO).
+       5) Añadir tests de accesibilidad (axe) y performance audits (Lighthouse).
+  -->
+</body>
+</html>

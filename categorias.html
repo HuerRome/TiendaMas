@@ -1,0 +1,70 @@
+```html
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Categorías — Tienda Mas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-slate-800 font-[Inter]">
+
+  <!-- Header -->
+  <header class="fixed top-0 inset-x-0 z-40 bg-white/70 backdrop-blur border-b">
+    <div class="max-w-7xl mx-auto px-4 flex items-center justify-between h-16">
+      <a href="index.html" class="font-bold text-xl text-[var(--tm-blue)]">Tienda Mas</a>
+      <nav class="hidden md:flex gap-6">
+        <a href="categorias.html" class="text-[var(--tm-orange)] font-semibold">Categorías</a>
+        <a href="ventajas.html">Ventajas</a>
+        <a href="destacados.html">Destacados</a>
+        <a href="testimonios.html">Testimonios</a>
+        <a href="planes.html">Planes</a>
+      </nav>
+    </div>
+  </header>
+  <div class="h-16"></div>
+
+  <!-- Hero -->
+  <section class="bg-[var(--tm-gray-light)] py-12 text-center">
+    <h1 class="text-3xl font-extrabold">Categorías</h1>
+    <p class="text-slate-600 mt-2">Explora las principales categorías del marketplace</p>
+  </section>
+
+  <!-- Grid de categorías -->
+  <main class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+    <a href="#" class="p-6 bg-white border rounded-lg text-center hover:shadow card-lift">
+      <i class="fa-solid fa-microchip text-[var(--tm-blue)] text-2xl"></i>
+      <h3 class="mt-3 font-semibold">Tecnología</h3>
+    </a>
+    <a href="#" class="p-6 bg-white border rounded-lg text-center hover:shadow card-lift">
+      <i class="fa-solid fa-tshirt text-[var(--tm-blue)] text-2xl"></i>
+      <h3 class="mt-3 font-semibold">Moda</h3>
+    </a>
+    <a href="#" class="p-6 bg-white border rounded-lg text-center hover:shadow card-lift">
+      <i class="fa-solid fa-house-chimney text-[var(--tm-blue)] text-2xl"></i>
+      <h3 class="mt-3 font-semibold">Hogar</h3>
+    </a>
+    <a href="#" class="p-6 bg-white border rounded-lg text-center hover:shadow card-lift">
+      <i class="fa-solid fa-basketball text-[var(--tm-blue)] text-2xl"></i>
+      <h3 class="mt-3 font-semibold">Deportes</h3>
+    </a>
+    <a href="#" class="p-6 bg-white border rounded-lg text-center hover:shadow card-lift">
+      <i class="fa-solid fa-car-side text-[var(--tm-blue)] text-2xl"></i>
+      <h3 class="mt-3 font-semibold">Automotriz</h3>
+    </a>
+    <a href="#" class="p-6 bg-white border rounded-lg text-center hover:shadow card-lift">
+      <i class="fa-solid fa-bowl-food text-[var(--tm-blue)] text-2xl"></i>
+      <h3 class="mt-3 font-semibold">Alimentos</h3>
+    </a>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 text-center py-6">
+    © <span id="year"></span> Tienda Mas. Todos los derechos reservados.
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
+```

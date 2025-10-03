@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Mas - Marketplace líder de Catamarca</title>
+    <link rel="shortcut icon" href="img/Logo.png">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF6B35',
+                        'primary-hover': '#E55627',
+                        secondary: '#004E89',
+                        'gray-light': '#F8F9FA',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-pattern {
+            background-color: #ffffff;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff6b35' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Header/Navigation -->
+    <header class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo -->
+                <a href="#" class="flex items-center">
+                    <img src="img/Logo 2.png" alt="Tienda Mas" class="h-10">
+                </a>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-primary font-medium transition-all">Inicio</a>
+                    <a href="#" class="text-gray-700 hover:text-primary font-medium transition-all">Categorías</a>
+                    <a href="#" class="text-gray-700 hover:text-primary font-medium transition-all">Productos</a>
+                    <a href="#" class="text-gray-700 hover:text-primary font-medium transition-all">Vendedores</a>
+                    <a href="#" class="text-gray-700 hover:text-primary font-medium transition-all">Contacto</a>
+                </nav>
+
+                <!-- Auth Buttons -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#" class="px-4 py-2 text-secondary font-medium hover:text-primary transition-all">
+                        Iniciar sesión
+                    </a>
+                    <a href="#" class="bg-primary hover:bg-primary-hover text-white px-5 py-2 rounded-lg font-medium transition-all shadow-md hover:shadow-lg">
+                        Registrarse
+                    </a>
+                    <a href="#" class="bg-secondary hover:bg-blue-800 text-white px-5 py-2 rounded-lg font-medium transition-all shadow-md hover:shadow-lg">
+                        Vender en Tienda Mas
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button class="lg:hidden focus:outline-none" id="mobile-menu-button">
+                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <div class="hidden lg:hidden bg-white border-t" id="mobile-menu">
+            <div class="container mx-auto px-4 py-4 space-y-4">
+                <a href="#" class="block text-gray-700 hover:text-primary font-medium py-2">Inicio</a>
+                <a href="#" class="block text-gray-700 hover:text-primary font-medium py-2">Categorías</a>
+                <a href="#" class="block text-gray-700 hover:text-primary font-medium py-2">Productos</a>
+                <a href="#" class="block text-gray-700 hover:text-primary font-medium py-2">Vendedores</a>
+                <a href="#" class="block text-gray-700 hover:text-primary font-medium py-2">Contacto</a>
+                <div class="pt-4 space-y-3 border-t">
+                    <a href="#" class="block text-center text-secondary font-medium py-2">Iniciar sesión</a>
+                    <a href="#" class="block text-center bg-primary hover:bg-primary-hover text-white py-2 rounded-lg font-medium transition-all">Registrarse</a>
+                    <a href="#" class="block text-center bg-secondary hover:bg-blue-800 text-white py-2 rounded-lg font-medium transition-all">Vender en Tienda Mas</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-pattern pt-32 pb-20">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center">
+                <div class="lg:w-1/2 mb-10 lg:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Conectamos Catamarca con comercios de todo el país</h1>
+                    <p class="text-xl text-gray-600 mb-8">Encuentra productos de calidad al mejor precio y con la garantía de un servicio mayorista confiable.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#" class="bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-lg font-semibold text-center shadow-md hover:shadow-lg transition-all">
+                            Explorar Catálogo <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#" class="border border-secondary text-secondary hover:bg-secondary hover:text-white px-8 py-4 rounded-lg font-semibold text-center transition-all">
+                            Comenzar a Vender
+                        </a>
+                    </div>
+                </div>
+                <div class="lg:w-1/2 flex justify-center">
+                    <img src="img/Stuck at Home - Shopping (1).png" alt="Tienda Mas" class="w-full max-w-md">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Categorías Destacadas</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <a href="#" class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all border border-transparent hover:border-primary">
+                    <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-laptop text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold">Tecnología</h3>
+                </a>
+                <a href="#" class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all border border-transparent hover:border-primary">
+                    <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tshirt text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold">Moda</h3>
+                </a>
+                <a href="#" class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all border border-transparent hover:border-primary">
+                    <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-home text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold">Hogar</h3>
+                </a>
+                <a href="#" class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all border border-transparent hover:border-primary">
+                    <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tools text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold">Ferretería</h3>
+                </a>
+                <a href="#" class="bg-white rounded-xl p-6 text-center shadow-sm hover:shadow-md transition-all border border-transparent hover:border-primary">
+                    <div class="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-ellipsis-h text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold">Otros</h3>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">¿Por qué elegir Tienda Mas?</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Compra Segura</h3>
+                    <p class="text-gray-600">Protegemos tus datos y transacciones con los más altos estándares de seguridad.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-truck text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Envíos a Todo el País</h3>
+                    <p class="text-gray-600">Recibe tus productos sin importar dónde te encuentres en Argentina.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-store text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Multi-vendedores</h3>
+                    <p class="text-gray-600">Accede a productos de múltiples proveedores en un solo lugar.</p>
+                </div>
+                <div class="text-center">
+                    <div class="bg-primary bg-opacity-10 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-headset text-2xl text-primary"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg mb-2">Soporte 24/7</h3>
+                    <p class="text-gray-600">Nuestro equipo está siempre disponible para resolver tus dudas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-10">
+                <h2 class="text-3xl font-bold">Productos Destacados</h2>
+                <a href="#" class="text-primary hover:text-primary-hover font-semibold flex items-center">
+                    Ver todos <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Product Card 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+                    <div class="h-48 bg-gray-100 flex items-center justify-center p-4">
+                        <img src="img/Imagenes de la web/Slider/pngwing.com (4).png" alt="Auricular Aiwa" class="max-h-40">
+                    </div>
+                    <div class="p-4">
+                        <span class="text-xs text-gray-500">COD. 12345</span>
+                        <h3 class="font-semibold mt-1">Auricular Vincha Aiwa Ava-bt501n Negro</h3>
+                        <p class="text-primary font-bold text-xl mt-2">$39.091</p>
+                        <a href="formulario.html" class="mt-4 block w-full bg-primary hover:bg-primary-hover text-white text-center py-2 rounded-lg font-medium transition-all">
+                            Comprar ahora
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+                    <div class="h-48 bg-gray-100 flex items-center justify-center p-4">
+                        <img src="img/Imagenes de la web/Slider/pngwing.com (5).png" alt="Parlante Frei Chain" class="max-h-40">
+                    </div>
+                    <div class="p-4">
+                        <span class="text-xs text-gray-500">COD. 12345</span>
+                        <h3 class="font-semibold mt-1">Parlante Frei Chain Portatil Tws Bluetooth</h3>
+                        <p class="text-primary font-bold text-xl mt-2">$343.825</p>
+                        <a href="formulario.html" class="mt-4 block w-full bg-primary hover:bg-primary-hover text-white text-center py-2 rounded-lg font-medium transition-all">
+                            Comprar ahora
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+                    <div class="h-48 bg-gray-100 flex items-center justify-center p-4">
+                        <img src="img/Imagenes de la web/Slider/pngwing.com (6).png" alt="Smart TV BGH" class="max-h-40">
+                    </div>
+                    <div class="p-4">
+                        <span class="text-xs text-gray-500">COD. 12345</span>
+                        <h3 class="font-semibold mt-1">Smart Tv Hd 32 Bgh Android B3222s5a</h3>
+                        <p class="text-primary font-bold text-xl mt-2">$283.999</p>
+                        <a href="formulario.html" class="mt-4 block w-full bg-primary hover:bg-primary-hover text-white text-center py-2 rounded-lg font-medium transition-all">
+                            Comprar ahora
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all">
+                    <div class="h-48 bg-gray-100 flex items-center justify-center p-4">
+                        <img src="img/Imagenes de la web/Slider/mochila.png" alt="Mochila Urban Oxford" class="max-h-40">
+                    </div>
+                    <div class="p-4">
+                        <span class="text-xs text-gray-500">COD. 12345</span>
+                        <h3 class="font-semibold mt-1">Mochila Porta Notebook 15.6'' Urban Oxford</h3>
+                        <p class="text-primary font-bold text-xl mt-2">$19.499</p>
+                        <a href="formulario.html" class="mt-4 block w-full bg-primary hover:bg-primary-hover text-white text-center py-2 rounded-lg font-medium transition-all">
+                            Comprar ahora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12">Lo que dicen nuestros clientes</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"He encontrado productos de calidad a precios increíbles. El envío fue rápido y el empaque perfecto. ¡Definitivamente mi marketplace de confianza!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full mr-3"></div>
+                        <div>
+                            <h4 class="font-semibold">María González</h4>
+                            <p class="text-sm text-gray-500">Cliente frecuente</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"Como vendedor, Tienda Mas me ha permitido expandir mi negocio a todo el país. La plataforma es intuitiva y el soporte al vendedor excelente."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full mr-3"></div>
+                        <div>
+                            <h4 class="font-semibold">Carlos Rodríguez</h4>
+                            <p class="text-sm text-gray-500">Vendedor asociado</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 flex">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">"La variedad de productos es impresionante. Puedo encontrar desde artículos para el hogar hasta tecnología, todo en un mismo lugar."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-gray-200 rounded-full mr-3"></div>
+                        <div>
+                            <h4 class="font-semibold">Ana Martínez</h4>
+                            <p class="text-sm text-gray-500">Compradora premium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-secondary text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6">¿Eres vendedor? Únete a nuestra plataforma</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto">Llega a miles de clientes en todo el país y haz crecer tu negocio con las herramientas más modernas de e-commerce.</p>
+            <a href="#" class="inline-block bg-white text-secondary hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg shadow-md hover:shadow-lg transition-all">
+                Comenzar a vender
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <img src="img/Logo 2.png" alt="Tienda Mas" class="h-10 mb-6">
+                    <p class="text-gray-400 mb-6">Conectamos Catamarca con comercios de todo el país. Productos de calidad al mejor precio.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-all">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-all">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-6">Enlaces rápidos</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Inicio</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Categorías</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Productos</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Vendedores</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-6">Ayuda</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Preguntas frecuentes</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Políticas de envío</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Devoluciones</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Términos y condiciones</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-all">Privacidad</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold text-lg mb-6">Contacto</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">San Fernando del Valle de Catamarca, Argentina</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">+54 9 341 2005545</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3 text-gray-400"></i>
+                            <span class="text-gray-400">info@tiendamas.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">© 2024 Tienda Mas+. Todos los derechos reservados.</p>
+                <div class="flex items-center">
+                    <img src="img/Data-Fiscal.png" alt="Data Fiscal" class="h-10 mr-4">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm transition-all">Data Fiscal</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Simple animation on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.transition-all');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            animatedElements.forEach(el => {
+                el.classList.add('opacity-0', 'translate-y-10');
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
