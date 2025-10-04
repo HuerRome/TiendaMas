@@ -62,99 +62,101 @@
   <!-- ===========================
        HEADER (FIXED)
        =========================== -->
-  <header class="fixed inset-x-0 top-0 z-40 bg-white/60 backdrop-blur-md border-b border-slate-200"> 
+
+  <header class="fixed inset-x-0 top-0 z-50 bg-white/70 backdrop-blur-md border-b border-slate-200">
     <div class="mx-auto w-full max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
       
-      <!-- Fila 1: Logo + Buscador + Acciones -->
+      <!-- FILA 1: LOGO + BUSCADOR + ACCIONES -->
       <div class="flex items-center justify-between h-16 gap-4">
         
-        <!-- Logo -->
-        <a href="#" class="flex items-center gap-3 shrink-0">
-
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--tm-orange),var(--tm-orange-hover));">
-            <img src="img/logo.png" alt="Logo" class="w-full h-full object-cover">
+        <!-- LOGO -->
+        <a href="/" class="flex items-center gap-3 shrink-0 group">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-[var(--tm-orange)] to-[var(--tm-orange-hover)] shadow-sm">
+            <img src="img/logo.png" alt="Logo Tienda Mas" class="w-full h-full object-cover rounded-xl">
           </div>
-
-          <div class="hidden sm:block">
-            <span class="font-semibold text-lg text-orange-500">Tienda <span class="text-blue-600">Mas</span></span>
+          <div class="hidden sm:block leading-tight">
+            <span class="font-semibold text-lg text-orange-500 group-hover:text-orange-600 transition">Tienda <span class="text-blue-600">Mas</span></span>
             <p class="text-xs text-slate-500">Marketplace mayorista</p>
           </div>
         </a>
-
-        <!-- Buscador -->
-        <div id="buscador">
-          <div class="buscador-container">
-            <input 
-              type="text" 
-              id="search-input" 
-              placeholder="Buscar productos..."
+  
+        <!-- BUSCADOR -->
+        <div class="flex-1 max-w-2xl w-full">
+          <div class="relative group">
+            <input
+              type="text"
+              placeholder="Buscar productos, categorías o marcas..."
+              class="w-full rounded-md border border-slate-300 focus:border-[var(--tm-blue)] focus:ring-2 focus:ring-[var(--tm-blue)]/30 px-4 py-2 pl-4 pr-10 text-sm text-slate-700 transition"
             >
-            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" 
-                 viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                    d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
+            <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-[var(--tm-blue)] transition" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
             </svg>
           </div>
         </div>
-
-        <!-- Acciones -->
+  
+        <!-- ACCIONES -->
         <div class="flex items-center gap-3">
-          <a href="#vender" class="hidden md:inline-flex items-center gap-2 border border-[var(--tm-blue)] text-[var(--tm-blue)] px-4 py-2 rounded-full text-sm font-semibold hover:bg-[var(--tm-blue)] hover:text-white transition focus-ring" aria-label="Vender en Tienda Mas">
+          <!-- BOTÓN VENDER -->
+          <a href="#vender" class="hidden md:inline-flex items-center gap-2 border border-[var(--tm-blue)] text-[var(--tm-blue)] px-4 py-2 rounded-full text-sm font-medium hover:bg-[var(--tm-blue)] hover:text-white transition focus-ring">
             <i class="fa-solid fa-store"></i> Vender
           </a>
-          <a href="#registrarse" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring transition" aria-label="Registrarse en Tienda Mas">
+  
+          <!-- INICIAR SESIÓN -->
+          <a href="#login" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-slate-100 transition">
+            Iniciar sesión
+          </a>
+  
+          <!-- REGISTRARSE -->
+          <a href="#registrarse" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring transition">
             Registrarse
           </a>
-          <!-- Carrito -->
-          <a id="carrito" href="/carrito" class="relative flex items-center space-x-2 p-2 rounded-full hover:bg-slate-100 transition hidden md:block">
-            <!-- Ícono de carrito moderno -->
-            <svg xmlns="http://www.w3.org/2000/svg" 
-                 class="w-6 h-6 text-slate-700" 
-                 fill="none" viewBox="0 0 24 24" 
-                 stroke="currentColor" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round" 
-                    d="M2.25 2.25h2.25l1.5 12.75h12.75l1.5-9H6.75M9 21a.75.75 0 100-1.5.75.75 0 000 1.5zm9 0a.75.75 0 100-1.5.75.75 0 000 1.5z" />
-            </svg>    
-            <!-- Badge de cantidad -->
-            <span class="absolute -top-1 -right-1 bg-[var(--tm-blue)] text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
-              3
-            </span>
-          </a>
-
   
-          <!-- Botón menú mobile -->
-          <button id="btn-mobile" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden p-0 rounded-lg focus:outline-none focus:ring-0 active:outline-none active:ring-0">
-            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/></svg>
-            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          <!-- CARRITO -->
+          <a href="/carrito" class="relative hidden md:flex items-center justify-center p-2 rounded-full hover:bg-slate-100 transition" aria-label="Ver carrito">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 2.25h2.25l1.5 12.75h12.75l1.5-9H6.75M9 21a.75.75 0 100-1.5.75.75 0 000 1.5zm9 0a.75.75 0 100-1.5.75.75 0 000 1.5z"/>
+            </svg>
+            <span class="absolute -top-1 -right-1 bg-[var(--tm-blue)] text-white text-xs font-bold px-1.5 py-0.5 rounded-full">3</span>
+          </a>
+  
+          <!-- BOTÓN MOBILE -->
+          <button id="btn-mobile" class="md:hidden p-2 rounded-lg focus:outline-none focus:ring-0 active:ring-0">
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/>
+            </svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
           </button>
         </div>
       </div>
   
-      <!-- Fila 2: Navegación -->
-      <nav class="hidden md:flex items-center gap-6 py-2 border-t border-slate-200" aria-label="Main navigation">
-        <a href="#categorias" class="text-sm hover:text-[var(--tm-blue)] transition">Categorías</a>
-        <a href="#beneficios" class="text-sm hover:text-[var(--tm-blue)] transition">Ventajas</a>
-        <a href="#destacados" class="text-sm hover:text-[var(--tm-blue)] transition">Destacados</a>
-        <a href="#testimonios" class="text-sm hover:text-[var(--tm-blue)] transition">Testimonios</a>
-        <a href="#precios" class="text-sm hover:text-[var(--tm-blue)] transition">Planes</a>
+      <!-- FILA 2: NAVEGACIÓN -->
+      <nav class="hidden md:flex items-center gap-6 py-2 border-t border-slate-200 text-sm text-slate-700" aria-label="Navegación principal">
+        <a href="#categorias" class="hover:text-[var(--tm-blue)] transition">Categorías</a>
+        <a href="#ofertas" class="hover:text-[var(--tm-blue)] transition">Ofertas</a>
+        <a href="#nuevos" class="hover:text-[var(--tm-blue)] transition">Nuevos</a>
+        <a href="#mas-vendidos" class="hover:text-[var(--tm-blue)] transition">Más vendidos</a>
+        <a href="#contacto" class="hover:text-[var(--tm-blue)] transition">Contacto</a>
       </nav>
     </div>
   
-    <!-- Mobile menu -->
-    <div id="mobile-menu" class="md:hidden" hidden>
-      <div class="px-4 pb-6 pt-2 border-t border-slate-200 bg-white">
-        <a href="#carrito" class="block py-2 text-base">Carrito</a>
+    <!-- MENÚ MOBILE -->
+    <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-slate-200">
+      <div class="px-4 py-4 space-y-2">
         <a href="#categorias" class="block py-2 text-base">Categorías</a>
-        <a href="#beneficios" class="block py-2 text-base">Beneficios</a>
-        <a href="#destacados" class="block py-2 text-base">Destacados</a>
-        <div class="flex gap-2 mt-3">
-          <a href="#vender" class="flex-1 text-center py-2 rounded-full border border-[var(--tm-blue)] text-[var(--tm-blue)]">Vender</a>
-          <a href="#registrarse" class="flex-1 text-center py-2 rounded-full bg-[var(--tm-orange)] text-white">Registrarse</a>
+        <a href="#ofertas" class="block py-2 text-base">Ofertas</a>
+        <a href="#nuevos" class="block py-2 text-base">Nuevos</a>
+        <a href="#mas-vendidos" class="block py-2 text-base">Más vendidos</a>
+        <div class="border-t border-slate-200 pt-3 flex flex-col gap-2">
+          <a href="#vender" class="text-center py-2 rounded-full border border-[var(--tm-blue)] text-[var(--tm-blue)]">Vender</a>
+          <a href="#registrarse" class="text-center py-2 rounded-full bg-[var(--tm-orange)] text-white">Registrarse</a>
+          <a href="#login" class="text-center py-2 text-slate-700 hover:text-[var(--tm-blue)]">Iniciar sesión</a>
         </div>
       </div>
     </div>
   </header>
-  
+
 
   <!-- Spacing to offset fixed header -->
   <div class="h-16" aria-hidden="true"></div>
