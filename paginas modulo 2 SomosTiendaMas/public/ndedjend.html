@@ -62,109 +62,168 @@
   <!-- ===========================
        HEADER (FIXED)
        =========================== -->
-
-  <header class="fixed inset-x-0 top-0 z-50 bg-white/70 backdrop-blur-md border-b border-slate-200">
+  <header class="inset-x-0 top-0 z-40 bg-white/60 backdrop-blur-md border-b border-slate-200"> 
     <div class="mx-auto w-full max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
       
-      <!-- FILA 1: LOGO + BUSCADOR + ACCIONES -->
+      <!-- Fila 1: Logo + Buscador + Acciones -->
       <div class="flex items-center justify-between h-16 gap-4">
         
-        <!-- LOGO -->
-        <a href="/" class="flex items-center gap-3 shrink-0 group">
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-[var(--tm-orange)] to-[var(--tm-orange-hover)] shadow-sm">
-            <img src="img/logo.png" alt="Logo Tienda Mas" class="w-full h-full object-cover rounded-xl">
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 shrink-0">
+
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--tm-orange),var(--tm-orange-hover));">
+            <img src="img/logo.png" alt="Logo" class="w-full h-full object-cover">
           </div>
-          <div class="hidden sm:block leading-tight">
-            <span class="font-semibold text-lg text-orange-500 group-hover:text-orange-600 transition">Tienda <span class="text-blue-600">Mas</span></span>
+
+          <div class="hidden sm:block">
+            <span class="font-semibold text-lg text-orange-500">Tienda<span class="text-blue-600">Mas+</span></span>
             <p class="text-xs text-slate-500">Marketplace mayorista</p>
           </div>
         </a>
-  
-        <!-- BUSCADOR -->
-        <div class="flex-1 max-w-2xl w-full">
-          <div class="relative group">
-            <input
-              type="text"
-              placeholder="Buscar productos, categorías o marcas..."
-              class="w-full rounded-md border border-slate-300 focus:border-[var(--tm-blue)] focus:ring-2 focus:ring-[var(--tm-blue)]/30 px-4 py-2 pl-4 pr-10 text-sm text-slate-700 transition"
+
+        <!-- Buscador -->
+        <div id="buscador">
+          <div class="buscador-container">
+            <input 
+              type="text" 
+              id="search-input" 
+              placeholder="Buscar productos..."
             >
-            <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-[var(--tm-blue)] transition" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" 
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
             </svg>
           </div>
         </div>
-  
-        <!-- ACCIONES -->
+
+        <!-- Acciones -->
         <div class="flex items-center gap-3">
-          <!-- BOTÓN VENDER -->
-          <a href="#vender" class="hidden md:inline-flex items-center gap-2 border border-[var(--tm-blue)] text-[var(--tm-blue)] px-4 py-2 rounded-full text-sm font-medium hover:bg-[var(--tm-blue)] hover:text-white transition focus-ring">
-            <i class="fa-solid fa-store"></i> Vender
+          <a href="#vender" class="hidden md:inline-flex items-center gap-2 border border-[var(--tm-blue)] text-[var(--tm-blue)] px-4 py-2 rounded-full text-sm font-semibold hover:bg-[var(--tm-blue)] hover:text-white transition focus-ring" aria-label="Vender en Tienda Mas">
+            <i class="fa-solid fa-user"></i> Ingresá
           </a>
-  
-          <!-- INICIAR SESIÓN -->
-          <a href="#login" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium text-slate-700 hover:bg-slate-100 transition">
-            Iniciar sesión
-          </a>
-  
-          <!-- REGISTRARSE -->
-          <a href="#registrarse" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring transition">
+          <a href="#registrarse" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring transition" aria-label="Registrarse en Tienda Mas">
             Registrarse
           </a>
-  
-          <!-- CARRITO -->
-          <a href="/carrito" class="relative hidden md:flex items-center justify-center p-2 rounded-full hover:bg-slate-100 transition" aria-label="Ver carrito">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 2.25h2.25l1.5 12.75h12.75l1.5-9H6.75M9 21a.75.75 0 100-1.5.75.75 0 000 1.5zm9 0a.75.75 0 100-1.5.75.75 0 000 1.5z"/>
-            </svg>
-            <span class="absolute -top-1 -right-1 bg-[var(--tm-blue)] text-white text-xs font-bold px-1.5 py-0.5 rounded-full">3</span>
+          <!-- Carrito -->
+          <a id="carrito" href="/carrito" class="relative flex items-center space-x-2 p-2 rounded-full hover:bg-slate-100 transition hidden md:block">
+            <!-- Ícono de carrito moderno -->
+            <svg xmlns="http://www.w3.org/2000/svg" 
+                 class="w-6 h-6 text-slate-700" 
+                 fill="none" viewBox="0 0 24 24" 
+                 stroke="currentColor" stroke-width="1.8">
+              <path stroke-linecap="round" stroke-linejoin="round" 
+                    d="M2.25 2.25h2.25l1.5 12.75h12.75l1.5-9H6.75M9 21a.75.75 0 100-1.5.75.75 0 000 1.5zm9 0a.75.75 0 100-1.5.75.75 0 000 1.5z" />
+            </svg>    
+            <!-- Badge de cantidad -->
+            <span class="absolute -top-1 -right-1 bg-[var(--tm-blue)] text-white text-xs font-bold px-1.5 py-0.5 rounded-full">
+              3
+            </span>
           </a>
+
   
-          <!-- BOTÓN MOBILE -->
-          <button id="btn-mobile" class="md:hidden p-2 rounded-lg focus:outline-none focus:ring-0 active:ring-0">
-            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/>
-            </svg>
-            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-            </svg>
+          <!-- Botón menú mobile -->
+          <button id="btn-mobile" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden p-0 rounded-lg focus:outline-none focus:ring-0 active:outline-none active:ring-0">
+            <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/></svg>
+            <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
         </div>
       </div>
   
-      <!-- FILA 2: NAVEGACIÓN -->
-      <nav class="hidden md:flex items-center gap-6 py-2 border-t border-slate-200 text-sm text-slate-700" aria-label="Navegación principal">
-        <a href="#categorias" class="hover:text-[var(--tm-blue)] transition">Categorías</a>
-        <a href="#ofertas" class="hover:text-[var(--tm-blue)] transition">Ofertas</a>
-        <a href="#nuevos" class="hover:text-[var(--tm-blue)] transition">Nuevos</a>
-        <a href="#mas-vendidos" class="hover:text-[var(--tm-blue)] transition">Más vendidos</a>
-        <a href="#contacto" class="hover:text-[var(--tm-blue)] transition">Contacto</a>
+      <!-- Fila 2: Navegación -->
+      <nav class="hidden md:flex items-center gap-6 py-2 border-t border-slate-200" aria-label="Main navigation">
+        <a href="#categorias" class="text-sm hover:text-[var(--tm-blue)] transition">Categorías</a>
+        <a href="#destacados" class="text-sm hover:text-[var(--tm-blue)] transition">Destacados</a>
+        <a href="#novedades" class="text-sm hover:text-[var(--tm-blue)] transition">Novedades</a>
+        <a href="#soporte" class="text-sm hover:text-[var(--tm-blue)] transition">Contacto / Soporte</a>
+        <a href="#ayuda" class="text-sm hover:text-[var(--tm-blue)] transition">Ayuda</a>
+        <a href="#vender" class="text-sm hover:text-[var(--tm-blue)] transition"><i class="fa-solid fa-store"></i> Vender</a>
       </nav>
     </div>
   
-    <!-- MENÚ MOBILE -->
-    <div id="mobile-menu" class="md:hidden hidden bg-white border-t border-slate-200">
-      <div class="px-4 py-4 space-y-2">
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden" hidden>
+      <div class="px-4 pb-6 pt-2 border-t border-slate-200 bg-white">
+        <a href="#carrito" class="block py-2 text-base">Carrito</a>
         <a href="#categorias" class="block py-2 text-base">Categorías</a>
-        <a href="#ofertas" class="block py-2 text-base">Ofertas</a>
-        <a href="#nuevos" class="block py-2 text-base">Nuevos</a>
-        <a href="#mas-vendidos" class="block py-2 text-base">Más vendidos</a>
-        <div class="border-t border-slate-200 pt-3 flex flex-col gap-2">
-          <a href="#vender" class="text-center py-2 rounded-full border border-[var(--tm-blue)] text-[var(--tm-blue)]">Vender</a>
-          <a href="#registrarse" class="text-center py-2 rounded-full bg-[var(--tm-orange)] text-white">Registrarse</a>
-          <a href="#login" class="text-center py-2 text-slate-700 hover:text-[var(--tm-blue)]">Iniciar sesión</a>
+        <a href="#beneficios" class="block py-2 text-base">Beneficios</a>
+        <a href="#destacados" class="block py-2 text-base">Destacados</a>
+        <div class="flex gap-2 mt-3">
+          <a href="#vender" class="flex-1 text-center py-2 rounded-full border border-[var(--tm-blue)] text-[var(--tm-blue)]">Vender</a>
+          <a href="#registrarse" class="flex-1 text-center py-2 rounded-full bg-[var(--tm-orange)] text-white">Registrarse</a>
         </div>
       </div>
     </div>
   </header>
 
 
-  <!-- Spacing to offset fixed header -->
-  <div class="h-16" aria-hidden="true"></div>
 
   <!-- ===========================
        HERO
        =========================== -->
   <main>
+      <section id="hero" class="w-full bg-[#FF6B35] py-6 px-4 md:px-10">
+        <!-- Contenedor principal -->
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          
+          <!-- Texto principal -->
+          <div class="w-full md:w-2/3">
+            <p class="text-sm font-semibold text-black mb-1">
+              La Promo Termina: <span class="font-bold">8 oct., 03:59 (GMT-3)</span>
+            </p>
+            <a href="#" class="text-2xl md:text-3xl font-bold text-[#D71A28]">
+              Hasta <span class="text-black">-60%</span> dto.
+              <a href="#" class="ml-2 bg-black text-white px-3 py-2 rounded-full text-lg font-bold shadow-md hover:bg-gray-800 hover:scale-105 transition-all duration-300">
+                &gt;
+              </a>
+              
+            </a>
+      
+            <!-- Cards de productos -->
+            <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              <!-- Producto 1 -->
+              <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
+                <img src="https://picsum.photos/id/1011/200/200" alt="Producto 1" class="w-full h-36 object-cover">
+                <div class="p-2">
+                  <p class="text-sm font-semibold text-blue-700">Conjuntos en tendencia</p>
+                  <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                    $104,454.00
+                  </p>
+                </div>
+              </a>
+
+              <!-- Producto 2 -->
+              <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
+                <img src="https://picsum.photos/id/1005/200/200" alt="Producto 2" class="w-full h-36 object-cover">
+                <div class="p-2">
+                  <p class="text-sm font-semibold text-gray-800">Bisutería, complementos...</p>
+                  <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                    $1,362.00
+                  </p>
+                </div>
+              </a>
+      
+              <!-- Producto 3 -->
+              <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
+                <img src="https://picsum.photos/id/1025/200/200" alt="Producto 3" class="w-full h-36 object-cover">
+                <div class="p-2">
+                  <p class="text-sm font-semibold text-pink-600">Moda mujer</p>
+                  <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                    $145,714.00
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+      
+
+      
+        </div>
+      </section>
+      
+
+  
+
     <section class="bg-[var(--tm-gray-light)]">
       <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <!-- Left: texto -->
@@ -309,52 +368,6 @@
     </section>
 
     <!-- ===========================
-         BENEFICIOS / VENTAJAS
-         =========================== -->
-    <section id="beneficios" class="py-12 bg-white">
-      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8">
-          <h3 class="text-xl font-semibold">Por qué elegir Tienda Mas</h3>
-          <p class="text-sm text-slate-500">Herramientas pensadas para vendedores y compradores mayoristas.</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b1">
-            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
-              <i class="fa-solid fa-shield-check text-[var(--tm-blue)]"></i>
-            </div>
-            <h4 id="b1" class="font-semibold">Pagos seguros</h4>
-            <p class="mt-2 text-sm text-slate-600">Plataforma con integraciones de pago y conciliación automatizada.</p>
-          </article>
-
-          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b2">
-            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
-              <i class="fa-solid fa-rocket text-[var(--tm-blue)]"></i>
-            </div>
-            <h4 id="b2" class="font-semibold">Escalabilidad</h4>
-            <p class="mt-2 text-sm text-slate-600">Soporta crecimiento de catálogo y tráfico con caching y microservicios.</p>
-          </article>
-
-          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b3">
-            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
-              <i class="fa-solid fa-chart-line text-[var(--tm-blue)]"></i>
-            </div>
-            <h4 id="b3" class="font-semibold">Analytics</h4>
-            <p class="mt-2 text-sm text-slate-600">Métricas clave para vendedores: ventas, vistas y conversión.</p>
-          </article>
-
-          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b4">
-            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
-              <i class="fa-solid fa-headset text-[var(--tm-blue)]"></i>
-            </div>
-            <h4 id="b4" class="font-semibold">Soporte dedicado</h4>
-            <p class="mt-2 text-sm text-slate-600">Atención a vendedores y compradores con SLA personalizado.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===========================
          PRODUCTOS / VENDEDORES DESTACADOS (Scrollable carousel simple)
          =========================== -->
     <section id="destacados" class="py-12 bg-[var(--tm-gray-light)]">
@@ -414,6 +427,52 @@
           </article>
 
           <!-- Add more cards as needed / or render server-side -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         BENEFICIOS / VENTAJAS
+         =========================== -->
+    <section id="beneficios" class="py-12 bg-white">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <h3 class="text-xl font-semibold">Por qué elegir Tienda Mas</h3>
+          <p class="text-sm text-slate-500">Herramientas pensadas para vendedores y compradores mayoristas.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b1">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-shield-check text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b1" class="font-semibold">Pagos seguros</h4>
+            <p class="mt-2 text-sm text-slate-600">Plataforma con integraciones de pago y conciliación automatizada.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b2">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-rocket text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b2" class="font-semibold">Escalabilidad</h4>
+            <p class="mt-2 text-sm text-slate-600">Soporta crecimiento de catálogo y tráfico con caching y microservicios.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b3">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-chart-line text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b3" class="font-semibold">Analytics</h4>
+            <p class="mt-2 text-sm text-slate-600">Métricas clave para vendedores: ventas, vistas y conversión.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b4">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-headset text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b4" class="font-semibold">Soporte dedicado</h4>
+            <p class="mt-2 text-sm text-slate-600">Atención a vendedores y compradores con SLA personalizado.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -591,5 +650,6 @@
        4) Implementar carga de productos mediante API (render SSR/SSG para SEO).
        5) Añadir tests de accesibilidad (axe) y performance audits (Lighthouse).
   -->
+  <script src="script.js"></script>
 </body>
 </html>
