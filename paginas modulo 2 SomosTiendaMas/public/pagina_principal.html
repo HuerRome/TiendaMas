@@ -163,6 +163,64 @@
        HERO
        =========================== -->
   <main>
+      <section class="w-full bg-[#FFD84D] py-6 px-4 md:px-10 pt-16">
+        <!-- Contenedor principal -->
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          
+          <!-- Texto principal -->
+          <div class="w-full md:w-2/3">
+            <p class="text-sm font-semibold text-black mb-1">
+              La Promo Termina: <span class="font-bold">8 oct., 03:59 (GMT-3)</span>
+            </p>
+            <h2 class="text-2xl md:text-3xl font-bold text-[#D71A28]">
+              Hasta <span class="text-black">-60%</span> dto.
+              <button class="ml-2 bg-black text-white px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-800 transition">
+                &gt;
+              </button>
+            </h2>
+      
+            <!-- Cards de productos -->
+            <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              <!-- Producto 1 -->
+              <div class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
+                <img src="https://picsum.photos/id/1011/200/200" alt="Producto 1" class="w-full h-36 object-cover">
+                <div class="p-2">
+                  <p class="text-sm font-semibold text-blue-700">Conjuntos en tendencia</p>
+                  <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                    $104,454.00
+                  </p>
+                </div>
+              </div>
+      
+              <!-- Producto 2 -->
+              <div class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
+                <img src="https://picsum.photos/id/1005/200/200" alt="Producto 2" class="w-full h-36 object-cover">
+                <div class="p-2">
+                  <p class="text-sm font-semibold text-gray-800">Bisutería, complementos...</p>
+                  <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                    $1,362.00
+                  </p>
+                </div>
+              </div>
+      
+              <!-- Producto 3 -->
+              <div class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
+                <img src="https://picsum.photos/id/1025/200/200" alt="Producto 3" class="w-full h-36 object-cover">
+                <div class="p-2">
+                  <p class="text-sm font-semibold text-pink-600">Moda mujer</p>
+                  <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                    $145,714.00
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+      
+
+      
+        </div>
+      </section>
+      
   <section class="relative w-full overflow-hidden bg-gray-900">
     <!-- Contenedor principal -->
     <div id="carousel" class="flex transition-transform duration-700 ease-in-out">
@@ -354,52 +412,6 @@
     </section>
 
     <!-- ===========================
-         BENEFICIOS / VENTAJAS
-         =========================== -->
-    <section id="beneficios" class="py-12 bg-white">
-      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8">
-          <h3 class="text-xl font-semibold">Por qué elegir Tienda Mas</h3>
-          <p class="text-sm text-slate-500">Herramientas pensadas para vendedores y compradores mayoristas.</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b1">
-            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
-              <i class="fa-solid fa-shield-check text-[var(--tm-blue)]"></i>
-            </div>
-            <h4 id="b1" class="font-semibold">Pagos seguros</h4>
-            <p class="mt-2 text-sm text-slate-600">Plataforma con integraciones de pago y conciliación automatizada.</p>
-          </article>
-
-          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b2">
-            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
-              <i class="fa-solid fa-rocket text-[var(--tm-blue)]"></i>
-            </div>
-            <h4 id="b2" class="font-semibold">Escalabilidad</h4>
-            <p class="mt-2 text-sm text-slate-600">Soporta crecimiento de catálogo y tráfico con caching y microservicios.</p>
-          </article>
-
-          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b3">
-            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
-              <i class="fa-solid fa-chart-line text-[var(--tm-blue)]"></i>
-            </div>
-            <h4 id="b3" class="font-semibold">Analytics</h4>
-            <p class="mt-2 text-sm text-slate-600">Métricas clave para vendedores: ventas, vistas y conversión.</p>
-          </article>
-
-          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b4">
-            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
-              <i class="fa-solid fa-headset text-[var(--tm-blue)]"></i>
-            </div>
-            <h4 id="b4" class="font-semibold">Soporte dedicado</h4>
-            <p class="mt-2 text-sm text-slate-600">Atención a vendedores y compradores con SLA personalizado.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===========================
          PRODUCTOS / VENDEDORES DESTACADOS (Scrollable carousel simple)
          =========================== -->
     <section id="destacados" class="py-12 bg-[var(--tm-gray-light)]">
@@ -459,6 +471,52 @@
           </article>
 
           <!-- Add more cards as needed / or render server-side -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         BENEFICIOS / VENTAJAS
+         =========================== -->
+    <section id="beneficios" class="py-12 bg-white">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <h3 class="text-xl font-semibold">Por qué elegir Tienda Mas</h3>
+          <p class="text-sm text-slate-500">Herramientas pensadas para vendedores y compradores mayoristas.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b1">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-shield-check text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b1" class="font-semibold">Pagos seguros</h4>
+            <p class="mt-2 text-sm text-slate-600">Plataforma con integraciones de pago y conciliación automatizada.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b2">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-rocket text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b2" class="font-semibold">Escalabilidad</h4>
+            <p class="mt-2 text-sm text-slate-600">Soporta crecimiento de catálogo y tráfico con caching y microservicios.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b3">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-chart-line text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b3" class="font-semibold">Analytics</h4>
+            <p class="mt-2 text-sm text-slate-600">Métricas clave para vendedores: ventas, vistas y conversión.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b4">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-headset text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b4" class="font-semibold">Soporte dedicado</h4>
+            <p class="mt-2 text-sm text-slate-600">Atención a vendedores y compradores con SLA personalizado.</p>
+          </article>
         </div>
       </div>
     </section>
