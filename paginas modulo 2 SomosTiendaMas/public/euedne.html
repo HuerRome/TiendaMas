@@ -25,6 +25,8 @@
       --tm-blue: #004E89;
       --tm-gray-light: #F8F9FA;
       --max-width: 1200px;
+      --titulo-naranja:#ffff;
+      --titulo-azul: #2563EB;
     }
 
     /* Focus visible personalizado para accesibilidad */
@@ -53,14 +55,14 @@
       font-weight: 600;
     }
   </style>
-  <link rel="stylesheet" href="css/pagina_principal.css">
+  <link rel="stylesheet" href="paginaPrincipal.css">
 </head>
 <body class="antialiased text-slate-800 bg-white font-['Inter',system-ui,Arial]">
 
   <!-- ===========================
        HEADER (FIXED)
        =========================== -->
-  <header class="fixed inset-x-0 top-0 z-40 bg-white/60 backdrop-blur-md border-b border-slate-200"> 
+  <header class="inset-x-0 top-0 z-40 bg-white/60 backdrop-blur-md border-b border-slate-200"> 
     <div class="mx-auto w-full max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
       
       <!-- Fila 1: Logo + Buscador + Acciones -->
@@ -68,40 +70,43 @@
         
         <!-- Logo -->
         <a href="#" class="flex items-center gap-3 shrink-0">
+
           <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background:linear-gradient(135deg,var(--tm-orange),var(--tm-orange-hover));">
-            <span class="text-white font-bold">TM</span>
+            <img src="img/logo.png" alt="Logo" class="w-full h-full object-cover">
           </div>
+
           <div class="hidden sm:block">
-            <span class="font-semibold text-lg">Tienda <span class="text-[var(--tm-blue)]">Mas</span></span>
+            <span class="font-semibold text-lg text-orange-500">Tienda<span class="text-blue-600">Mas+</span></span>
             <p class="text-xs text-slate-500">Marketplace mayorista</p>
           </div>
         </a>
 
         <!-- Buscador -->
-        <div id="buscador" class="flex-1 px-4">
-          <div class="relative w-full">
+        <div id="buscador">
+          <div class="buscador-container">
             <input 
               type="text" 
               id="search-input" 
-              placeholder="Buscar productos..." 
-              class="w-full rounded-full border border-slate-300 px-4 py-2 pr-10 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--tm-blue)]"
+              placeholder="Buscar productos..."
             >
-            <svg class="absolute right-3 top-2.5 w-4 h-4 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" fill="none" 
+                 viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M21 21l-4.35-4.35M11 19a8 8 0 100-16 8 8 0 000 16z"/>
             </svg>
           </div>
         </div>
-        
+
         <!-- Acciones -->
         <div class="flex items-center gap-3">
           <a href="#vender" class="hidden md:inline-flex items-center gap-2 border border-[var(--tm-blue)] text-[var(--tm-blue)] px-4 py-2 rounded-full text-sm font-semibold hover:bg-[var(--tm-blue)] hover:text-white transition focus-ring" aria-label="Vender en Tienda Mas">
-            <i class="fa-solid fa-store"></i> Vender
+            <i class="fa-solid fa-user"></i> Ingresá
           </a>
           <a href="#registrarse" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-[var(--tm-orange)] text-white hover:bg-[var(--tm-orange-hover)] focus-ring transition" aria-label="Registrarse en Tienda Mas">
             Registrarse
           </a>
           <!-- Carrito -->
-          <a id="carrito" href="/carrito" class="relative flex items-center space-x-2 p-2 rounded-full hover:bg-slate-100 transition">
+          <a id="carrito" href="/carrito" class="relative flex items-center space-x-2 p-2 rounded-full hover:bg-slate-100 transition hidden md:block">
             <!-- Ícono de carrito moderno -->
             <svg xmlns="http://www.w3.org/2000/svg" 
                  class="w-6 h-6 text-slate-700" 
@@ -118,7 +123,7 @@
 
   
           <!-- Botón menú mobile -->
-          <button id="btn-mobile" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden p-2 rounded-lg focus-ring">
+          <button id="btn-mobile" aria-expanded="false" aria-controls="mobile-menu" class="md:hidden p-0 rounded-lg focus:outline-none focus:ring-0 active:outline-none active:ring-0">
             <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8h16M4 16h16"/></svg>
             <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
           </button>
@@ -128,16 +133,18 @@
       <!-- Fila 2: Navegación -->
       <nav class="hidden md:flex items-center gap-6 py-2 border-t border-slate-200" aria-label="Main navigation">
         <a href="#categorias" class="text-sm hover:text-[var(--tm-blue)] transition">Categorías</a>
-        <a href="#beneficios" class="text-sm hover:text-[var(--tm-blue)] transition">Ventajas</a>
         <a href="#destacados" class="text-sm hover:text-[var(--tm-blue)] transition">Destacados</a>
-        <a href="#testimonios" class="text-sm hover:text-[var(--tm-blue)] transition">Testimonios</a>
-        <a href="#precios" class="text-sm hover:text-[var(--tm-blue)] transition">Planes</a>
+        <a href="#novedades" class="text-sm hover:text-[var(--tm-blue)] transition">Novedades</a>
+        <a href="#soporte" class="text-sm hover:text-[var(--tm-blue)] transition">Contacto / Soporte</a>
+        <a href="#ayuda" class="text-sm hover:text-[var(--tm-blue)] transition">Ayuda</a>
+        <a href="#vender" class="text-sm hover:text-[var(--tm-blue)] transition"><i class="fa-solid fa-store"></i> Vender</a>
       </nav>
     </div>
   
     <!-- Mobile menu -->
     <div id="mobile-menu" class="md:hidden" hidden>
       <div class="px-4 pb-6 pt-2 border-t border-slate-200 bg-white">
+        <a href="#carrito" class="block py-2 text-base">Carrito</a>
         <a href="#categorias" class="block py-2 text-base">Categorías</a>
         <a href="#beneficios" class="block py-2 text-base">Beneficios</a>
         <a href="#destacados" class="block py-2 text-base">Destacados</a>
@@ -148,16 +155,287 @@
       </div>
     </div>
   </header>
-  
 
-  <!-- Spacing to offset fixed header -->
-  <div class="h-16" aria-hidden="true"></div>
+
 
   <!-- ===========================
        HERO
        =========================== -->
   <main>
-    <section class="bg-[var(--tm-gray-light)]">
+      <section id="hero" class="w-full py-6 px-4 md:px-10">
+        <!-- Contenedor principal -->
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          
+          <!-- Texto principal -->
+          <div class="w-full md:w-2/3">
+              <p class="text-xs md:text-sm font-medium text-black-600 mb-2">
+                <span class="font-semibold">La Promo termina: 8 oct., 03:59 (GMT-3)</span>
+              </p>
+              <!-- Botón CTA -->
+              <div class="mt-0 flex">
+                <h1 class="text-2xl md:text-3xl font-extrabold text-[#D71A28] leading-tight">
+                  Hasta <span class="text-gray-900">-60%</span> DTO.
+                </h1>
+                <a href="#ofertas" 
+                   class="inline-block ml-2 px-4 py-2 rounded-full bg-gray-900 text-white text-sm font-semibold shadow-md hover:scale-105 hover:bg-gray-800 transition-all duration-300">
+                  Ver Ofertas →
+                </a>
+
+              </div>
+              
+            </a>
+      
+            <!-- Cards de productos -->
+            <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+              <!-- Producto 1 -->
+              <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
+                <img src="https://picsum.photos/id/1011/200/200" alt="Producto 1" class="w-full h-36 object-cover">
+                <div class="p-2">
+                  <p class="text-sm font-semibold text-blue-700">Conjuntos en tendencia</p>
+                  <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                    $104,454.00
+                  </p>
+                </div>
+              </a>
+
+              <!-- Producto 2 -->
+              <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
+                <img src="https://picsum.photos/id/1005/200/200" alt="Producto 2" class="w-full h-36 object-cover">
+                <div class="p-2">
+                  <p class="text-sm font-semibold text-gray-800">Bisutería, complementos...</p>
+                  <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                    $1,362.00
+                  </p>
+                </div>
+              </a>
+      
+              <!-- Producto 3 -->
+              <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
+                <img src="https://picsum.photos/id/1025/200/200" alt="Producto 3" class="w-full h-36 object-cover">
+                <div class="p-2">
+                  <p class="text-sm font-semibold text-pink-600">Moda mujer</p>
+                  <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                    $145,714.00
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+      
+
+      
+        </div>
+      </section>
+
+      <section class="bg-gray-50 py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <!-- Header -->
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold text-gray-900">
+              Más vendidos de la semana en Aires Acondicionados
+            </h2>
+            <a href="#" class="text-sm text-blue-600 hover:underline">Ver más</a>
+          </div>
+      
+          <!-- Carousel container -->
+          <div class="relative">
+            <!-- Slider -->
+            <div id="productSlider" class="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar">
+              
+              <!-- Product card -->
+              <div class="flex-none w-64 bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/Lamine Yamal.jpeg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Split Frío/Calor BGH Silent Air
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$1.181.399</p>
+                  <p class="text-lg font-bold text-green-600">$1.098.701</p>
+                  <p class="text-xs text-green-600">7% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $91.558</p>
+                </div>
+              </div>
+      
+              <!-- Repite varias cards -->
+              <div class="flex-none w-64 bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/auriculares-inalambricos-pro.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+      
+              <!-- Agrega más productos... -->
+              <div class="flex-none w-64 bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/Smartphone X200.png" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="flex-none w-64 bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/banner.png" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="flex-none w-64 bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="https://via.placeholder.com/250x180" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="flex-none w-64 bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="https://via.placeholder.com/250x180" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="flex-none w-64 bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="https://via.placeholder.com/250x180" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="flex-none w-64 bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="https://via.placeholder.com/250x180" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="flex-none w-64 bg-white rounded-lg shadow hover:shadow-lg transition">
+                <img src="https://via.placeholder.com/250x180" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>     
+            </div>
+      
+            <!-- Botones -->
+            <button onclick="scrollLeft()" 
+                    class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white shadow-md rounded-full p-2 hover:bg-gray-100">
+              ◀
+            </button>
+            <button onclick="scrollRight()" 
+                    class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white shadow-md rounded-full p-2 hover:bg-gray-100">
+              ▶
+            </button>
+          </div>
+        </div>
+      </section>
+      
+      <script>
+        const slider = document.getElementById('productSlider');
+      
+        function scrollLeft() {
+          slider.scrollBy({ left: -300, behavior: 'smooth' });
+        }
+      
+        function scrollRight() {
+          slider.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+      </script>
+      
+      
+<!-- ===========================
+     HERO OPTIMIZADO
+     =========================== -->
+       <section id="hero" class="relative w-full bg-gradient-to-r from-white via-white to-blue-50 overflow-hidden">
+         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-16 py-12 gap-10">
+           
+           <!-- Texto principal -->
+           <div class="w-full md:w-1/2 z-10">
+             <p class="text-sm font-medium text-gray-600 mb-3">
+               La Promo termina: <span class="font-semibold">8 oct., 03:59 (GMT-3)</span>
+             </p>
+             <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
+               Hasta <span class="text-[var(--tm-orange)]">60% OFF</span>
+             </h1>
+             <p class="mt-3 text-lg text-gray-600">
+               Aprovechá las mejores ofertas en miles de productos mayoristas.
+             </p>
+             <div class="mt-6 flex flex-col sm:flex-row gap-4">
+               <a href="#ofertas" 
+                  class="inline-block px-6 py-3 rounded-full text-white font-semibold bg-[var(--tm-orange)] hover:bg-[var(--tm-orange-hover)] shadow-md hover:shadow-lg transition-all duration-300 text-center">
+                 Ver Ofertas →
+               </a>
+               <a href="#categorias" 
+                  class="inline-block px-6 py-3 rounded-full font-semibold border border-gray-300 text-gray-700 hover:bg-gray-100 transition-all text-center">
+                 Explorar categorías
+               </a>
+             </div>
+           </div>
+       
+           <!-- Imagen principal -->
+           <div class="w-full md:w-1/2 relative flex justify-center">
+             <img 
+               src="img/Lamine Yamal.jpeg" 
+               alt="Ofertas TiendaMas" 
+               class="w-[90%] max-w-md md:max-w-lg object-cover rounded-2xl shadow-lg"
+             >
+             <!-- Decoración circular -->
+             <div class="absolute -z-10 w-72 h-72 bg-blue-100 rounded-full top-1/2 -translate-y-1/2 right-0 blur-3xl opacity-60"></div>
+           </div>
+         </div>
+       </section>
+
+
+    <section class="herobrain bg-[var(--tm-gray-light)]">
       <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
         <!-- Left: texto -->
         <div class="space-y-6">
@@ -301,52 +579,6 @@
     </section>
 
     <!-- ===========================
-         BENEFICIOS / VENTAJAS
-         =========================== -->
-    <section id="beneficios" class="py-12 bg-white">
-      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-8">
-          <h3 class="text-xl font-semibold">Por qué elegir Tienda Mas</h3>
-          <p class="text-sm text-slate-500">Herramientas pensadas para vendedores y compradores mayoristas.</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b1">
-            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
-              <i class="fa-solid fa-shield-check text-[var(--tm-blue)]"></i>
-            </div>
-            <h4 id="b1" class="font-semibold">Pagos seguros</h4>
-            <p class="mt-2 text-sm text-slate-600">Plataforma con integraciones de pago y conciliación automatizada.</p>
-          </article>
-
-          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b2">
-            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
-              <i class="fa-solid fa-rocket text-[var(--tm-blue)]"></i>
-            </div>
-            <h4 id="b2" class="font-semibold">Escalabilidad</h4>
-            <p class="mt-2 text-sm text-slate-600">Soporta crecimiento de catálogo y tráfico con caching y microservicios.</p>
-          </article>
-
-          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b3">
-            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
-              <i class="fa-solid fa-chart-line text-[var(--tm-blue)]"></i>
-            </div>
-            <h4 id="b3" class="font-semibold">Analytics</h4>
-            <p class="mt-2 text-sm text-slate-600">Métricas clave para vendedores: ventas, vistas y conversión.</p>
-          </article>
-
-          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b4">
-            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
-              <i class="fa-solid fa-headset text-[var(--tm-blue)]"></i>
-            </div>
-            <h4 id="b4" class="font-semibold">Soporte dedicado</h4>
-            <p class="mt-2 text-sm text-slate-600">Atención a vendedores y compradores con SLA personalizado.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===========================
          PRODUCTOS / VENDEDORES DESTACADOS (Scrollable carousel simple)
          =========================== -->
     <section id="destacados" class="py-12 bg-[var(--tm-gray-light)]">
@@ -406,6 +638,52 @@
           </article>
 
           <!-- Add more cards as needed / or render server-side -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===========================
+         BENEFICIOS / VENTAJAS
+         =========================== -->
+    <section id="beneficios" class="py-12 bg-white">
+      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <h3 class="text-xl font-semibold">Por qué elegir Tienda Mas</h3>
+          <p class="text-sm text-slate-500">Herramientas pensadas para vendedores y compradores mayoristas.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b1">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-shield-check text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b1" class="font-semibold">Pagos seguros</h4>
+            <p class="mt-2 text-sm text-slate-600">Plataforma con integraciones de pago y conciliación automatizada.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b2">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-rocket text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b2" class="font-semibold">Escalabilidad</h4>
+            <p class="mt-2 text-sm text-slate-600">Soporta crecimiento de catálogo y tráfico con caching y microservicios.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b3">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-chart-line text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b3" class="font-semibold">Analytics</h4>
+            <p class="mt-2 text-sm text-slate-600">Métricas clave para vendedores: ventas, vistas y conversión.</p>
+          </article>
+
+          <article class="p-6 bg-[var(--tm-gray-light)] rounded-xl card-lift" aria-labelledby="b4">
+            <div class="w-12 h-12 flex items-center justify-center rounded-md bg-white shadow-sm mb-4">
+              <i class="fa-solid fa-headset text-[var(--tm-blue)]"></i>
+            </div>
+            <h4 id="b4" class="font-semibold">Soporte dedicado</h4>
+            <p class="mt-2 text-sm text-slate-600">Atención a vendedores y compradores con SLA personalizado.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -583,5 +861,6 @@
        4) Implementar carga de productos mediante API (render SSR/SSG para SEO).
        5) Añadir tests de accesibilidad (axe) y performance audits (Lighthouse).
   -->
+  <script src="script.js"></script>
 </body>
 </html>
