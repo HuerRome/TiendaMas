@@ -93,6 +93,9 @@
 
 /* Celulares pequeños */
 @media (max-width: 480px) {
+  .header{
+    position: fixed;
+  }
   #buscador {
     padding: 0 8px;
     margin: 0;

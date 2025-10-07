@@ -1,0 +1,64 @@
+
+
+
+@media (max-width: 640px) {
+    header #buscador {
+        width: 100%;
+        background: #f59797;
+        margin: 0;
+        padding: 0;
+        bottom: -10px;
+    }
+
+    header #buscador input {
+        width: 100%;
+        border-radius: 0;
+        padding: 10px;
+    }
+
+    header #carrito {
+        display: none !important;
+    }
+
+    header #btn-mobile{
+        padding: 0;
+        border: none;
+    }
+
+    header #btn-mobile:focus {
+      outline: none;   /* elimina el contorno azul/gris */
+      box-shadow: none; /* elimina el "ring" gris en algunos navegadores */
+    }
+
+    #btn-mobile:focus {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
