@@ -70,11 +70,16 @@
 }
 
 
+/*----------Slider de header----------*/
+#slider-header::-webkit-scrollbar {
+  display: none;
+}
 
-
-
-
-
+#slider-header {
+  -ms-overflow-style: none; /* IE y Edge */
+  scrollbar-width: none; /* Firefox */
+  scroll-behavior: smooth;
+}
 
 
 

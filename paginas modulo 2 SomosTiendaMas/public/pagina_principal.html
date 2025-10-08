@@ -179,48 +179,82 @@
                 </a>
 
               </div>
+              <!-- CONTENEDOR GENERAL -->
+              <div class="mt-4">
               
-            </a>
-      
-            <!-- Cards de productos -->
-            <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-              <!-- Producto 1 -->
-              <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
-                <img src="img/conjuntos.jpg" alt="Producto 1" class="w-full h-36 object-cover">
-                <div class="p-2">
-                  <p class="text-sm font-semibold text-blue-700">Conjuntos en tendencia</p>
-                  <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                    $104,454.00
-                  </p>
+                <!-- VERSIÓN DESKTOP (grilla) -->
+                <div class="hidden sm:grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                  <!-- Producto 1 -->
+                  <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
+                    <img src="img/conjuntos.jpg" alt="Producto 1" class="w-full h-36 object-cover">
+                    <div class="p-2">
+                      <p class="text-sm font-semibold text-blue-700">Conjuntos en tendencia</p>
+                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                        $104,454.00
+                      </p>
+                    </div>
+                  </a>
+              
+                  <!-- Producto 2 -->
+                  <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
+                    <img src="img/zapatillas nike.jpg" alt="Producto 2" class="w-full h-36 object-cover">
+                    <div class="p-2">
+                      <p class="text-sm font-semibold text-gray-800">Lo mejor en el deporte</p>
+                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                        $1,362.00
+                      </p>
+                    </div>
+                  </a>
+              
+                  <!-- Producto 3 -->
+                  <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
+                    <img src="img/construir.jpg" alt="Producto 3" class="w-full h-36 object-cover">
+                    <div class="p-2">
+                      <p class="text-sm font-semibold text-pink-600">Construye tu casa</p>
+                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                        $145,714.00
+                      </p>
+                    </div>
+                  </a>
                 </div>
-              </a>
-
-              <!-- Producto 2 -->
-              <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
-                <img src="img/zapatillas nike.jpg" alt="Producto 2" class="w-full h-36 object-cover">
-                <div class="p-2">
-                  <p class="text-sm font-semibold text-gray-800">Lo mejor en el deporte</p>
-                  <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                    $1,362.00
-                  </p>
+              
+                <!-- VERSIÓN MÓVIL (slider con ID único) -->
+                <div
+                  id="slider-header"
+                  class="sm:hidden overflow-x-auto flex gap-3 snap-x snap-mandatory scroll-smooth slider-container"
+                >
+                  <a href="#" class="min-w-[80%] bg-white shadow-sm rounded-md overflow-hidden snap-start">
+                    <img src="img/conjuntos.jpg" alt="Producto 1" class="w-full h-36 object-cover">
+                    <div class="p-2">
+                      <p class="text-sm font-semibold text-blue-700">Conjuntos en tendencia</p>
+                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                        $104,454.00
+                      </p>
+                    </div>
+                  </a>
+              
+                  <a href="#" class="min-w-[80%] bg-white shadow-sm rounded-md overflow-hidden snap-start">
+                    <img src="img/zapatillas nike.jpg" alt="Producto 2" class="w-full h-36 object-cover">
+                    <div class="p-2">
+                      <p class="text-sm font-semibold text-gray-800">Lo mejor en el deporte</p>
+                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                        $1,362.00
+                      </p>
+                    </div>
+                  </a>
+              
+                  <a href="#" class="min-w-[80%] bg-white shadow-sm rounded-md overflow-hidden snap-start">
+                    <img src="img/construir.jpg" alt="Producto 3" class="w-full h-36 object-cover">
+                    <div class="p-2">
+                      <p class="text-sm font-semibold text-pink-600">Construye tu casa</p>
+                      <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
+                        $145,714.00
+                      </p>
+                    </div>
+                  </a>
                 </div>
-              </a>
-      
-              <!-- Producto 3 -->
-              <a href="#" class="bg-white shadow-sm hover:shadow-md transition rounded-md overflow-hidden">
-                <img src="img/construir.jpg" alt="Producto 3" class="w-full h-36 object-cover">
-                <div class="p-2">
-                  <p class="text-sm font-semibold text-pink-600">Construye tu casa</p>
-                  <p class="bg-gray-800 text-white text-sm font-bold px-2 py-1 mt-1 inline-block rounded">
-                    $145,714.00
-                  </p>
-                </div>
-              </a>
-            </div>
+              </div> 
           </div>
-      
-
-      
         </div>
       </section>
 
@@ -380,7 +414,59 @@
             <!-- Slider -->
             <div id="productSlider" class="flex gap-2 overflow-x-auto scroll-smooth no-scrollbar">          
               <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/Lamine Yamal.jpeg" alt="Producto"
+                <img src="img/slider 2/aire.png" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/TV.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Smart TV 50" 4K Ultra HD Samsung Crystal
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$899.999</p>
+                  <p class="text-lg font-bold text-green-600">$539.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $89.999</p>
+                </div>
+              </div>
+              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/Heladera.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Heladera No Frost Whirlpool 400L Inverter
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$1.299.999</p>
+                  <p class="text-lg font-bold text-green-600">$799.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $129.999</p>
+                </div>
+              </div>
+              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/funda-protectora.jpg" alt="Producto"
+                     class="w-full h-40 object-contain p-4">
+                <div class="p-4">
+                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
+                    Aire Acondicionado Portátil Frío/Calor 3000fs
+                  </h3>
+                  <p class="text-xs text-gray-400 line-through">$999.999</p>
+                  <p class="text-lg font-bold text-green-600">$599.999</p>
+                  <p class="text-xs text-green-600">40% OFF</p>
+                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
+                </div>
+              </div>
+              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
+                <img src="img/" alt="Producto"
                      class="w-full h-40 object-contain p-4">
                 <div class="p-4">
                   <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
@@ -406,59 +492,7 @@
                 </div>
               </div>
               <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/Lamine Yamal.jpeg" alt="Producto"
-                     class="w-full h-40 object-contain p-4">
-                <div class="p-4">
-                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
-                    Aire Acondicionado Portátil Frío/Calor 3000fs
-                  </h3>
-                  <p class="text-xs text-gray-400 line-through">$999.999</p>
-                  <p class="text-lg font-bold text-green-600">$599.999</p>
-                  <p class="text-xs text-green-600">40% OFF</p>
-                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
-                </div>
-              </div>
-              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/funda-protectora.jpg" alt="Producto"
-                     class="w-full h-40 object-contain p-4">
-                <div class="p-4">
-                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
-                    Aire Acondicionado Portátil Frío/Calor 3000fs
-                  </h3>
-                  <p class="text-xs text-gray-400 line-through">$999.999</p>
-                  <p class="text-lg font-bold text-green-600">$599.999</p>
-                  <p class="text-xs text-green-600">40% OFF</p>
-                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
-                </div>
-              </div>
-              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/Lamine Yamal.jpeg" alt="Producto"
-                     class="w-full h-40 object-contain p-4">
-                <div class="p-4">
-                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
-                    Aire Acondicionado Portátil Frío/Calor 3000fs
-                  </h3>
-                  <p class="text-xs text-gray-400 line-through">$999.999</p>
-                  <p class="text-lg font-bold text-green-600">$599.999</p>
-                  <p class="text-xs text-green-600">40% OFF</p>
-                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
-                </div>
-              </div>
-              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/funda-protectora.jpg" alt="Producto"
-                     class="w-full h-40 object-contain p-4">
-                <div class="p-4">
-                  <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
-                    Aire Acondicionado Portátil Frío/Calor 3000fs
-                  </h3>
-                  <p class="text-xs text-gray-400 line-through">$999.999</p>
-                  <p class="text-lg font-bold text-green-600">$599.999</p>
-                  <p class="text-xs text-green-600">40% OFF</p>
-                  <p class="text-xs text-gray-500">12 cuotas de $99.999</p>
-                </div>
-              </div>
-              <div class="flex-none w-[180px] sm:w-[200px] md:w-[220px] lg:w-[240px] bg-black rounded-lg shadow hover:shadow-lg transition">
-                <img src="img/Lamine Yamal.jpeg" alt="Producto"
+                <img src="img/" alt="Producto"
                      class="w-full h-40 object-contain p-4">
                 <div class="p-4">
                   <h3 class="text-sm font-semibold text-gray-700 line-clamp-2">
@@ -504,7 +538,40 @@
 <!-- ===========================
      HERO OPTIMIZADO
      =========================== -->
-       <section id="anuncio" class="relative w-full bg-gradient-to-r from-white via-white to-blue-50 overflow-hidden">
+       <section id="powerade-anuncio" class="relative w-full bg-black text-white overflow-hidden">
+         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-16 py-12 gap-10">
+           
+           <!-- Imagen principal -->
+           <div class="w-full md:w-1/2 relative flex justify-center">
+             <img 
+               src="img/powerade.jpg" 
+               alt="Lamine Yamal embajador Powerade" 
+               class="w-full max-w-lg object-cover rounded-2xl shadow-xl"
+             >
+             <!-- Efecto de luz -->
+             <div class="absolute -z-10 w-64 h-64 bg-blue-500/40 rounded-full top-1/2 -translate-y-1/2 right-0 blur-3xl opacity-70"></div>
+           </div>
+       
+           <!-- Texto principal -->
+           <div class="w-full md:w-1/2 z-10 text-center md:text-left">
+             <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight mb-4">
+               <span class="text-blue-400">POWERADE</span><br>
+               <span class="text-white">Siente el poder<br>de la pausa.</span>
+             </h2>
+             <p class="text-lg text-gray-300 mb-6">
+               Lamine Yamal, embajador de Powerade, te invita a recargar tu energía y volver más fuerte.
+             </p>
+             
+             <a href="#comprar" 
+                class="inline-block px-8 py-3 rounded-full bg-blue-500 hover:bg-blue-600 text-white font-semibold text-lg shadow-md hover:shadow-lg transition-all duration-300">
+               DESCUBRIR MÁS →
+             </a>
+           </div>
+       
+         </div>
+       </section>
+       
+       <section id="anuncio" class="relative w-full bg-black bg-gradient-to-r from-white via-white to-blue-50 overflow-hidden">
          <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-12 lg:px-16 py-12 gap-10">
            
            <!-- Texto principal -->
