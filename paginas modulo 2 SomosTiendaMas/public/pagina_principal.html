@@ -257,7 +257,124 @@
           </div>
         </div>
       </section>
-
+      <!-- ===========================
+           CATEGORÍAS DESTACADAS
+           =========================== -->
+      <section id="categorias" class="py-12">
+        <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-semibold">Categorías destacadas</h2>
+            <a href="#categorias" class="text-sm text-[var(--tm-blue)] hover:underline">Ver todas</a>
+          </div>
+  
+          <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-9 gap-4">
+            <!-- Categoria card - reutilizable -->
+            <a href="#"
+              class="flex flex-col items-center justify-center bg-blue-100 rounded-xl shadow-sm hover:shadow-md hover:scale-[1.001] transition-all p-2">
+              <div class="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-lg overflow-hidden">
+                <img src="img/bisuteria.jpg" alt="Moda" class="object-contain w-full h-full" />
+              </div>
+              <span class="text-sm sm:text-base font-medium mt-1 text-gray-800 text-center">Moda</span>
+            </a>
+            <a href="#"
+              class="flex flex-col items-center justify-center bg-white rounded-xl shadow-sm hover:shadow-md hover:scale-[1.001] transition-all p-2">
+              <div class="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-lg overflow-hidden mt-1">
+                <img src="img/auriculares-inalambricos-pro.jpg" alt="Tecnología" class="object-contain w-full h-full" />
+              </div>
+              <span class="text-sm sm:text-base font-medium mt-1 text-gray-800 text-center">Tecnología</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift hover:scale-[1.001] transition" aria-label="Tecnología">
+              <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+                <i class="fa-solid fa-microchip text-[var(--tm-blue)] text-lg"></i>
+              </div>
+              <span class="text-sm font-medium">Tecnología</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Moda">
+              <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+                <i class="fa-solid fa-tshirt text-[var(--tm-blue)]"></i>
+              </div>
+              <span class="text-sm font-medium">Moda</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Hogar">
+              <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+                <i class="fa-solid fa-house-chimney text-[var(--tm-blue)]"></i>
+              </div>
+              <span class="text-sm font-medium">Hogar</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Belleza">
+              <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+                <i class="fa-solid fa-magic-wand-sparkles text-[var(--tm-blue)]"></i>
+              </div>
+              <span class="text-sm font-medium">Belleza</span>
+            </a>
+            <!-- Ejemplo más -->
+            <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Ferretería">
+              <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+                <i class="fa-solid fa-wrench text-[var(--tm-blue)]"></i>
+              </div>
+              <span class="text-sm font-medium">Ferretería</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Deportes">
+              <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+                <i class="fa-solid fa-basketball text-[var(--tm-blue)]"></i>
+              </div>
+              <span class="text-sm font-medium">Deportes</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Alimentos">
+              <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+                <i class="fa-solid fa-bowl-food text-[var(--tm-blue)]"></i>
+              </div>
+              <span class="text-sm font-medium">Alimentos</span>
+            </a>
+            <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Automotriz">
+              <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
+                <i class="fa-solid fa-car-side text-[var(--tm-blue)]"></i>
+              </div>
+              <span class="text-sm font-medium">Automotriz</span>
+            </a>
+          </div>      
+        </div>
+      </section>
+      <section class="py-6">
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+          <!-- Card categoría -->
+          <a href="#"
+            class="flex flex-col items-center justify-center bg-white rounded-xl shadow-sm hover:shadow-md hover:scale-[1.03] transition-all p-3">
+            <div class="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-lg overflow-hidden">
+              <img src="img/auriculares-inalambricos-pro.jpg" alt="Tecnología" class="object-contain w-full h-full" />
+            </div>
+            <span class="text-sm sm:text-base font-medium mt-2 text-gray-800 text-center">Tecnología</span>
+          </a>
+      
+          <a href="#"
+            class="flex flex-col items-center justify-center bg-white rounded-xl shadow-sm hover:shadow-md hover:scale-[1.03] transition-all p-3">
+            <div class="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-lg overflow-hidden">
+              <img src="img/bisuteria.jpg" alt="Moda" class="object-contain w-full h-full" />
+            </div>
+            <span class="text-sm sm:text-base font-medium mt-2 text-gray-800 text-center">Moda</span>
+          </a>
+      
+          <a href="#"
+            class="flex flex-col items-center justify-center bg-white rounded-xl shadow-sm hover:shadow-md hover:scale-[1.03] transition-all p-3">
+            <div class="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-lg overflow-hidden">
+              <img src="img/hogar.png" alt="Hogar" class="object-contain w-full h-full" />
+            </div>
+            <span class="text-sm sm:text-base font-medium mt-2 text-gray-800 text-center">Hogar</span>
+          </a>
+      
+          <a href="#"
+            class="flex flex-col items-center justify-center bg-white rounded-xl shadow-sm hover:shadow-md hover:scale-[1.03] transition-all p-3">
+            <div class="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 bg-white rounded-lg overflow-hidden">
+              <img src="img/belleza.png" alt="Belleza" class="object-contain w-full h-full" />
+            </div>
+            <span class="text-sm sm:text-base font-medium mt-2 text-gray-800 text-center">Belleza</span>
+          </a>
+        </div>
+      </section>
+      
+      <!-- ===========================
+           SLIDER PRODUCTOS DESTACADOS
+           =========================== -->
       <section class="bg-gray-50 py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <!-- Header -->
@@ -670,86 +787,6 @@
               <a href="#vender" class="text-sm font-semibold text-[var(--tm-blue)]">Empieza a vender →</a>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===========================
-         CATEGORÍAS DESTACADAS
-         =========================== -->
-    <section id="categorias" class="py-12">
-      <div class="mx-auto max-w-[var(--max-width)] px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between mb-6">
-          <h2 class="text-2xl font-semibold">Categorías destacadas</h2>
-          <a href="#categorias" class="text-sm text-[var(--tm-blue)] hover:underline">Ver todas</a>
-        </div>
-
-        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
-          <!-- Categoria card - reutilizable -->
-          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift hover:scale-[1.01] transition" aria-label="Tecnología">
-            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
-              <i class="fa-solid fa-microchip text-[var(--tm-blue)] text-lg"></i>
-            </div>
-            <span class="text-sm font-medium">Tecnología</span>
-            <span class="text-xs text-slate-400">+1200 productos</span>
-          </a>
-
-          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Moda">
-            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
-              <i class="fa-solid fa-tshirt text-[var(--tm-blue)]"></i>
-            </div>
-            <span class="text-sm font-medium">Moda</span>
-            <span class="text-xs text-slate-400">+800 productos</span>
-          </a>
-
-          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Hogar">
-            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
-              <i class="fa-solid fa-house-chimney text-[var(--tm-blue)]"></i>
-            </div>
-            <span class="text-sm font-medium">Hogar</span>
-            <span class="text-xs text-slate-400">+600 productos</span>
-          </a>
-
-          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Belleza">
-            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
-              <i class="fa-solid fa-magic-wand-sparkles text-[var(--tm-blue)]"></i>
-            </div>
-            <span class="text-sm font-medium">Belleza</span>
-            <span class="text-xs text-slate-400">+420 productos</span>
-          </a>
-
-          <!-- Ejemplo más -->
-          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Ferretería">
-            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
-              <i class="fa-solid fa-wrench text-[var(--tm-blue)]"></i>
-            </div>
-            <span class="text-sm font-medium">Ferretería</span>
-            <span class="text-xs text-slate-400">+320 productos</span>
-          </a>
-
-          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Deportes">
-            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
-              <i class="fa-solid fa-basketball text-[var(--tm-blue)]"></i>
-            </div>
-            <span class="text-sm font-medium">Deportes</span>
-            <span class="text-xs text-slate-400">+200 productos</span>
-          </a>
-
-          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Alimentos">
-            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
-              <i class="fa-solid fa-bowl-food text-[var(--tm-blue)]"></i>
-            </div>
-            <span class="text-sm font-medium">Alimentos</span>
-            <span class="text-xs text-slate-400">+900 productos</span>
-          </a>
-
-          <a href="#" class="flex flex-col items-center gap-2 p-3 bg-white rounded-lg border card-lift" aria-label="Automotriz">
-            <div class="w-14 h-14 flex items-center justify-center rounded-lg bg-[var(--tm-gray-light)]">
-              <i class="fa-solid fa-car-side text-[var(--tm-blue)]"></i>
-            </div>
-            <span class="text-sm font-medium">Automotriz</span>
-            <span class="text-xs text-slate-400">+150 productos</span>
-          </a>
         </div>
       </div>
     </section>
